@@ -235,9 +235,6 @@ let g:DVB_TrimWS = 1
 " Display extra whitespace
 set list listchars=tab:»·,trail:·
 
-" Delete trailing whitespace on save
-autocmd BufWritePre * :%s/\s\+$//e
-
 " matchit -- for matching block delimiters
 runtime macros/matchit.vim
 

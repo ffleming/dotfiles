@@ -33,6 +33,7 @@ Plugin 'scrooloose/nerdtree'      " file browser
 Plugin 'airblade/vim-gitgutter'   " git gutter
 Plugin 'Raimondi/delimitMate'     " auto insert closing delimiters
 Plugin 'vim-scripts/netrw.vim'    " edit files on remote machines
+Plugin 'bitc/vim-bad-whitespace'  " kill bad whitespace
 
 call vundle#end()
 filetype on
