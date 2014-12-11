@@ -1,0 +1,93 @@
+##
+# Homebrewed Packages
+#
+brew tap nviennot/tmate
+
+homebrew=(
+  colordiff                 # colorized diff
+  fontconfig                # customized font access
+  gawk gcc                  #     |
+  gnu-indent gnu-sed        #    \|/
+  tree wget                 #     '
+  gnu-tar gnu-which         # updated cli utilities
+  git git-flow              # git & gitflow
+  zsh-completions                  #   |
+  zsh-history-substring-search     #   v
+  zsh-syntax-highlighting          # zsh customizations
+  tmate
+  rename
+)
+
+for package in ${homebrew[*]}; do
+  fancy_echo "Installing or upgrading $package ..."
+  brew_install_or_upgrade $package
+done
+
+##
+# Homebrewed Cask Apps
+#
+
+brew tap caskroom/cask
+brew install brew-cask      # brew-ish package manager for "normal" OSX applications
+brew tap caskroom/versions  # for alternate versions, like ST3
+
+cask=(
+  google-chrome firefox   # browsers
+  sequel-pro              # MySQL frontend
+  sublime-text3            # code editor
+  iterm2                  # terminal emulator
+  name-mangler  # batch file renamer
+  appcleaner    # removes apps and related files
+  hipchat       # private corporate chat
+  virtualbox    # virtualization
+  keka          # un/archiver (importantly, 7zip)
+  qlmarkdown    # parse markdown in quicklook
+)
+
+for app in ${cask[*]}; do
+  fancy_echo "Installing $app ..."
+  brew cask install $app
+done
+
+fancy_echo "Installing twilight256 vim color scheme"
+  if [ ! -d "$HOME/.vim/colors" ]; then
+    mkdir $HOME/.vim/colors
+  fi
+  if [ ! -e "$HOME/.vim/colors/twilight256.vim" ]; then
+    curl 'http://www.vim.org/scripts/download_script.php?src_id=14937' > $HOME/.vim/colors/twilight256.vim
+  else
+    fancy_echo "twilight256 is already installed"
+  fi
+
+gems=(
+  i2cssh        # CLI launcher for iterm2 to launch e.g. www0{1-3}.server.prod and then send commands to each of them
+  benchmark-ips # iterations per second for Benchmark
+)
+
+for rubygem in ${gems[*]}; do
+  fancy_echo "Installing $rubygem ..."
+  gem install $rubygem
+done
+
+perl_modules=(
+  Perl::Critic
+  Modern::Perl
+)
+
+for module in ${perl_modules[*]}; do
+  fancy_echo "Installing $module ..."
+  sudo cpan $module
+done
+
+if [ ! -e '/usr/local/bin/ssh-copy-id' ]; then
+  fancy_echo "Installing ssh-copy-id"
+    curl -L 'https://raw.githubusercontent.com/beautifulcode/ssh-copy-id-for-OSX/master/install.sh' | sh
+else
+  fancy_echo "ssh-copy-id is already installed"
+fi
+
+defaults write com.apple.finder QLEnableTextSelection -bool true
+
+if [[ -f ~/.pentest.local ]]; then
+  source ~/.pentest.local
+fi

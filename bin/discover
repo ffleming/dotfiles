@@ -1,0 +1,20 @@
+#!/bin/sh
+#
+# Print a list of live hosts
+#
+# discover 10.0.1.1/24
+if [ $# -lt 1 ]; then
+  echo "Usage: $0 CIDR nmap-scan-flags"
+  echo "Default: -sn"
+  exit 1
+fi
+
+network=$1
+shift
+
+if [ $# -eq 0 ]; then
+  args=" -sn"
+else
+  args=$*
+fi
+nmap $args $network | grep -Eo '(\d+\.){3}\d+'

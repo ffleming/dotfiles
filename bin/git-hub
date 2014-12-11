@@ -1,0 +1,22 @@
+# create a repo on GitHub and add its remote to local git repo
+
+# repo name from $1 if given, else use the present working directory
+repo="${1:-$(basename "$(pwd)")}"
+
+# set user and token from global git config
+user="$(git config github.user)"
+token="$(git config github.token)"
+
+# GitHub API query template
+query="{ \"name\": \"$repo\", \"private\": "false" }"
+url="https://api.github.com/user/repos"
+remote="git@github.com:$user/$repo.git"
+
+# Prompt when pushing to a remote
+echo "Adding remote origin : $remote"
+
+curl -u "$user:$token" "$url" -d "$query" > /dev/null 2>&1
+
+# Add remote origin and push to current branch
+git remote add origin $remote
+
