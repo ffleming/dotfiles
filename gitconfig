@@ -8,7 +8,7 @@
   default = simple
 
 [merge]
-  tool          = vimdiff
+  tool          = opendiff
   conflictstyle = diff3
   prompt        = false
 
@@ -36,7 +36,7 @@ trustExitCode = false
   smudge  = git-media-smudge %f
 
 [diff]
-  tool    = vimdiff
+  tool    = opendiff
   renames = true
 
   [difftool "sublimerge"]

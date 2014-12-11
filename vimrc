@@ -81,12 +81,6 @@ let g:ctrlp_map = '<C-p>'
 " Let Ctrl+P open files in NerdTree's initial buffer
 let g:ctrlp_dont_split = 'NERD'
 
-
-" Color scheme
-colorscheme github
-highlight NonText guibg=#060606
-highlight Folded  guibg=#0A0A0A guifg=#9090D0
-
 " Make it obvious where 110 characters is
 set textwidth=110
 set colorcolumn=+1
@@ -179,11 +173,6 @@ set number
 set numberwidth=1
 highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
 
-
-" Tab stops
-set expandtab
-set tabstop=2
-set shiftwidth=2
 
 """ CURSOR
 " iTerm2
