@@ -35,13 +35,6 @@ alias rgrep='grep -r'
 alias rvm-reload='rvm use $(cat .ruby-version)'
 
 #------------------------------------------------------------------------------
-# ALIASES: DOTFILES
-#------------------------------------------------------------------------------
-alias dotfiles="subl ~/.dotfiles-local ~/.dotfiles"
-alias dotcommit='\cd ~/.dotfiles-local; commit "update" > /dev/null; \cd -;'
-alias dotpush='\cd ~/.dotfiles-local; git push;\cd -;'
-
-#------------------------------------------------------------------------------
 # ALIASES: Editors
 #------------------------------------------------------------------------------
 alias Emacs="open -a Terminal.app /usr/local/bin/emacs" # emacs in new window
@@ -121,11 +114,6 @@ function hidden_files {
   defaults write com.apple.finder AppleShowAllFiles $view;
   killall Finder;
 }
-
-#------------------------------------------------------------------------------
-# ALIASES: NODE, NPM
-#------------------------------------------------------------------------------
-alias npmls="npm ls -depth=0"
 
 #------------------------------------------------------------------------------
 # ALIASES: RUBY, RAILS
