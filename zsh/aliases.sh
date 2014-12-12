@@ -1,6 +1,8 @@
 # shell/aliases.sh
 # NB: Disable alias by running with backslash, e.g.: \grep
 
+alias apis="ssh ffleming\@forrestfleming.com@forrestfleming.com"
+alias sdf="ssh fsf@sverige.freeshell.org"
 #------------------------------------------------------------------------------
 # ALIASES: WORK (and shell variables, too)
 #------------------------------------------------------------------------------
