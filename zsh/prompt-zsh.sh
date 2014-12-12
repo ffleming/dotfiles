@@ -8,8 +8,18 @@ alias reload!="source ~/.zshrc"
 #------------------------------------------------------------------------------
 # COMMAND COMPLETION
 #------------------------------------------------------------------------------
-fpath=(/usr/local/share/zsh-completions $fpath)
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+if [ -d "/usr/local/share/zsh-completions" ]; then
+  fpath=(/usr/local/share/zsh-completions $fpath)
+else
+  fpath=($HOME/.zsh/zsh-completions/src $fpath)
+fi
+
+if [ -f "/usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]; then
+  source "/usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+else
+  source "$HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+fi
+
 source $SHELL_CONFIG/git-flow-completion.zsh
 
 #------------------------------------------------------------------------------
@@ -33,7 +43,7 @@ function color {
 #------------------------------------------------------------------------------
 setopt prompt_subst       # enables command substitution
 
-PS1=$'$(color blue)%c ' # basename of pwd after a newline
+PS1=$'%m $(color blue)%1~ ' # basename of pwd after a newline
 PS1+='$(git_branch)'      # current branch or commit name, with color
 PS1+='$(color reset)%# '  # reset color, add %
 export PS1

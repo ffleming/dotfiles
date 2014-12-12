@@ -9,8 +9,8 @@ PATH+="/usr/local/lib/node_modules" #/usr/local/lib/node:/usr/local/share/npm/bi
 PATH+="/usr/local/heroku/bin:"
 PATH+="/usr/local/opt/coreutils/libexec/gnubin:"
 PATH+="/usr/bin:/bin:/usr/sbin:/sbin:"
-PATH+="."
 export PATH
+[[ -d "/usr/pkg/bin" ]] && export PATH="$PATH:/usr/pkg/bin"
 
 #------------------------------------------------------------------------------
 # CD PATH
@@ -21,7 +21,7 @@ export CDPATH
 #------------------------------------------------------------------------------
 # More PATH vars
 #------------------------------------------------------------------------------
-MANPATH="$(manpath)"
+# MANPATH="$(manpath)"
 MANPATH="/usr/local/man:$MANPATH"
 MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 export MANPATH
@@ -31,7 +31,7 @@ export PYTHONPATH="/usr/local/lib/python2.7/site-packages:/usr/local/lib/python"
 export NODE_PATH="/usr/local/lib/node_modules"
 
 #------------------------------------------------------------------------------
-# SYNTAX HIGHLIGHTING
+# SYNTAX HIGHLIGHTIkkkjjjjkNG
 #------------------------------------------------------------------------------
 export CLICOLOR=1  # BSD
 export LSCOLORS=exfxcxdxbxegedabagacad
@@ -44,9 +44,9 @@ alias grep='GREP_COLOR="33;40" LANG=C grep --color=auto'
 #------------------------------------------------------------------------------
 export ARCHFLAGS="-arch x86_64"   # for compiling gems
 # ---- For Ruby compilation with rbenv ----
-RUBY_CONFIGURE_OPTS="--with-readline-dir=`brew --prefix readline` "
-RUBY_CONFIGURE_OPTS+="--enable-shared"
-export RUBY_CONFIGURE_OPTS
+# RUBY_CONFIGURE_OPTS="--with-readline-dir=`brew --prefix readline` "
+# RUBY_CONFIGURE_OPTS+="--enable-shared"
+# export RUBY_CONFIGURE_OPTS
 export RUBY_CFLAGS="-march=native -O3"
 export CC=/usr/bin/gcc  # if can't find C compiler
 
@@ -57,14 +57,14 @@ export HISTCONTROL=ignoreboth   # Ignore spaces and duplicates
 export HISTIGNORE="??:&:pwd:ls -l:ls -la:cd \-:cd /:h::...:llall:ll.:"
 export EDITOR="vi -w"
 export PAGER="less"
-source $(brew --prefix nvm)/nvm.sh
+# source $(brew --prefix nvm)/nvm.sh
 
 #------------------------------------------------------------------------------
 # EC2 CLI TOOLS
 #------------------------------------------------------------------------------
-export EC2_HOME="/usr/local/Cellar/ec2-api-tools/1.6.13.0/libexec"
-export JAVA_HOME="$(/usr/libexec/java_home)"
-export EC2_URL='https://ec2.us-west-2.amazonaws.com'
+# export EC2_HOME="/usr/local/Cellar/ec2-api-tools/1.6.13.0/libexec"
+# export JAVA_HOME="$(/usr/libexec/java_home)"
+# export EC2_URL='https://ec2.us-west-2.amazonaws.com'
 
 #------------------------------------------------------------------------------
 # API KEYS

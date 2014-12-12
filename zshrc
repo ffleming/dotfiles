@@ -102,7 +102,6 @@ SHELL_CONFIG="$HOME/.zsh"
 
 # -----------------------------------------------------------------------------
 
-export PATH="$HOME/.bin:$PATH"
+export PATH="$PATH:$HOME/.bin"
 
-export PATH="$PATH:/usr/local/lib/node_modules"
-source $(brew --prefix nvm)/nvm.sh
+[[ -d "/usr/local/lib/node_modules" ]] && export PATH="$PATH:/usr/local/lib/node_modules"
