@@ -15,7 +15,7 @@ $ bash <(curl -s https://raw.githubusercontent.com/ffleming/laptop/rvm/mac) 2>&1
     ```
     * Perform the installation:
     ```
-    % git clone git@github.com:ffleming/dotfiles.git ~/.dotfiles
+    % git clone --recursive git@github.com:ffleming/dotfiles.git ~/.dotfiles
     ```
 00. Install rcm: 
 ```
