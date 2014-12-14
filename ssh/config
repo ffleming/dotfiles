@@ -1,0 +1,8 @@
+Host apis
+  HostName forrestfleming.com
+  Port 22
+  User ffleming@forrestfleming.com
+Host sdf
+  HostName meta.sdf.org
+  Port 22
+  User fsf
