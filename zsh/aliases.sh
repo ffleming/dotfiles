@@ -92,7 +92,7 @@ function delete {
 alias eject_cd="drutil eject" # eject cd
 alias hide="setfile -a V"     # hide a file
 alias unhide="setfile -a v"   # unhide a file
-alias diff="colordiff -yw --suppress-common-lines"
+alias cdiff="colordiff -yw --suppress-common-lines"
                               # colorize, side-by-side, ignore whitespace, etc
 
 function desktop {
