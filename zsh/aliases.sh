@@ -5,7 +5,7 @@
 #------------------------------------------------------------------------------
 alias apis="ssh ffleming\@forrestfleming.com@forrestfleming.com"
 alias sdf="ssh fsf@meta.freeshell.org"
-alias nethack="ssh nethack@alt.org"
+# alias nethack="ssh nethack@alt.org"
 
 #------------------------------------------------------------------------------
 # ALIASES: WORK (and shell variables, too)
