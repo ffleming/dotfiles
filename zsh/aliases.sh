@@ -33,7 +33,7 @@ alias slim01.prod="ssh dash@slim01.dash.prod"
 alias slim02.prod="ssh dash@slim02.dash.prod"
 
 
-alias load-lffs-images="rsync -r $LDAPUSERNAME@www01.lffs.lax1.oversee.net:/home/travel/apps/FarespotterNet/shared/images $LFFS/public/images/r/"
+alias load-lffs-images="rsync -r $LDAPUSERNAME@www01.lffs.prod:/home/travel/apps/FarespotterNet/shared/images/ $LFFS/public/images/r/"
 #------------------------------------------------------------------------------
 # ALIASES: GENERIC SHORTCUTS
 #------------------------------------------------------------------------------
