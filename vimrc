@@ -237,7 +237,7 @@ vmap  <expr>  D        DVB_Duplicate()
 let g:DVB_TrimWS = 1
 
 " Display extra whitespace
-set list listchars=tab:»·,trail:·
+" set list listchars=tab:»·,trail:·
 
 " matchit -- for matching block delimiters
 runtime macros/matchit.vim
