@@ -86,8 +86,8 @@ let g:ctrlp_map = '<C-p>'
 let g:ctrlp_dont_split = 'NERD'
 
 " Make it obvious where 110 characters is
-set textwidth=110
-set colorcolumn=+1
+" set textwidth=110
+set colorcolumn=110
 
 " Numbers
 set number
