@@ -1,0 +1,53 @@
+#!/usr/bin/env ruby
+require 'optparse'
+class SlowPage
+  API_URL='https://www.googleapis.com/pagespeedonline/v1/runPagespeed'
+  def initialize(opts)
+    url = opts[:url]
+    key_location = opts[:keyfile] || '~/.googleapi.secret'
+  end
+
+  private
+  def api_key
+    @api_key ||= load_key_from_secret
+  end
+
+  def opts_from_cli(*args)
+    page = args.first.try(:to_sym)
+    if SECTIONS.keys.include?(page)
+      page.to_sym
+    else
+      abort usage
+    end
+  end
+
+  def usage
+    "#{$0} <url>"
+  end
+end
+
+options = {}
+optparse = OptionParser.new do |opts|
+  opts.banner = "#{$0} [options] url"
+
+  options[:verbose] = false
+  opts.on('-v', '--verbose', 'Display more information') { options[:verbose] = true }
+
+  options[:key] = nil
+  opts.on('-f FILE', '--file FILE', 'File containing Google API key') do |file|
+    puts "#{file}"
+    begin
+      options[:key] = (File.read File.expand_path(file)).chomp
+    rescue
+      puts "Could not open #{file}"
+      exit
+    end
+  end
+  opts.on('-k', '--key', 'Google API key') { |key| options[:key]}
+
+  opts.on('-h', '--help', 'Display this screen') { puts opts ; exit }
+end
+
+optparse.parse!
+
+puts options.inspect
