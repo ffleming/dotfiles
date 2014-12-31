@@ -1,0 +1,201 @@
+# This is an example nethackrc file. You should edit this to suit your needs
+
+# This editor is vi-like. Type ESC a couple times, then ':q!' (without quotes)
+# to exit if you get stuck. To save, hit ESC and then ZZ or type ':wq'
+# (without quotes.) To insert text, hit 'i' to enter insert mode.
+
+# Here are some examples of reasonable defaults:
+
+OPTIONS=showexp,showscore,time,color
+OPTIONS=autodig,fruit:slime mold,boulder:0
+
+OPTIONS=msg_window:reversed
+
+OPTIONS=number_pad:0
+
+OPTIONS=suppress_alert:3.4.3
+
+OPTIONS=lit_corridor
+
+OPTIONS=hilite_pet
+OPTIONS=pettype:none
+OPTIONS=dogname:Charles
+
+OPTIONS=disclose:yi +a +v +g +c
+
+OPTIONS=autopickup,pickup_types:?!/$="
+## http://nethackwiki.com/wiki/Autopickup_exceptions
+# Uses globbing, unless you set OPTIONS=apexception_regex
+## Always pick these:
+AUTOPICKUP_EXCEPTION="<*magic lamp*"
+AUTOPICKUP_EXCEPTION="<*wand of wishing*"
+AUTOPICKUP_EXCEPTION="<*wand of death*"
+AUTOPICKUP_EXCEPTION="<*wand of polymorph*"
+## Don't pick these:
+AUTOPICKUP_EXCEPTION=">*worthless piece of*"
+AUTOPICKUP_EXCEPTION=">*loadstone*"
+AUTOPICKUP_EXCEPTION=">*flint stone*"
+
+## The following are options not in vanilla NetHack:
+#
+## Use the dark gray color. Might not work on all terminals.
+OPTIONS=use_darkgray
+#
+## Try to hilight stairs under items with red background.
+## Try to hilight piles of objects with blue background.
+## Might not work on all terminals.
+OPTIONS=hilite_hidden_stairs
+OPTIONS=hilite_obj_piles
+#
+## In dumplog, display the number of each type of monster created,
+## rather than just the number killed
+OPTIONS=showborn
+#
+## Disable the generic item use menu (select an item to use directly
+## from inventory)
+#OPTIONS=!item_use_menu
+#
+## Say in the message line whenever you walk against a wall.
+## Useful for blind players.
+#OPTIONS=msg_wall_hits
+
+OPTIONS=menu_glyphs
+#
+## Name and rank background correspond to statuscolor HP colors.
+OPTIONS=hitpointbar
+#
+## Colored status lines. See http://bilious.alt.org/?142
+OPTIONS=statuscolors
+## HP
+STATUSCOLOR=hp%100=green,hp%66=yellow,hp%50=orange
+STATUSCOLOR=hp%33=red&bold,hp%15:red&inverse,hp%0:red&inverse&blink
+## Pw
+#STATUSCOLOR=pw%100=green,pw%66=yellow,pw%50:orange,pw%33=red&bold
+## HP & Pw also support exact numbers, for example:
+#STATUSCOLOR=hp.1:red&inverse,hp<8:red,hp>50:grey
+## Carry
+STATUSCOLOR=burdened:yellow,stressed:orange,strained:red&bold
+STATUSCOLOR=overtaxed:red&inverse,overloaded:red&inverse&blink
+## Hunger
+STATUSCOLOR=satiated:yellow,hungry:orange,weak:red&bold
+STATUSCOLOR=fainting:red&inverse,fainted:red&inverse&blink
+## Mental
+STATUSCOLOR=hallu:yellow,conf:orange,stun:red&bold
+## Health
+
+STATUSCOLOR=ill:red&inverse,foodpois:red&inverse,slime:red&inverse
+#
+#
+## Colored menus. Regular expressions allowed.
+OPTIONS=menucolors
+MENUCOLOR=" blessed "=green
+MENUCOLOR=" holy "=green
+MENUCOLOR=" cursed "=red
+MENUCOLOR=" unholy "=red
+MENUCOLOR=" cursed .* (being worn)"=orange&underline
+#
+## Require you to type "yes" instead of just "y"
+#OPTIONS=paranoid_hit,paranoid_quit,paranoid_remove
+#
+## Sort items by name. One of "none", "loot", or "full"
+OPTIONS=sortloot:full
+#
+## Always show BUC status?
+#OPTIONS=showbuc
+#
+## Always show windows starting from left edge of screen?
+#OPTIONS=win_edge
+
+## Show object class symbol in menus where it acts as a hotkey
+#OPTIONS=show_obj_sym
+#
+## If off, you never load bones files.
+#OPTIONS=!bones
+#
+## If on, you'll quiver items if you fire 'em.
+#OPTIONS=!quiver_fired
+#
+#
+# To make playing with a screen-reader such as JAWS easier:
+#   Prevent status lines from updating. use extended command
+#    #updatestatus to force an update.
+#OPTIONS=!botl_updates
+#   Notify HP changes in the message lines.
+#OPTIONS=hp_notify
+#   Optionally, change HP notify format. Accepts following codes:
+#     %a = HP adjustment since last notification. No + or - sign.
+#     %c = HP adjustment sign ('+' or '-')
+#     %h = Current HP
+#     %m = Max. HP
+#     %H = Current HP, or "max" if hp=maxhp
+#OPTIONS=hp_notify_fmt:[HP%c%a=%H]
+#
+#
+# Configurable dungeon feature colors: http://bilious.alt.org/?17
+#DUNGEONCOLOR= 0  7  7  7  7  7  7  7  7  7 \
+#              7  7  7  3  3  3  3  6  2  7 \
+#              0  7  15 15 3  3  7  7  11 7 \
+#              4  4  6  1  3  3  3  3  6  7 \
+#              4
+#TRAPCOLORS= 6 6 7 3 6 1 7 12 4 9 0 0 3 3 5 5 13 7 7 12 12 10
+#
+# ``DUNGEONCOLOR'' are in the same order as ``DUNGEON'', and
+# ``TRAPCOLORS'' as ``TRAPS''
+#
+#
+# Configurable monster colors
+#MONSTERCOLOR=floating eye:yellow
+#MONSTERCOLOR=master mind flayer:lightmagenta
+#
+#
+#Key rebinding and extended command autocomplete:
+# 1) All commands are now extended commands. Use the ext command name
+#    for binding and autocompleting.
+# 2) Key to bind can be:
+
+#      "x" for regular key x,
+#      "mx" or "m-x" for meta-x,
+#      "cx" or "c-x" or "^x" for ctrl-x,
+#      "<enter>", "<space>" or "<esc>"
+#BINDINGS=!:inventory,v:untrap
+# binding a key to "nothing" will remove the binding.
+#
+#AUTOCOMPLETE=save,!quit
+# prefixing the command name with '!' will prevent it from being autocompleted.
+
+#
+# Messagetype patch: http://bilious.alt.org/?397
+# Uses globbing, unless you set OPTIONS=msgtype_regex
+## displacing pets. hide the message.
+#MSGTYPE=hide "You displaced *"
+## items on floor. don't repeat the message.
+#MSGTYPE=norep "You see here a *"
+#MSGTYPE=norep "You see here an *"
+## delayed instadeaths. always prompt for -more-
+#MSGTYPE=stop "You are slowing down."
+#MSGTYPE=stop "You find it hard to breathe."
+#MSGTYPE=stop "You are turning a little *"
+#
+# See http://nethackwiki.com/wiki/Curses_interface
+#OPTIONS=windowtype:curses
+
+
+# UTF8 support.
+#  Does NOT play nice with windowtype:curses
+#  Not FULL unicode support. eg. Double width characters will screw
+#    up the display and combining characters are not supported.
+#OPTIONS=utf8graphics
+# Change the UTF8 symbols for monsters, objects, and dungeon features.
+#MONSTERSYMBOL='horse':U+24FA
+#OBJECTSYMBOL='apple':0x03a9
+#SYMBOL='altar':0x1234
+# Instead of using SYMBOL, you can also change all dungeon feature symbols
+# by using DUNGEONSYMBOLS. The format for it is the same as DUNGEON, but
+# DUNGEONSYMBOLS takes numbers that can also be hexadecimals or
+# unicode codepoints.
+
+
+# For more information on what you can set in your nethackrc file, refer to:
+#    http://www.nethack.org/v343/Guidebook.html#_TOCentry_42
+# or http://nethackwiki.com/wiki/Options
+# Happy hacking!
