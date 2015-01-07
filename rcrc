@@ -1,2 +1,2 @@
-EXCLUDES="README.md LICENSE Brewfile"
+EXCLUDES="README.md LICENSE Brewfile .zshrc.min"
 DOTFILES_DIRS="$HOME/.dotfiles/"
