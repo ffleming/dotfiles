@@ -1,53 +1,98 @@
 #!/usr/bin/env ruby
 require 'optparse'
+require 'HTTParty'
+require 'rails'
+require 'json'
 class SlowPage
   API_URL='https://www.googleapis.com/pagespeedonline/v1/runPagespeed'
+  attr_reader :url
   def initialize(opts)
-    url = opts[:url]
-    key_location = opts[:keyfile] || '~/.googleapi.secret'
+    @url = opts[:url]
+    @url = "http://#{@url}" unless @url =~ /^https?:\/\//
+    @api_key = opts[:key]
+  end
+
+  def to_s
+    results.to_s
+  end
+
+  def response
+    @response ||= request_from_api
+  end
+
+  def results
+    ret = hash['formattedResults']['ruleResults'].values.delete_if {|h| h['ruleImpact'].to_f == 0.0 }
+    ret.map! do |h|
+      {
+        name: h['localizedRuleName'],
+        recommendation: 'recommendation',
+        impact: h['ruleImpact'],
+        url_blocks: h['urlBlocks']
+      }
+    end
+    ret
+  end
+
+  def request_from_api
+    opts_hash = {
+      query: {
+        key: api_key,
+        url: url,
+        prettyPrint: true
+      }
+    }
+    HTTParty.get(API_URL, opts_hash)
+  end
+
+  def body
+    response.body
+  end
+
+  def hash
+    JSON.parse(body)
   end
 
   private
-  def api_key
-    @api_key ||= load_key_from_secret
-  end
 
-  def opts_from_cli(*args)
-    page = args.first.try(:to_sym)
-    if SECTIONS.keys.include?(page)
-      page.to_sym
-    else
-      abort usage
-    end
-  end
-
-  def usage
-    "#{$0} <url>"
-  end
+  attr_reader :api_key
 end
 
-options = {}
-optparse = OptionParser.new do |opts|
-  opts.banner = "#{$0} [options] url"
+DEFAULT_KEY_LOCATION='~/.googleapi.secret'
 
-  options[:verbose] = false
-  opts.on('-v', '--verbose', 'Display more information') { options[:verbose] = true }
-
-  options[:key] = nil
-  opts.on('-f FILE', '--file FILE', 'File containing Google API key') do |file|
-    puts "#{file}"
-    begin
-      options[:key] = (File.read File.expand_path(file)).chomp
-    rescue
-      puts "Could not open #{file}"
-      exit
-    end
-  end
-  opts.on('-k', '--key', 'Google API key') { |key| options[:key]}
-
-  opts.on('-h', '--help', 'Display this screen') { puts opts ; exit }
+def key_from(file)
+  (File.read File.expand_path(file)).chomp
 end
 
-optparse.parse!
+def opts_from_cli
+  options = {}
+  opt_parser = OptionParser.new do |opts|
+    opts.banner = "#{$0} [options] url"
 
-puts options.inspect
+    options[:verbose] = false
+    opts.on('-v', '--verbose', 'Display more information') { options[:verbose] = true }
+
+    options[:key] = nil
+    opts.on('-f FILE', '--file FILE', 'File containing Google API key') do |file|
+      puts "#{file}"
+      begin
+        options[:key] = key_from(file)
+      rescue
+        puts "Could not open #{file}"
+        exit
+      end
+    end
+    options[:key] = key_from(DEFAULT_KEY_LOCATION) if (options[:key].blank?)
+    opts.on('-k', '--key', 'Google API key') { |key| options[:key]}
+    opts.on('-h', '--help', 'Display this screen') { puts opts ; exit }
+  end
+
+  opt_parser.parse!
+  options[:url] = ARGV.pop
+  abort opt_parser.to_s if options[:url].blank?
+  options
+end
+
+options = opts_from_cli
+slowpage = SlowPage.new(options)
+puts slowpage.results[1][:url_blocks]
+# puts slowpage.body
