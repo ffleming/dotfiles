@@ -4,4 +4,4 @@ if !exists(':Tabularize')
 endif
 
 AddTabularPattern! symbol_hash /^.\{-}: /l0
-AddTabularPattern! rocket_hash /=>/l0
+AddTabularPattern! rocket_hash /=>/l1r1
