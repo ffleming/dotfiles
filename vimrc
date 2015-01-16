@@ -248,4 +248,3 @@ set omnifunc=syntaxcomplete#Complete
 
 " toggle NERDTree pane
 map <C-n> :NERDTreeToggle<CR>
-
