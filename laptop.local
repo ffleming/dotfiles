@@ -17,6 +17,8 @@ homebrew=(
   zsh-syntax-highlighting          # zsh customizations
   tmate                     # for pair programming
   cpan                      # perl package manager
+  dos2unix                  # because OSX Excel still outputs awful windows-formatted .csv files
+  mutt                      # CLI email
 )
 
 for package in ${homebrew[*]}; do

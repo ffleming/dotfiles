@@ -60,6 +60,9 @@ augroup vimrcEx
 
   " Allow stylesheets to autocomplete hyphenated words
   autocmd FileType css,scss,sass setlocal iskeyword+=-
+
+  " Unfold code on opening
+  au BufRead * normal zR
 augroup END
 
 " Softtabs, 2 spaces
