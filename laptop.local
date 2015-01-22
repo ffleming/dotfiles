@@ -18,7 +18,9 @@ homebrew=(
   tmate                     # for pair programming
   cpan                      # perl package manager
   dos2unix                  # because OSX Excel still outputs awful windows-formatted .csv files
-  mutt                      # CLI email
+  'mutt --with-sidebar-patch --with-trash-patch --with-s-lang'                      # CLI email, may not work
+  contacts                  # For OSX contacts
+  links                     # CLI web browser
 )
 
 for package in ${homebrew[*]}; do
