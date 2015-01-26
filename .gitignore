@@ -1,4 +1,6 @@
 *.secret
+/newsbeuter/cache.db
+/newsbeuter/history.*
 /vim/bundle
 /pry/themes/pry-classic-16.prytheme.rb
 /pry/themes/pry-classic-256.prytheme.rb
