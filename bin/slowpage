@@ -12,13 +12,48 @@ class Rule
   end
 
   def to_s
-    "#{impact}: #{name}\n#{suggestion.to_s}"
+    "#{'%.2f' % impact}: #{name}\n#{suggestion.to_s}"
   end
 end
 
+class Stats
+  attr_reader :total_resources, :hosts, :static_resources, :js_resources, :css_resources,
+              :total_bytes, :html_bytes, :css_bytes, :image_bytes, :js_bytes
+
+  def initialize(h)
+    @total_resources = h['numberResources']
+    @hosts = h['numberHosts']
+    @static_resources = h['numberStaticResources']
+    @js_resources = h['numberJsResources']
+    @css_resources = h['numberCssResources']
+    @total_bytes = h['totalRequestBytes'].to_i
+    @html_bytes = h['htmlResponseBytes'].to_i
+    @css_bytes = h['cssResponseBytes'].to_i
+    @image_bytes = h['imageResponseBytes'].to_i
+    @js_bytes = h['javascriptResponseBytes'].to_i
+  end
+
+  def to_s
+<<-EOS
+Hosts:     #{hosts}
+Resources: #{total_resources}, #{total_bytes / 1024}kB
+   Static: #{static_resources}
+   JS    : #{js_resources}, #{js_bytes / 1024}kB
+   CSS   : #{css_resources}, #{css_bytes / 1024}kB
+   HTML  : #{html_bytes / 1024}kB
+   Images: #{image_bytes / 1024}kB
+EOS
+  end
+
+  def to_h
+    arr = %i(total_resources hosts static_resources js_resources css_resources
+             total_bytes html_bytes css_bytes image_bytes js_bytes)
+    Hash[arr.zip(arr.map {|m| send m})]
+  end
+end
 
 class Suggestion
-  attr_rader :bottom_line, :more_info_at
+  attr_reader :bottom_line, :more_info_at
   def initialize(arr)
     base_info_from(arr.shift['header'])
   end
@@ -40,15 +75,21 @@ end
 
 class SlowPage
   API_URL='https://www.googleapis.com/pagespeedonline/v1/runPagespeed'
-  attr_reader :url
+  attr_reader :url, :strategy, :rule_results, :stats, :score
   def initialize(opts)
     @url = opts[:url]
     @url = "http://#{@url}" unless @url =~ /^https?:\/\//
     @api_key = opts[:key]
+    @strategy = opts[:strategy]
+    parse
   end
 
   def to_s
-    results.to_s
+<<-EOS
+Score: #{score}
+#{stats.to_s}
+#{rule_results.join("\n")}
+EOS
   end
 
   def response
@@ -56,7 +97,9 @@ class SlowPage
   end
 
   def parse
-    rules_from hash['formattedResults']['ruleResults']
+    @score = hash['score']
+    @stats = Stats.new(hash['pageStats'])
+    @rule_results = rules_from hash['formattedResults']['ruleResults']
   end
 
   private
@@ -68,7 +111,8 @@ class SlowPage
       query: {
         key: api_key,
         url: url,
-        prettyPrint: true
+        prettyPrint: true,
+        strategy: strategy
       }
     }
     HTTParty.get(API_URL, opts_hash)
@@ -105,7 +149,6 @@ def opts_from_cli
 
     options[:key] = nil
     opts.on('-f FILE', '--file FILE', 'File containing Google API key') do |file|
-      puts "#{file}"
       begin
         options[:key] = key_from(file)
       rescue
@@ -114,7 +157,9 @@ def opts_from_cli
       end
     end
     options[:key] = key_from(DEFAULT_KEY_LOCATION) if (options[:key].blank?)
-    opts.on('-k', '--key', 'Google API key') { |key| options[:key]}
+    opts.on('-k KEY', '--key KEY', 'Google API key') { |key| options[:key] = key }
+    options[:strategy] = 'desktop'
+    opts.on('-s STRATEGY', '--strategy STRATEGY', 'Strategy: <desktop|mobile>') { |strat| options[:strategy] = strat if strat == 'mobile' }
     opts.on('-h', '--help', 'Display this screen') { puts opts ; exit }
   end
 
@@ -126,4 +171,4 @@ end
 
 options = opts_from_cli
 slowpage = SlowPage.new(options)
-puts slowpage.parse
+puts slowpage.to_s
