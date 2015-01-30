@@ -21,6 +21,7 @@ homebrew=(
   'mutt --with-sidebar-patch --with-trash-patch --with-s-lang'                      # CLI email, may not work
   contacts                  # For OSX contacts
   links                     # CLI web browser
+  w3m                       # CLI web browser (better for scripts)
 )
 
 for package in ${homebrew[*]}; do

@@ -3,6 +3,41 @@ require 'optparse'
 require 'HTTParty'
 require 'rails'
 require 'json'
+class Rule
+  attr_reader :impact, :name, :suggestion
+  def initialize(opts)
+    @impact      = opts['ruleImpact'].to_f
+    @name        = opts['localizedRuleName']
+    @suggestion  = Suggestion.new(opts['urlBlocks'])
+  end
+
+  def to_s
+    "#{impact}: #{name}\n#{suggestion.to_s}"
+  end
+end
+
+
+class Suggestion
+  attr_rader :bottom_line, :more_info_at
+  def initialize(arr)
+    base_info_from(arr.shift['header'])
+  end
+
+  def to_s
+    @arr.to_s
+  end
+
+  private
+
+  def base_info_from(hash)
+    @bottom_line  = hash['format']
+    if hash.has_key?('args')
+      @more_info_at = hash['args'].first['value'] if hash['args'].first['type'] == 'HYPERLINK'
+    end
+  end
+
+end
+
 class SlowPage
   API_URL='https://www.googleapis.com/pagespeedonline/v1/runPagespeed'
   attr_reader :url
@@ -20,18 +55,13 @@ class SlowPage
     @response ||= request_from_api
   end
 
-  def results
-    ret = hash['formattedResults']['ruleResults'].values.delete_if {|h| h['ruleImpact'].to_f == 0.0 }
-    ret.map! do |h|
-      {
-        name: h['localizedRuleName'],
-        recommendation: 'recommendation',
-        impact: h['ruleImpact'],
-        url_blocks: h['urlBlocks']
-      }
-    end
-    ret
+  def parse
+    rules_from hash['formattedResults']['ruleResults']
   end
+
+  private
+
+  attr_reader :api_key
 
   def request_from_api
     opts_hash = {
@@ -52,9 +82,11 @@ class SlowPage
     JSON.parse(body)
   end
 
-  private
-
-  attr_reader :api_key
+  def rules_from(input_hash)
+    input_hash.map do |k, rule_hash|
+      Rule.new(rule_hash)
+    end.select {|rule| rule.impact > 0.0 }
+  end
 end
 
 DEFAULT_KEY_LOCATION='~/.googleapi.secret'
@@ -94,5 +126,4 @@ end
 
 options = opts_from_cli
 slowpage = SlowPage.new(options)
-puts slowpage.results[1][:url_blocks]
-# puts slowpage.body
+puts slowpage.parse
