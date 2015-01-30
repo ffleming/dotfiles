@@ -41,8 +41,6 @@ function color {
 #------------------------------------------------------------------------------
 # PROMPT WITH SHORT PWD, COLORIZED GIT INFO
 #------------------------------------------------------------------------------
-setopt prompt_subst       # enables command substitution
-
 PS1=$'%m $(color blue)%1~ ' # basename of pwd after a newline
 PS1+='$(git_branch)'      # current branch or commit name, with color
 PS1+='$(color reset)%# '  # reset color, add %
@@ -51,7 +49,6 @@ export PS1
 #------------------------------------------------------------------------------
 # DIRECTORY STACK  (see http://j.mp/1lOiWio)
 #------------------------------------------------------------------------------
-setopt autocd autopushd pushdminus pushdsilent pushdtohome cdablevars
 DIRSTACKSIZE=5
 
 #------------------------------------------------------------------------------
