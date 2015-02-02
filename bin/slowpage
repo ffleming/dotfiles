@@ -11,37 +11,45 @@ class Rule
     @suggestion  = Suggestion.new(opts['urlBlocks'])
   end
 
-  def to_s
-    "#{'%.2f' % impact}: #{name}\n#{suggestion.to_s}"
+  def to_s(with_suggestion=false)
+    ret = "#{'%.2f' % impact}: #{name}"
+    ret << "\n" << suggestion.to_s
+    ret
   end
+
 end
 
 class Stats
-  attr_reader :total_resources, :hosts, :static_resources, :js_resources, :css_resources,
-              :total_bytes, :html_bytes, :css_bytes, :image_bytes, :js_bytes
+  attr_reader :total_resources, :hosts, :static_resources, :js_resources, :css_resources, :other_bytes,
+              :request_bytes, :html_bytes, :css_bytes, :image_bytes, :js_bytes, :flash_bytes, :text_bytes
 
   def initialize(h)
-    @total_resources = h['numberResources']
-    @hosts = h['numberHosts']
+    h.default = ''
+    @total_resources  = h['numberResources']
+    @hosts            = h['numberHosts']
     @static_resources = h['numberStaticResources']
-    @js_resources = h['numberJsResources']
-    @css_resources = h['numberCssResources']
-    @total_bytes = h['totalRequestBytes'].to_i
-    @html_bytes = h['htmlResponseBytes'].to_i
-    @css_bytes = h['cssResponseBytes'].to_i
-    @image_bytes = h['imageResponseBytes'].to_i
-    @js_bytes = h['javascriptResponseBytes'].to_i
+    @js_resources     = h['numberJsResources']
+    @css_resources    = h['numberCssResources']
+    @request_bytes    = h['totalRequestBytes'].to_i
+    @html_bytes       = h['htmlResponseBytes'].to_i
+    @css_bytes        = h['cssResponseBytes'].to_i
+    @image_bytes      = h['imageResponseBytes'].to_i
+    @js_bytes         = h['javascriptResponseBytes'].to_i
+    @text_bytes       = h['textResponseBytes'].to_i
+    @flash_bytes      = h['flashResponseBytes'].to_i
+    @js_bytes         = h['javascriptResponseBytes'].to_i
+    @other_bytes      = h['otherResponseBytes'].to_i
   end
 
   def to_s
 <<-EOS
-Hosts:     #{hosts}
-Resources: #{total_resources}, #{total_bytes / 1024}kB
-   Static: #{static_resources}
-   JS    : #{js_resources}, #{js_bytes / 1024}kB
-   CSS   : #{css_resources}, #{css_bytes / 1024}kB
-   HTML  : #{html_bytes / 1024}kB
-   Images: #{image_bytes / 1024}kB
+  Hosts:     #{hosts}
+  Requests:  #{request_bytes / 1024}kB
+  Resources: #{total_resources} (#{static_resources} static)
+     JS      : #{js_resources}, #{js_bytes / 1024}kB
+     CSS     : #{css_resources}, #{css_bytes / 1024}kB
+     HTML    : #{html_bytes / 1024}kB
+     Images  : #{image_bytes / 1024}kB
 EOS
   end
 
@@ -53,15 +61,26 @@ EOS
 end
 
 class Suggestion
-  attr_reader :bottom_line, :more_info_at
+  attr_reader :bottom_line, :more_info_at, :recommendations
   def initialize(arr)
+    @recommendations = []
     base_info_from(arr.shift['header'])
+    more_info_from(arr.shift) unless arr.empty?
+    arr.each do |h|
+      if h.has_key?('header')
+        base_info_from h
+      else
+        more_info_from h
+      end
+    end
   end
 
   def to_s
-    @arr.to_s
+    ret = bottom_line.to_s << "\n"
+    ret << "More information at #{more_info_at}\n" unless more_info_at.blank?
+    ret << recommendations.join("   |   ")
+    ret
   end
-
   private
 
   def base_info_from(hash)
@@ -71,38 +90,53 @@ class Suggestion
     end
   end
 
+  def more_info_from(hash)
+    return unless hash.has_key?('urls')
+    urls = hash.delete('urls')
+    urls.each do |u|
+      @recommendations.push sub_in(u['result'])
+    end
+    nil
+  end
+
+  # Returns string with substitutions made
+  def sub_in(hash)
+    return hash['format'] unless hash.has_key?('args')
+    args = hash['args'].map {|h| h['value']}
+    hash['format'].gsub(/(?:\$)(\d)/) { |match| args[match.delete('$').to_i - 1] }
+  end
+
 end
 
 class SlowPage
   API_URL='https://www.googleapis.com/pagespeedonline/v1/runPagespeed'
-  attr_reader :url, :strategy, :rule_results, :stats, :score
+  attr_reader :url, :strategy, :rule_results, :stats, :score, :verbose
   def initialize(opts)
-    @url = opts[:url]
-    @url = "http://#{@url}" unless @url =~ /^https?:\/\//
-    @api_key = opts[:key]
-    @strategy = opts[:strategy]
-    parse
+    @url          = opts[:url]
+    @verbose      = opts[:verbose]
+    @url          = "http://#{@url}" unless @url =~ /^https?:\/\//
+    @api_key      = opts[:key]
+    @strategy     = opts[:strategy]
+    @score        = hash['score']
+    @stats        = Stats.new(hash['pageStats'])
+    @rule_results = rules_from hash['formattedResults']['ruleResults']
   end
 
   def to_s
-<<-EOS
-Score: #{score}
-#{stats.to_s}
-#{rule_results.join("\n")}
-EOS
+    ret = "#{url} (using #{strategy} strategy)\n"
+    ret << "Score: #{score}\n"
+    ret << "#{stats.to_s}"
+    ret << "#{formatted_rule_results}"
+    ret
+  end
+
+  def formatted_rule_results
+    @rule_results.each {|r| r.to_s(verbose)}.join("\n")
   end
 
   def response
     @response ||= request_from_api
   end
-
-  def parse
-    @score = hash['score']
-    @stats = Stats.new(hash['pageStats'])
-    @rule_results = rules_from hash['formattedResults']['ruleResults']
-  end
-
-  private
 
   attr_reader :api_key
 
@@ -127,9 +161,11 @@ EOS
   end
 
   def rules_from(input_hash)
-    input_hash.map do |k, rule_hash|
+    ret_rules = input_hash.map do |k, rule_hash|
       Rule.new(rule_hash)
-    end.select {|rule| rule.impact > 0.0 }
+    end
+    ret_rules.select! {|rule| rule.impact > 0.0 }
+    ret_rules.sort! {|a,b| b.impact <=> a.impact }
   end
 end
 
