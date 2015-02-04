@@ -169,7 +169,7 @@ class SlowPage
   end
 end
 
-DEFAULT_KEY_LOCATION='~/.googleapi.secret'
+DEFAULT_KEY_LOCATION='~/.googleapi.pagespeed.secret'
 
 def key_from(file)
   (File.read File.expand_path(file)).chomp
