@@ -54,3 +54,5 @@ trustExitCode = false
 
 [include]
   path = ~/.gitconfig.work
+[credential]
+	helper = osxkeychain
