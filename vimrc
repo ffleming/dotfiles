@@ -71,6 +71,9 @@ set shiftwidth=2
 set shiftround
 set expandtab
 
+" Use system clipboard
+set clipboard=unnamed
+
 " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
 if executable('ag')
   " Use Ag over Grep
