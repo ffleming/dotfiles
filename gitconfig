@@ -29,7 +29,7 @@ trustExitCode = false
   hist    = log --format=colorgraph --graph --abbrev-commit
   stat    = log --format=colorgraph --graph --abbrev-commit --stat
   today   = log --since=midnight --author=\"$(git config user.name)\" --oneline
-  release = !sh -c 'git fetch origin && git checkout -b release/$(date +%Y.%m.%d.%H%m) origin/develop'
+  release = !sh -c 'git fetch origin && git checkout -b release/$(date +%Y.%m.%d.%H%m)'
 
 [filter "media"]
   clean   = git-media-clean %f
