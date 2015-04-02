@@ -61,6 +61,7 @@ done
 gems=(
   i2cssh        # CLI launcher for iterm2 to launch e.g. www0{1-3}.server.prod and then send commands to each of them
   benchmark-ips # iterations per second for Benchmark
+  traffiction   # traffic generator
 )
 
 for rubygem in ${gems[*]}; do
