@@ -79,6 +79,16 @@ for module in ${perl_modules[*]}; do
   sudo cpan $module
 done
 
+node_modules=(
+  tmi
+  psi
+)
+
+for module in ${node_modules[*]}; do
+  fancy_echo "Installing $module ..."
+  npm install $module -g
+done
+
 if [ ! -e '/usr/local/bin/ssh-copy-id' ]; then
   fancy_echo "Installing ssh-copy-id"
     curl -L 'https://raw.githubusercontent.com/beautifulcode/ssh-copy-id-for-OSX/master/install.sh' | sh
