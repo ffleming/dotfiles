@@ -90,7 +90,7 @@ fi
 defaults write com.apple.finder QLEnableTextSelection -bool true
 
 # Use .png as default for Grab
-defaults write com.apple.screencapture type
+defaults write com.apple.screencapture type png
 killall SystemUIServer
 
 if [[ -f ~/.laptop.pentest ]]; then
