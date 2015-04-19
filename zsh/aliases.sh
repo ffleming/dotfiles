@@ -32,7 +32,6 @@ alias www02.dgs="ssh $LDAPUSERNAME@www02.dgs.lax1.oversee.net"
 alias slim01.prod="ssh dash@slim01.dash.prod"
 alias slim02.prod="ssh dash@slim02.dash.prod"
 
-
 alias load-lffs-images="rsync -r $LDAPUSERNAME@www01.lffs.prod:/home/travel/apps/FarespotterNet/shared/images/ $LFFS/public/images/r/"
 #------------------------------------------------------------------------------
 # ALIASES: GENERIC SHORTCUTS
@@ -40,11 +39,6 @@ alias load-lffs-images="rsync -r $LDAPUSERNAME@www01.lffs.prod:/home/travel/apps
 alias rgrep='grep -r'
 alias rvm-reload='rvm use $(cat .ruby-version)'
 
-#------------------------------------------------------------------------------
-# ALIASES: Editors
-#------------------------------------------------------------------------------
-alias Emacs="open -a Terminal.app /usr/local/bin/emacs" # emacs in new window
-alias vi='vim'
 #------------------------------------------------------------------------------
 # ALIASES: FILE MANAGEMENT
 #------------------------------------------------------------------------------
@@ -54,15 +48,6 @@ alias _="\cd -;ls"            # go to previous wd and list contents
 alias mkdir='mkdir -p'        # create subdirectories as necessary
 alias desk="\cd ~/Desktop"    # go to desktop
 alias h="history"             # show history
-alias l="ls"                  # list files
-alias la="ls -A"              # list all files
-alias ll="ls -loh"            # show extended listing (but not all files)
-alias llg="ls -lh"            # show extended listing with group
-alias lla="ls -Aloh"          # all files, info, hide group, short sizes
-alias llag="ls -Al"           # all files, info, show group, short sizes
-alias l.="ls -d .*"           # show only files beginning with a dot
-alias ll.="ls -dloh .*"       # extended listing of files beginning with a dot
-alias d='dirs -v'             # show directory stack
 
 #------------------------------------------------------------------------------
 # ALIASES: SAFEGUARDS
@@ -94,19 +79,6 @@ alias hide="setfile -a V"     # hide a file
 alias unhide="setfile -a v"   # unhide a file
 alias cdiff="colordiff -yw --suppress-common-lines"
                               # colorize, side-by-side, ignore whitespace, etc
-
-function desktop {
-  if [[ $1 != "hide" && $1 != "show" ]]; then
-    echo "Usage: desktop [show|hide]"; return 1;
-  fi
-  if [[ $1 == "hide" ]]; then
-    local view=false;
-  elif [[ $1 == "show" ]]; then
-    local view=true;
-  fi
-  defaults write com.apple.finder CreateDesktop -bool $view;
-  killall Finder;
-}
 
 function hidden_files {
   if [[ $1 != "hide" && $1 != "show" ]]; then
