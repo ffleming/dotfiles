@@ -101,8 +101,11 @@ alias bi='bundle install' # -j3 to parallelize, but global config should be set
 alias bu='bundle update'
 alias brake='bundle exec rake'
 alias be='bundle exec'
-alias brails'=bundle exec rails'
-alias brspec'=bundle exec rspec'
+alias brails='bundle exec rails'
+
+function brspec {
+  CODECLIMATE_REPO_TOKEN=$(cat .code_climate.secret 2> /dev/null) bundle exec rspec
+}
 
 # rails
 alias rs='bundle exec rails server'
