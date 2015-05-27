@@ -42,7 +42,7 @@ doc/
 # Ignore sensitive data stores
 config/secrets.yml
 .env
-.secret
+*.secret
 
 # npm
 node_modules

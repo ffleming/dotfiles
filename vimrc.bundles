@@ -36,5 +36,6 @@ Plugin 'vim-scripts/netrw.vim'    " edit files on remote machines
 Plugin 'bitc/vim-bad-whitespace'  " kill bad whitespace
 Plugin 'godlygeek/tabular'        " align on character
 Plugin 'bling/vim-airline'        " pretty status bars
+Plugin 'ngmy/vim-rubocop'         " ruby linter
 call vundle#end()
 filetype on
