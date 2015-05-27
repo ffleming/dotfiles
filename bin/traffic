@@ -1,0 +1,65 @@
+#!/usr/bin/env ruby
+module TrafficGenerator
+  class << self
+    def generate_traffic(env)
+      @environment = env
+      %i(lowfares farespotter).each do |site|
+        puts "#{site}"
+        LANDERS.fetch(site).values.each do |lander|
+          url = "http://#{base_url site}/#{lander}/"
+          print "  #{lander}..."
+          command = "/usr/sbin/ab -n25 -c25 #{url} > /dev/null"
+          `#{command}`
+          puts 'done'
+        end
+      end
+    end
+
+    private
+
+    attr_reader :environment
+
+    def base_url(site)
+      suffix = site.downcase == :farespotter ? 'net' : 'com'
+      case environment.downcase.to_sym
+      when :development
+        return "#{site}.dev:3000"
+      when :qa
+        return "qa.#{site}.#{suffix}"
+      when :staging
+        return "staging.#{site}.#{suffix}"
+      when :production
+        return "#{site}.#{suffix}"
+      end
+      raise StandardError.new("Unknown environment #{environment}")
+    end
+
+    LANDERS = {
+      lowfares: {
+        flights: 'airfare',
+        hotels: 'hotels',
+        cars: 'rentalcars',
+        vacations: 'vacations',
+        deals: 'deals'
+      },
+      farespotter: {
+        air: 'flights',
+        hotels: 'hotels',
+        cars: 'cars',
+        vacations: 'vacations',
+        cruises: 'cruises'
+      }
+    }
+  end
+end
+
+allowed = %i(development qa staging production)
+if ARGV[0] && allowed.include?(ARGV[0].to_sym)
+  environment = ARGV[0].to_sym
+  TrafficGenerator.generate_traffic(environment)
+  exit 0
+else
+  puts "#{File.basename(__FILE__)} <development|qa|staging|production>"
+  exit 1
+end
+
