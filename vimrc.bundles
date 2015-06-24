@@ -37,5 +37,6 @@ Plugin 'bitc/vim-bad-whitespace'  " kill bad whitespace
 Plugin 'godlygeek/tabular'        " align on character
 Plugin 'bling/vim-airline'        " pretty status bars
 Plugin 'ngmy/vim-rubocop'         " ruby linter
+Plugin 'kshenoy/vim-signature'    " visual marks in gutter
 call vundle#end()
 filetype on
