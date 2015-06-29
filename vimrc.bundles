@@ -38,5 +38,6 @@ Plugin 'godlygeek/tabular'        " align on character
 Plugin 'bling/vim-airline'        " pretty status bars
 Plugin 'ngmy/vim-rubocop'         " ruby linter
 Plugin 'kshenoy/vim-signature'    " visual marks in gutter
+Plugin 'mattn/emmet-vim'          " emmet for vim
 call vundle#end()
 filetype on

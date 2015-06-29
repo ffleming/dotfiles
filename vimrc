@@ -152,10 +152,6 @@ nnoremap <C-l> <C-w>l
 nnoremap <S-h> gT
 nnoremap <S-l> gt
 
-" configure syntastic syntax checking to check on open as well as save
-let g:syntastic_check_on_open=1
-let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-"]
-
 " Set spellfile to location that is guaranteed to exist, can be symlinked to
 " Dropbox or kept in Git and managed outside of thoughtbot/dotfiles using rcm.
 set spellfile=$HOME/.vim-spell-en.utf-8.add
@@ -215,11 +211,8 @@ if version >= 700
   au InsertLeave * hi StatusLine term=reverse ctermfg=0 ctermbg=2 gui=bold,reverse
 endif
 
-""" Syntastic
-let g:syntastic_javascript_checkers = ['jshint']
-
 """ Syntax Coloring
-syntax on
+" syntax on
 filetype on
 " associate *.foo with filetype bar
 au BufRead,BufNewFile *.jison setfiletype javascript
@@ -251,3 +244,16 @@ set omnifunc=syntaxcomplete#Complete
 
 " toggle NERDTree pane
 map <C-n> :NERDTreeToggle<CR>
+
+" Allow JSX in normal JS files
+" Syntastic
+let g:syntastic_check_on_open=1
+let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-"]
+"let g:syntastic_javascript_checkers = ['jshint']
+let g:syntastic_javascript_checkers = ['eslint']
+
+" Coffee folding
+autocmd BufNewFile,BufReadPost *.coffee setl foldmethod=indent
+
+" start with open folds
+au BufRead * normal zR
