@@ -22,6 +22,8 @@ homebrew=(
   contacts                  # For OSX contacts
   links                     # CLI web browser
   w3m                       # CLI web browser (better for scripts)
+  'ffmpeg --with-faac'      # Video encoding
+  gifsicle                  # For making animated gifs
 )
 
 for package in ${homebrew[*]}; do
