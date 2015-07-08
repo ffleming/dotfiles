@@ -84,6 +84,7 @@ done
 node_modules=(
   tmi
   psi
+  bench-rest
 )
 
 for module in ${node_modules[*]}; do
