@@ -163,8 +163,6 @@ set diffopt+=vertical
 if filereadable($HOME . "/.vimrc.local")
   source ~/.vimrc.local
 endif
-" indentation package
-filetype plugin indent on
 
 " set location of help files
 if filereadable(expand("~/.vim/doc"))
@@ -251,6 +249,9 @@ let g:syntastic_check_on_open=1
 let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-"]
 "let g:syntastic_javascript_checkers = ['jshint']
 let g:syntastic_javascript_checkers = ['eslint']
+
+" C++11 for syntastic
+let g:syntastic_cpp_compiler_options = ' -std=c++11'
 
 " Coffee folding
 autocmd BufNewFile,BufReadPost *.coffee setl foldmethod=indent
