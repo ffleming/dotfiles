@@ -3,10 +3,10 @@ module TrafficGenerator
   class << self
     def generate_traffic(env)
       @environment = env
-      %i(lowfares farespotter).each do |site|
-        puts "#{site}"
-        LANDERS.fetch(site).values.each do |lander|
-          url = "http://#{base_url site}/#{lander}/"
+      SITES.each do |site_key, site|
+        puts "#{base_url site_key}"
+        LANDERS.fetch(site_key).values.each do |lander|
+          url = "http://#{base_url site_key}/#{lander}/"
           print "  #{lander}..."
           command = "/usr/sbin/ab -n25 -c25 #{url} > /dev/null"
           `#{command}`
@@ -20,16 +20,16 @@ module TrafficGenerator
     attr_reader :environment
 
     def base_url(site)
-      suffix = site.downcase == :farespotter ? 'net' : 'com'
+      site = SITES[site]
       case environment.downcase.to_sym
       when :development
         return "#{site}.dev:3000"
       when :qa
-        return "qa.#{site}.#{suffix}"
+        return "qa.#{site}"
       when :staging
-        return "staging.#{site}.#{suffix}"
+        return "staging.#{site}"
       when :production
-        return "#{site}.#{suffix}"
+        return "#{site}"
       end
       raise StandardError.new("Unknown environment #{environment}")
     end
@@ -43,14 +43,23 @@ module TrafficGenerator
         deals: 'deals'
       },
       farespotter: {
-        air: 'flights',
+        flights: 'flights',
         hotels: 'hotels',
         cars: 'cars',
         vacations: 'vacations',
         cruises: 'cruises'
+      },
+      meta: {
+        flights: 'flights'
       }
     }
   end
+
+  SITES = {
+    meta: 'meta.lowfares.com',
+    lowfares: 'lowfares.com',
+    farespotter: 'farespotter.net'
+  }
 end
 
 allowed = %i(development qa staging production)

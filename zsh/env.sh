@@ -13,15 +13,16 @@ export PATH
 [[ -d "/usr/pkg/bin" ]] && export PATH="$PATH:/usr/pkg/bin"
 
 #------------------------------------------------------------------------------
-# JAVA PATH
+# JAVA PATH and OPTS
 #------------------------------------------------------------------------------
+[[ -f "/usr/bin/java" ]] && export JAVA_OPTS="-Xmx1024m"
 [[ -f "/usr/libexec/java_home" ]] && export JAVA_HOME="$(/usr/libexec/java_home -v 1.7)"
 
 #------------------------------------------------------------------------------
 # CD PATH
 #------------------------------------------------------------------------------
-CDPATH=".:$HOME/Desktop:$HOME/Developer:$HOME"
-export CDPATH
+# CDPATH=".:$HOME/Desktop:$HOME/Developer:$HOME"
+# export CDPATH
 
 #------------------------------------------------------------------------------
 # More PATH vars
