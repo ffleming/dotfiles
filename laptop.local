@@ -24,6 +24,7 @@ homebrew=(
   w3m                       # CLI web browser (better for scripts)
   'ffmpeg --with-faac'      # Video encoding
   gifsicle                  # For making animated gifs
+  mongodb                   # database
 )
 
 for package in ${homebrew[*]}; do
