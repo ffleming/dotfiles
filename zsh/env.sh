@@ -37,7 +37,7 @@ export PYTHONPATH="/usr/local/lib/python2.7/site-packages:/usr/local/lib/python"
 export NODE_PATH="/usr/local/lib/node_modules"
 
 #------------------------------------------------------------------------------
-# SYNTAX HIGHLIGHTIkkkjjjjkNG
+# SYNTAX HIGHLIGHTING
 #------------------------------------------------------------------------------
 export CLICOLOR=1  # BSD
 export LSCOLORS=exfxcxdxbxegedabagacad

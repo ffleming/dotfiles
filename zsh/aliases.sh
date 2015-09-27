@@ -3,41 +3,20 @@
 #------------------------------------------------------------------------------
 # ALIASES: HOME & FUN (and shell variables, too)
 #------------------------------------------------------------------------------
-alias apis="ssh ffleming\@forrestfleming.com@forrestfleming.com"
-alias sdf="ssh fsf@meta.freeshell.org"
-# alias nethack="ssh nethack@alt.org"
+alias apis="ssh apis"
+alias sdf="ssh sdf"
 
 #------------------------------------------------------------------------------
 # ALIASES: WORK (and shell variables, too)
 #------------------------------------------------------------------------------
 export LFFS=~/Oversee/Farespotter
-export LDAPUSERNAME=ffleming
-alias prod="ssh $LDAPUSERNAME@www01.lffs.prod"
-alias db01.prod="ssh $LDAPUSERNAME@db01.flp.lax1.oversee.net"
-alias www01.prod="ssh $LDAPUSERNAME@www01.lffs.prod"
-alias www02.prod="ssh $LDAPUSERNAME@www02.lffs.prod"
-alias www03.prod="ssh $LDAPUSERNAME@www03.lffs.prod"
-alias stg="ssh $LDAPUSERNAME@www01.lffs.stg"
-alias db01.stg="ssh $LDAPUSERNAME@db01.lffs.stg"
-alias www01.stg="ssh $LDAPUSERNAME@www01.lffs.stg"
-alias www02.stg="ssh $LDAPUSERNAME@www02.lffs.stg"
-alias www03.stg="ssh $LDAPUSERNAME@www03.lffs.stg"
-alias qa="ssh $LDAPUSERNAME@www01.lffs.qa"
-alias jenkins="ssh $LDAPUSERNAME@integration.flp.dev.corp.oversee.net"
-alias deploy="ssh $LDAPUSERNAME@deploy01.tools.ops"
-alias process01.dash="ssh $LDAPUSERNAME@process01.dash.lax1.oversee.net"
-alias dragonslayer="ssh $LDAPUSERNAME@www01.dgs.lax1.oversee.net"
-alias www01.dgs="ssh $LDAPUSERNAME@www01.dgs.lax1.oversee.net"
-alias www02.dgs="ssh $LDAPUSERNAME@www02.dgs.lax1.oversee.net"
-alias slim01.prod="ssh dash@slim01.dash.prod"
-alias slim02.prod="ssh dash@slim02.dash.prod"
 
 alias load-lffs-images="rsync -r $LDAPUSERNAME@www01.lffs.prod:/home/travel/apps/FarespotterNet/shared/images/ $LFFS/public/images/r/"
 #------------------------------------------------------------------------------
 # ALIASES: GENERIC SHORTCUTS
 #------------------------------------------------------------------------------
 alias rgrep='grep -r'
-alias rvm-reload='rvm use $(cat .ruby-version)'
+alias "rvm-reload"='rvm use $(cat .ruby-version)'
 
 #------------------------------------------------------------------------------
 # ALIASES: FILE MANAGEMENT
@@ -97,11 +76,10 @@ function hidden_files {
 # ALIASES: RUBY, RAILS
 #------------------------------------------------------------------------------
 # bundler
-alias bi='bundle install' # -j3 to parallelize, but global config should be set
-alias bu='bundle update'
 alias brake='bundle exec rake'
 alias be='bundle exec'
-alias brails='bundle exec rails'
+alias br='bundle exec rails'
+alias brails='br'
 alias spec='CODECLIMATE_REPO_TOKEN=$(cat .code_climate.secret 2>/dev/null) bundle exec rspec'
 
 function brspec {
