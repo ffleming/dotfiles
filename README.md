@@ -4,10 +4,6 @@ dotfiles
 Installation
 ------------
 
-00. Run my fork of thoughtbot's [laptop script](http://github.com/ffleming/laptop):
-```
-$ bash <(curl -s https://raw.githubusercontent.com/ffleming/laptop/rvm/mac) 2>&1 | tee ~/laptop.log
-```
 00. Install dotfiles:
     * Set zsh as your login shell if it isn't already: 
     ```
@@ -25,7 +21,10 @@ brew tap thoughtbot/formulae && brew install rcm
 ```
 % env RCRC=$HOME/.dotfiles/rcrc rcup
 ```
-
+00. Run thoughtbot's [laptop script](http://github.com/thoughtbot/laptop):
+```
+$ bash <(curl -s https://raw.githubusercontent.com/thoughtbot/laptop/rvm/mac) 2>&1 | tee ~/laptop.log
+```
 Features
 -------- 
 
