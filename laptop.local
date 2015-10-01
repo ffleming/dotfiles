@@ -2,6 +2,7 @@
 # Homebrewed Packages
 #
 brew tap nviennot/tmate
+brew tap ffleming/formulae
 
 homebrew=(
   colordiff                 # colorized diff
@@ -18,7 +19,7 @@ homebrew=(
   tmate                     # for pair programming
   cpan                      # perl package manager
   dos2unix                  # because OSX Excel still outputs awful windows-formatted .csv files
-  'mutt --with-sidebar-patch --with-trash-patch --with-s-lang'                      # CLI email, may not work
+  mutt-sidebar              # CLI email, may not work
   contacts                  # For OSX contacts
   links                     # CLI web browser
   w3m                       # CLI web browser (better for scripts)

@@ -12,7 +12,7 @@ set trash = "+[Gmail]/Trash"
 set smtp_url = "smtp://ffleming@smtp.gmail.com:587/"
 set smtp_authenticators = 'gssapi:login'
 set mailcap_path     = ~/.mutt/mailcap       # entries for filetypes
-mailboxes +INBOX +USMLERx +UCI +Notes
+mailboxes +INBOX +UCI +Notes
 
 # Local caching
 set header_cache =~/.mutt/cache/headers
