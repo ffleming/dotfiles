@@ -158,7 +158,7 @@ class ChangelogEntryDescription
   #   category/ticket_label-ticket_category (e.g. bugfix/TRAV-292)
   # Used in parse_content_from(description)
   TICKET_NUM      = /\w{2,4}[\s\-]?\d{2,3}\s*:?\s*/i
-  TYPES           = /(Feature|Hotfix|Bugfix|Release|Refactor|Optimization)/i
+  TYPES           = /(Feature|Hotfix|Bugfix|Release|Refactor|Optimization|Improvement)/i
   TYPE_AND_TICKET = /#{TYPES.source}\/#{TICKET_NUM.source}/i
 
   # Parses a given merge commit's details for a description of the changes
