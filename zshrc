@@ -5,7 +5,7 @@ git_prompt_info() {
     echo " %{$fg_bold[green]%}${ref#refs/heads/}%{$reset_color%}"
   fi
 }
-setopt promptsubst
+setopt prompt_subst
 
 # load our own completion functions
 fpath=(~/.zsh/completion $fpath)
