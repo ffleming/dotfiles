@@ -4,9 +4,8 @@
 #
 # discover 10.0.1.1/24
 # fsf 2014
-
 if [ $# -lt 1 ]; then
-  echo "Usage: $0 CIDR nmap-scan-flags"
+  echo "Usage: $(basename $0) CIDR nmap-scan-flags"
   echo "Default: -sn"
   exit 1
 fi
