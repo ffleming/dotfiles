@@ -89,9 +89,9 @@ let g:ctrlp_map = '<C-p>'
 " Let Ctrl+P open files in NerdTree's initial buffer
 let g:ctrlp_dont_split = 'NERD'
 
-" Make it obvious where 110 characters is
-" set textwidth=110
-set colorcolumn=110
+"Wrap at 110 and show the ruler
+set textwidth=110
+set colorcolumn=+0
 
 " Numbers
 set number
