@@ -19,3 +19,5 @@
 /pry/themes/pry-zealand-16.prytheme.rb
 /pry/themes/pry-zealand-8.prytheme.rb
 /pry/themes/zenburn.prytheme.rb
+/vim/swap/*
+!/vim/swap/.keep
