@@ -1,131 +1,26 @@
-" Enable utf-8 characters
 scriptencoding utf-8
 set encoding=utf-8
-
-" Use Vim settings, rather then Vi settings. This setting must be as early as
-" possible, as it has side effects.
 set nocompatible
 
-" Leader
 let mapleader="'"
-
-augroup rcSet
-  autocmd!
-  set backspace=2   " Backspace deletes like most programs in insert mode
-  set nobackup
-  set nowritebackup
-  set directory=~/.vim/swap//
-  set history=50
-  set ruler         " show the cursor position all the time
-  set showcmd       " display incomplete commands
-  set incsearch     " do incremental searching
-  set hlsearch
-  set autoindent
-  set laststatus=2  " Always display the status line
-  set autowrite     " Automatically :write before running commands
-  set foldmethod=syntax " Syntax method of code folding
-  " Softtabs, 2 spaces
-  set tabstop=2
-  set shiftwidth=2
-  set shiftround
-  set expandtab
-  "Wrap at 110 and show the ruler
-  set textwidth=110
-  set colorcolumn=+0
-  " Open new split panes to right and bottom
-  set splitbelow
-  set splitright
-  " Always use vertical diffs
-  set diffopt+=vertical
-  " Line numbering
-  set relativenumber
-  set number
-  set numberwidth=4
-augroup END
-
-augroup rcKeymaps
-  autocmd!
-  " Index ctags from any project
-  map <Leader>ct :!ctags -R .<CR>
-
-  " Switch between the last two files
-  nnoremap <leader><leader> <c-^>
-
-  " vim-rspec mappings
-  nnoremap <Leader>t :call RunCurrentSpecFile()<CR>
-  nnoremap <Leader>s :call RunNearestSpec()<CR>
-  nnoremap <Leader>l :call RunLastSpec()<CR>
-
-  " Run commands that require an interactive shell
-  nnoremap <Leader>r :RunInInteractiveShell<space>
-
-  " Treat <li> and <p> tags like the block tags they are
-  let g:html_indent_tags = 'li\|p'
-
-  " Quicker window movement
-  nnoremap <C-j> <C-w>j
-  nnoremap <C-k> <C-w>k
-  nnoremap <C-h> <C-w>h
-  nnoremap <C-l> <C-w>l
-
-  " shift-h / shift-l to switch tabs
-  nnoremap <S-h> gT
-  nnoremap <S-l> gt
-
-  " ctrl-a to turn off search highlight
-  nnoremap <silent> <Space> :nohlsearch<CR>
-augroup END
-
-augroup colors
-  autocmd!
-  colorscheme twilight256
-  set background=dark " Use dark-compatible color scheme for syntax highlighting
-  set t_Co=256        " 256 color
-  highlight Normal ctermbg=NONE
-  highlight nonText ctermbg=NONE
-  highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
-augroup END
 
 if !exists("syntax_on")
   syntax on
 endif
 
-if filereadable(expand("~/.vimrc.bundles"))
-  source ~/.vimrc.bundles
-endif
+function! SourceFiles()
+  return ['bundles', 'functions', 'colors', 'sets', 'keymaps', 'autocommands']
+endfunction
+
+for file in map(SourceFiles(), '"~/.vimrc." . (v:val)')
+  if filereadable(expand(file))
+    exec('source ' . file)
+  else
+    echoerr(string(file) . ' not readable but present in SourceFiles())
+  endif
+endfor
 
 filetype plugin indent on
-
-augroup vimrcEx
-  autocmd!
-  " When editing a file, always jump to the last known cursor position.
-  " Don't do it for commit messages, when the position is invalid, or when
-  " inside an event handler (happens when dropping a file on gvim).
-  autocmd BufReadPost *
-    \ if &ft != 'gitcommit' && line("'\"") > 0 && line("'\"") <= line("$") |
-    \   exe "normal g`\"" |
-    \ endif
-
-  " Cucumber navigation commands
-  autocmd User Rails Rnavcommand step features/step_definitions -glob=**/* -suffix=_steps.rb
-  autocmd User Rails Rnavcommand config config -glob=**/* -suffix=.rb -default=routes
-
-  " Set syntax highlighting for specific file types
-  autocmd BufRead,BufNewFile Appraisals set filetype=ruby
-  autocmd BufRead,BufNewFile *.md set filetype=markdown
-
-  " Enable spellchecking for Markdown
-  autocmd FileType markdown setlocal spell
-
-  " Automatically wrap at 80 characters for Markdown
-  autocmd BufRead,BufNewFile *.md setlocal textwidth=80
-
-  " Allow stylesheets to autocomplete hyphenated words
-  autocmd FileType css,scss,sass setlocal iskeyword+=-
-
-  " Unfold code on opening
-  au BufRead * normal zR
-augroup END
 
 " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
 if executable('ag')
@@ -149,14 +44,6 @@ let g:ctrlp_dont_split = 'NERD'
 " will insert tab at beginning of line,
 " will use completion if not at beginning
 set wildmode=list:longest,list:full
-function! InsertTabWrapper()
-    let col = col('.') - 1
-    if !col || getline('.')[col - 1] !~ '\k'
-        return "\<tab>"
-    else
-        return "\<c-p>"
-    endif
-endfunction
 inoremap <Tab> <c-r>=InsertTabWrapper()<cr>
 inoremap <S-Tab> <c-n>
 
@@ -166,10 +53,6 @@ let g:Tlist_Ctags_Cmd="ctags --exclude='*.js'"
 " Set spellfile to location that is guaranteed to exist, can be symlinked to
 " Dropbox or kept in Git and managed outside of thoughtbot/dotfiles using rcm.
 set spellfile=$HOME/.vim-spell-en.utf-8.add
-
-function! InTmuxSession()
-  return $TMUX != ""
-endfunction
 
 if InTmuxSession()
   let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
