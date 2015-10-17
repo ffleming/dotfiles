@@ -28,3 +28,8 @@ nnoremap <S-l> gt
 " ctrl-a to turn off search highlight
 nnoremap <silent> <Space> :nohlsearch<CR>
 
+"<Tab> for completion unless at beginning of line
+inoremap <Tab> <c-r>=InsertTabWrapper()<cr>
+inoremap <S-Tab> <c-n>
+noremap <C-n> :NERDTreeToggle<CR>
+

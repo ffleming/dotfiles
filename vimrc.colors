@@ -1,6 +1,0 @@
-colorscheme twilight256
-set background=dark " Use dark-compatible color scheme for syntax highlighting
-set t_Co=256        " 256 color
-highlight Normal ctermbg=NONE
-highlight nonText ctermbg=NONE
-highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE

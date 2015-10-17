@@ -27,4 +27,7 @@ augroup vimrcEx
 
   " Unfold code on opening
   au BufRead * normal zR
+
+  " Coffee folding
+  autocmd BufNewFile,BufReadPost *.coffee setl foldmethod=indent
 augroup END

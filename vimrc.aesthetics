@@ -1,0 +1,25 @@
+colorscheme twilight256
+set background=dark " Use dark-compatible color scheme for syntax highlighting
+set t_Co=256        " 256 color
+highlight Normal ctermbg=NONE
+highlight nonText ctermbg=NONE
+highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
+
+" Cursor shape
+if InTmuxSession()
+  let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+  let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+else
+  let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+  let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+endif
+
+" Change status line color to show mode
+set laststatus=2
+if version >= 700
+  au InsertEnter * hi StatusLine term=reverse ctermbg=5 gui=undercurl guisp=Red
+  au InsertLeave * hi StatusLine term=reverse ctermfg=0 ctermbg=2 gui=bold,reverse
+endif
+
+" matchit -- for matching block delimiters
+runtime macros/matchit.vim
