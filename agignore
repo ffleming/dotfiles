@@ -9,4 +9,5 @@
 /app/assets/javascripts/l/jquery-1.7.2.min.js
 /app/assets/javascripts/l/jquery-ui-1.8.23.custom.min.js
 /app/assets/javascripts/l/scripts-min.js
-**/bundle.js
+bundle.js
+vendor/
