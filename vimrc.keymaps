@@ -29,7 +29,8 @@ nnoremap <S-l> gt
 nnoremap <silent> <Space> :nohlsearch<CR>
 
 "<Tab> for completion unless at beginning of line
-inoremap <Tab> <c-r>=InsertTabWrapper()<cr>
+inoremap <Tab> <c-r>=InsertTabWrapper()<CR>
 inoremap <S-Tab> <c-n>
-noremap <C-n> :NERDTreeToggle<CR>
 
+" Call nerdtree with ctrl-n
+noremap <C-n> :NERDTreeToggle<CR>
