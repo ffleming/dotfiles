@@ -7,23 +7,86 @@ set encoding=utf-8
 set nocompatible
 
 " Leader
-let mapleader=" "
+let mapleader="'"
 
-set backspace=2   " Backspace deletes like most programs in insert mode
-set nobackup
-set nowritebackup
-set noswapfile    " http://robots.thoughtbot.com/post/18739402579/global-gitignore#comment-458413287
-set history=50
-set ruler         " show the cursor position all the time
-set showcmd       " display incomplete commands
-set incsearch     " do incremental searching
-set laststatus=2  " Always display the status line
-set autowrite     " Automatically :write before running commands
-set foldmethod=syntax " Syntax method of code folding
+augroup rcSet
+  autocmd!
+  set backspace=2   " Backspace deletes like most programs in insert mode
+  set nobackup
+  set nowritebackup
+  set directory=~/.vim/swap//
+  set history=50
+  set ruler         " show the cursor position all the time
+  set showcmd       " display incomplete commands
+  set incsearch     " do incremental searching
+  set hlsearch
+  set autoindent
+  set laststatus=2  " Always display the status line
+  set autowrite     " Automatically :write before running commands
+  set foldmethod=syntax " Syntax method of code folding
+  " Softtabs, 2 spaces
+  set tabstop=2
+  set shiftwidth=2
+  set shiftround
+  set expandtab
+  "Wrap at 110 and show the ruler
+  set textwidth=110
+  set colorcolumn=+0
+  " Open new split panes to right and bottom
+  set splitbelow
+  set splitright
+  " Always use vertical diffs
+  set diffopt+=vertical
+  " Line numbering
+  set relativenumber
+  set number
+  set numberwidth=4
+augroup END
 
-" Switch syntax highlighting on, when the terminal has colors
-" Also switch on highlighting the last used search pattern.
-if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
+augroup rcKeymaps
+  autocmd!
+  " Index ctags from any project
+  map <Leader>ct :!ctags -R .<CR>
+
+  " Switch between the last two files
+  nnoremap <leader><leader> <c-^>
+
+  " vim-rspec mappings
+  nnoremap <Leader>t :call RunCurrentSpecFile()<CR>
+  nnoremap <Leader>s :call RunNearestSpec()<CR>
+  nnoremap <Leader>l :call RunLastSpec()<CR>
+
+  " Run commands that require an interactive shell
+  nnoremap <Leader>r :RunInInteractiveShell<space>
+
+  " Treat <li> and <p> tags like the block tags they are
+  let g:html_indent_tags = 'li\|p'
+
+  " Quicker window movement
+  nnoremap <C-j> <C-w>j
+  nnoremap <C-k> <C-w>k
+  nnoremap <C-h> <C-w>h
+  nnoremap <C-l> <C-w>l
+
+  " shift-h / shift-l to switch tabs
+  nnoremap <S-h> gT
+  nnoremap <S-l> gt
+
+  " ctrl-a to turn off search highlight
+  nnoremap <silent> <Space> :nohlsearch<CR>
+augroup END
+
+augroup colors
+  autocmd!
+  colorscheme twilight256
+  set background=dark " Use dark-compatible color scheme for syntax highlighting
+  set t_Co=256        " 256 color
+  highlight Normal ctermbg=NONE
+  highlight nonText ctermbg=NONE
+  highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
+augroup END
+
+if !exists("syntax_on")
   syntax on
 endif
 
@@ -35,7 +98,6 @@ filetype plugin indent on
 
 augroup vimrcEx
   autocmd!
-
   " When editing a file, always jump to the last known cursor position.
   " Don't do it for commit messages, when the position is invalid, or when
   " inside an event handler (happens when dropping a file on gvim).
@@ -65,12 +127,6 @@ augroup vimrcEx
   au BufRead * normal zR
 augroup END
 
-" Softtabs, 2 spaces
-set tabstop=2
-set shiftwidth=2
-set shiftround
-set expandtab
-
 " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
 if executable('ag')
   " Use Ag over Grep
@@ -88,14 +144,6 @@ let g:ctrlp_map = '<C-p>'
 
 " Let Ctrl+P open files in NerdTree's initial buffer
 let g:ctrlp_dont_split = 'NERD'
-
-"Wrap at 110 and show the ruler
-set textwidth=110
-set colorcolumn=+0
-
-" Numbers
-set number
-set numberwidth=5
 
 " Tab completion
 " will insert tab at beginning of line,
@@ -115,81 +163,21 @@ inoremap <S-Tab> <c-n>
 " Exclude Javascript files in :Rtags via rails.vim due to warnings when parsing
 let g:Tlist_Ctags_Cmd="ctags --exclude='*.js'"
 
-" Index ctags from any project, including those outside Rails
-map <Leader>ct :!ctags -R .<CR>
-
-" Switch between the last two files
-nnoremap <leader><leader> <c-^>
-
-" vim-rspec mappings
-nnoremap <Leader>t :call RunCurrentSpecFile()<CR>
-nnoremap <Leader>s :call RunNearestSpec()<CR>
-nnoremap <Leader>l :call RunLastSpec()<CR>
-
-" Run commands that require an interactive shell
-nnoremap <Leader>r :RunInInteractiveShell<space>
-
-" Treat <li> and <p> tags like the block tags they are
-let g:html_indent_tags = 'li\|p'
-
-" Open new split panes to right and bottom
-set splitbelow
-set splitright
-
-" Quicker window movement
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-h> <C-w>h
-nnoremap <C-l> <C-w>l
-
-" shift-h / shift-l to switch tabs
-nnoremap <S-h> gT
-nnoremap <S-l> gt
-
 " Set spellfile to location that is guaranteed to exist, can be symlinked to
 " Dropbox or kept in Git and managed outside of thoughtbot/dotfiles using rcm.
 set spellfile=$HOME/.vim-spell-en.utf-8.add
 
-" Always use vertical diffs
-set diffopt+=vertical
+function! InTmuxSession()
+  return $TMUX != ""
+endfunction
 
-" Local config
-if filereadable($HOME . "/.vimrc.local")
-  source ~/.vimrc.local
+if InTmuxSession()
+  let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+  let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+else
+  let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+  let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 endif
-
-" set location of help files
-if filereadable(expand("~/.vim/doc"))
-  helptags ~/.vim/doc
-endif
-
-""" LINE NUMBERING
-set relativenumber
-set number
-set numberwidth=1
-highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
-
-
-""" CURSOR
-" iTerm2
-let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-let &t_EI = "\<Esc>]50;CursorShape=0\x7"
-
-" tmux
-"let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
-"let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
-
-""" COLORS
-colorscheme twilight256
-
-" These could use some annotating
-set hlsearch
-set bs=2
-set ai
-highlight Normal ctermbg=NONE
-highlight nonText ctermbg=NONE
-set background=dark
-set t_Co=256
 
 " Change status line color to show mode
 " first, enable status line always
@@ -203,14 +191,6 @@ endif
 
 " associate *.foo with filetype bar
 au BufRead,BufNewFile *.jison setfiletype javascript
-
-
-""" runtime plugin/dragvisuals.vim
-vmap  <expr>  <LEFT>   DVB_Drag('left')
-vmap  <expr>  <RIGHT>  DVB_Drag('right')
-vmap  <expr>  <DOWN>   DVB_Drag('down')
-vmap  <expr>  <UP>     DVB_Drag('up')
-vmap  <expr>  D        DVB_Duplicate()
 
 " Remove any introduced trailing whitespace after moving...
 let g:DVB_TrimWS = 1
@@ -236,6 +216,3 @@ let g:syntastic_cpp_compiler_options = ' -std=c++11'
 
 " Coffee folding
 autocmd BufNewFile,BufReadPost *.coffee setl foldmethod=indent
-
-" start with open folds
-au BufRead * normal zR

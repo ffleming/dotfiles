@@ -10,25 +10,24 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 " Define bundles via Github repos
+Plugin 'vim-ruby/vim-ruby'
 Plugin 'christoomey/vim-run-interactive'
 Plugin 'croaky/vim-colors-github'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'kien/ctrlp.vim'
 Plugin 'pbrisbin/vim-mkdir'
 Plugin 'scrooloose/syntastic'
-Plugin 'slim-template/vim-slim'
+Plugin 'slim-template/vim-slim'   " syntax highlighting
 Plugin 'thoughtbot/vim-rspec'
 Plugin 'tpope/vim-bundler'
-Plugin 'tpope/vim-endwise'
-Plugin 'tpope/vim-eunuch'
-Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-rails'
-Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-rake'
+Plugin 'tpope/vim-endwise'        " add 'end' after 'def', etc
+Plugin 'tpope/vim-fugitive'       " git for vim (mostly good for statusline)
+Plugin 'tpope/vim-repeat'         " . to repeat non-native commands
 Plugin 'tpope/vim-surround'
-Plugin 'vim-ruby/vim-ruby'
-Plugin 'vim-scripts/ctags.vim'
-Plugin 'vim-scripts/matchit.zip'
-Plugin 'vim-scripts/tComment'
+Plugin 'vim-scripts/ctags.vim'    " ctags
+Plugin 'vim-scripts/tComment'     " ctrl-/ for commenting blocks
 Plugin 'scrooloose/nerdtree'      " file browser
 Plugin 'airblade/vim-gitgutter'   " git gutter
 Plugin 'Raimondi/delimitMate'     " auto insert closing delimiters
@@ -38,6 +37,5 @@ Plugin 'godlygeek/tabular'        " align on character
 Plugin 'bling/vim-airline'        " pretty status bars
 Plugin 'ngmy/vim-rubocop'         " ruby linter
 Plugin 'kshenoy/vim-signature'    " visual marks in gutter
-Plugin 'mattn/emmet-vim'          " emmet for vim
 call vundle#end()
 filetype on
