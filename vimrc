@@ -132,7 +132,7 @@ nnoremap <Leader>r :RunInInteractiveShell<space>
 " Treat <li> and <p> tags like the block tags they are
 let g:html_indent_tags = 'li\|p'
 
-" Open new split panes to right and bottom, which feels more natural
+" Open new split panes to right and bottom
 set splitbelow
 set splitright
 
@@ -180,14 +180,12 @@ let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 "let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
 
 """ COLORS
-colorscheme twilight256  " faithful port of twilight (terminal only)
-"colorscheme vwilight    " less faithful but works in gvim
+colorscheme twilight256
 
 " These could use some annotating
 set hlsearch
 set bs=2
 set ai
-set ruler
 highlight Normal ctermbg=NONE
 highlight nonText ctermbg=NONE
 set background=dark
@@ -203,16 +201,8 @@ if version >= 700
   au InsertLeave * hi StatusLine term=reverse ctermfg=0 ctermbg=2 gui=bold,reverse
 endif
 
-""" Syntax Coloring
-" syntax on
-filetype on
 " associate *.foo with filetype bar
 au BufRead,BufNewFile *.jison setfiletype javascript
-
-""" Color column only where text overflows
-"""set textwidth=100
-"""set colorcolumn=+0
-"""call matchadd('ColorColumn', '\%81v', 100)
 
 
 """ runtime plugin/dragvisuals.vim
@@ -225,16 +215,13 @@ vmap  <expr>  D        DVB_Duplicate()
 " Remove any introduced trailing whitespace after moving...
 let g:DVB_TrimWS = 1
 
-" Display extra whitespace
-" set list listchars=tab:»·,trail:·
-
 " matchit -- for matching block delimiters
 runtime macros/matchit.vim
 
 " omnicomplete
 set omnifunc=syntaxcomplete#Complete
 
-" toggle NERDTree pane
+" toggle NERDTree pane with ctrl-n
 map <C-n> :NERDTreeToggle<CR>
 
 " Allow JSX in normal JS files
