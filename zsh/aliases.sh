@@ -7,16 +7,17 @@ alias apis="ssh apis"
 alias sdf="ssh sdf"
 
 #------------------------------------------------------------------------------
-# ALIASES: WORK (and shell variables, too)
+# ALIASES: WORK
 #------------------------------------------------------------------------------
-export LFFS=~/Oversee/Farespotter
+alias lffs="cd $HOME/Oversee/Farespotter"
+alias th="cd $HOME/Oversee/travelhound"
+alias load-lffs-images="rsync -r ffleming@www01.lffs.prod:/home/travel/apps/FarespotterNet/shared/images/ $LFFS/public/images/r/"
 
-alias load-lffs-images="rsync -r $LDAPUSERNAME@www01.lffs.prod:/home/travel/apps/FarespotterNet/shared/images/ $LFFS/public/images/r/"
 #------------------------------------------------------------------------------
 # ALIASES: GENERIC SHORTCUTS
 #------------------------------------------------------------------------------
 alias rgrep='grep -r'
-alias "rvm-reload"='rvm use $(cat .ruby-version)'
+alias vvim="\vim -u NONE"
 
 #------------------------------------------------------------------------------
 # ALIASES: FILE MANAGEMENT
