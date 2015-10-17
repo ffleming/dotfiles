@@ -95,16 +95,6 @@ for rubygem in ${gems[*]}; do
   gem install $rubygem
 done
 
-perl_modules=(
-  Perl::Critic
-  Modern::Perl
-)
-
-for module in ${perl_modules[*]}; do
-  fancy_echo "Installing $module ..."
-  sudo cpan $module
-done
-
 if [ ! -e '/usr/local/bin/ssh-copy-id' ]; then
   fancy_echo "Installing ssh-copy-id"
     curl -L 'https://raw.githubusercontent.com/beautifulcode/ssh-copy-id-for-OSX/master/install.sh' | sh
