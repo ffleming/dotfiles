@@ -1,0 +1,27 @@
+function! IgnoreString(arr, ...)
+  let a:flagString = '--ignore='
+  if a:0 == 1
+    let a:flagString = a:1
+  elseif a:0 >= 2
+    echoerr("IgnoreString() takes at most two arguments, got " . string(a:0 + 1))
+    return
+  endif
+  return join(map(a:arr, "'" . a:flagString . "' . (v:val)"), ' ')
+endfunction
+
+function! CtrlPIgnoreDirectories()
+  return ['Library', 'Applications', 'Dropbox', 'bundle\.js', 'Music', 'Movies']
+endfunction
+
+function! InTmuxSession()
+  return $TMUX != ""
+endfunction
+
+function! InsertTabWrapper()
+  let col = col('.') - 1
+  if !col || getline('.')[col - 1] !~ '\k'
+    return "\<tab>"
+  else
+    return "\<c-p>"
+  endif
+endfunction
