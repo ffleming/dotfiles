@@ -1,8 +1,15 @@
-##
-# Homebrewed Packages
-#
-brew tap nviennot/tmate
-brew tap ffleming/formulae
+taps=(
+  ffleming/formulae  # My formulae - dependency for nethack-nao and mutt
+  neovim/neovim      # Neovim
+  nviennot/tmate     # Pair programming
+  caskroom/cask      # Dependency for brew cask
+  caskroom/versions  # Dependency for sublime 3
+)
+
+for tap in ${taps[*]}; do
+  fancy_echo "Tapping $tap ..."
+  brew tap "$tap"
+done
 
 homebrew=(
   colordiff                 # colorized diff
@@ -17,30 +24,23 @@ homebrew=(
   zsh-history-substring-search     #   v
   zsh-syntax-highlighting          # zsh customizations
   tmate                     # for pair programming
-  cpan                      # perl package manager
   dos2unix                  # because OSX Excel still outputs awful windows-formatted .csv files
-  mutt-sidebar              # CLI email, may not work
+  mutt-sidebar              # CLI email
+  nethack-nao               # The best game
   contacts                  # For OSX contacts
   links                     # CLI web browser
   w3m                       # CLI web browser (better for scripts)
-  'ffmpeg --with-faac'      # Video encoding
+  'ffmpeg --with-faac --with-ffplay'      # Video encoding
   gifsicle                  # For making animated gifs
   mongodb                   # database
   nvm                       # It's RVM, but for node
+  brew-cask                 # brew-ish manager for .app applications
 )
 
 for package in ${homebrew[*]}; do
   fancy_echo "Installing or upgrading $package ..."
   brew_install_or_upgrade $package
 done
-
-##
-# Homebrewed Cask Apps
-#
-
-brew tap caskroom/cask
-brew install brew-cask      # brew-ish package manager for "normal" OSX applications
-brew tap caskroom/versions  # for alternate versions, like ST3
 
 cask=(
   google-chrome firefox   # browsers
