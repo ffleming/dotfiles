@@ -25,6 +25,13 @@ nnoremap <C-l> <C-w>l
 nnoremap <S-h> gT
 nnoremap <S-l> gt
 
+" Center after searching
+nnoremap n nzz
+nnoremap N Nzz
+
+" Make Y yank like D deletes
+nnoremap Y y$
+
 " ctrl-a to turn off search highlight
 nnoremap <silent> <Space> :nohlsearch<CR>
 
