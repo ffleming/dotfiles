@@ -9,6 +9,14 @@ function! IgnoreString(arr, ...)
   return join(map(a:arr, "'" . a:flagString . "' . (v:val)"), ' ')
 endfunction
 
+function! OnFirstLine()
+  return(line('.') == 1)
+endfunction
+
+function! OnLastLine()
+  return(line('.') == line('$'))
+endfunction
+
 function! CtrlPIgnoreDirectories()
   return ['Library', 'Applications', 'Dropbox', 'bundle\.js', 'Music', 'Movies']
 endfunction
@@ -24,4 +32,11 @@ function! InsertTabWrapper()
   else
     return "\<c-p>"
   endif
+endfunction
+
+function! MoveLineUpCmd()
+  if OnFirstLine() || OnLastLine()
+    return 'ddP'
+  endif
+  return 'ddkP'
 endfunction

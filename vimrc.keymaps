@@ -32,6 +32,10 @@ nnoremap N Nzz
 " Make Y yank like D deletes
 nnoremap Y y$
 
+" shift up/down to move a line up/down
+noremap <S-Down> ddp
+noremap <silent> <S-Up> :exe("normal! " . MoveLineUpCmd())<CR>
+
 " ctrl-a to turn off search highlight
 nnoremap <silent> <Space> :nohlsearch<CR>
 
