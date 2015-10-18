@@ -1,13 +1,3 @@
-*.bundle*
-*.cache*
-*.dropbox*
-*.forever*
-*.gem*
-*.node-gyp*
-*.npm*
-*.rvm*
-*.cache*
-*.git*
 /db/seeds.rb
 /contrib/*
 /vendor/*
