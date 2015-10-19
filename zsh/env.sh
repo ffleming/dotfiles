@@ -63,7 +63,6 @@ export HISTCONTROL=ignoreboth   # Ignore spaces and duplicates
 export HISTIGNORE="??:&:pwd:ls -l:ls -la:cd \-:cd /:h::...:llall:ll.:"
 export EDITOR="vim"
 export PAGER="less"
-# source $(brew --prefix nvm)/nvm.sh
 
 #------------------------------------------------------------------------------
 # EC2 CLI TOOLS
@@ -83,7 +82,7 @@ export AWS_SECRET_ACCESS_KEY
 # NVM
 #------------------------------------------------------------------------------
 [[ -d "$HOME/.nvm" ]] && NVM_DIR=~/.nvm
-source "$(brew --prefix nvm)/nvm.sh"
+[[ -f "/usr/local/bin/brew" ]] && source "$(brew --prefix nvm)/nvm.sh"
 #------------------------------------------------------------------------------
 # RVM
 #------------------------------------------------------------------------------
