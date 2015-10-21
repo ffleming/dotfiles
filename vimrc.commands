@@ -5,7 +5,10 @@
     command! -bang -nargs=? -complete=file WQ wq<bang> <args>
     command! -bang Wa wa<bang>
     command! -bang WA wa<bang>
+    command! -bang Wqa wqa<bang>
+    command! -bang WQa wqa<bang>
+    command! -bang WQA wqa<bang>
     command! -bang Q q<bang>
-    command! -bang QA qa<bang>
     command! -bang Qa qa<bang>
+    command! -bang QA qa<bang>
 endif

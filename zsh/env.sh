@@ -16,7 +16,7 @@ export PATH
 # JAVA PATH and OPTS
 #------------------------------------------------------------------------------
 [[ -f "/usr/bin/java" ]] && export JAVA_OPTS="-Xmx2048m"
-[[ -f "/usr/libexec/java_home" ]] && export JAVA_HOME="$(/usr/libexec/java_home -v 1.7)"
+[[ -f "/usr/libexec/java_home" ]] && export JAVA_HOME="$(/usr/libexec/java_home -v 1.8)"
 
 #------------------------------------------------------------------------------
 # CD PATH
