@@ -3,7 +3,7 @@ set encoding=utf-8
 set nocompatible
 
 function! SourceFiles()
-  return ['bundles', 'functions', 'sets', 'aesthetics', 'keymaps', 'autocommands']
+  return ['bundles', 'functions', 'commands', 'sets', 'aesthetics', 'keymaps', 'autocommands']
 endfunction
 
 for file in map(SourceFiles(), '"~/.vimrc." . (v:val)')

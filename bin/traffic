@@ -56,7 +56,7 @@ module TrafficGenerator
   end
 
   SITES = {
-    meta: 'meta.lowfares.com',
+    meta: 'planmytrip.com',
     lowfares: 'lowfares.com',
     farespotter: 'farespotter.net'
   }

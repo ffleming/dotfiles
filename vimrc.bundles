@@ -39,6 +39,7 @@ Plugin 'ngmy/vim-rubocop'         " ruby linter
 Plugin 'kshenoy/vim-signature'    " visual marks in gutter
 Plugin 'mbbill/undotree'          " visualization of branched undo
 Plugin 'edkolev/tmuxline.vim'     " tmux statusline
+Plugin 'derekwyatt/vim-scala'     " scala highlighting for vim
 
 " Themes
 " Plugin 'tomasr/molokai'
