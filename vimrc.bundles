@@ -37,5 +37,12 @@ Plugin 'godlygeek/tabular'        " align on character
 Plugin 'bling/vim-airline'        " pretty status bars
 Plugin 'ngmy/vim-rubocop'         " ruby linter
 Plugin 'kshenoy/vim-signature'    " visual marks in gutter
+Plugin 'mbbill/undotree'          " visualization of branched undo
+Plugin 'edkolev/tmuxline.vim'     " tmux statusline
+
+" Themes
+" Plugin 'tomasr/molokai'
+" Plugin 'vim-scripts/twilight256.vim'
+
 call vundle#end()
 filetype on
