@@ -10,19 +10,9 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 " Define bundles via Github repos
-Plugin 'vim-ruby/vim-ruby'
 Plugin 'christoomey/vim-run-interactive'
 Plugin 'croaky/vim-colors-github'
-Plugin 'kchmck/vim-coffee-script'
 Plugin 'kien/ctrlp.vim'
-Plugin 'pbrisbin/vim-mkdir'
-Plugin 'scrooloose/syntastic'
-Plugin 'slim-template/vim-slim'   " syntax highlighting
-Plugin 'thoughtbot/vim-rspec'
-Plugin 'tpope/vim-bundler'
-Plugin 'tpope/vim-rails'
-Plugin 'tpope/vim-rake'
-Plugin 'tpope/vim-endwise'        " add 'end' after 'def', etc
 Plugin 'tpope/vim-fugitive'       " git for vim (mostly good for statusline)
 Plugin 'tpope/vim-repeat'         " . to repeat non-native commands
 Plugin 'tpope/vim-surround'
@@ -30,16 +20,29 @@ Plugin 'vim-scripts/ctags.vim'    " ctags
 Plugin 'vim-scripts/tComment'     " ctrl-/ for commenting blocks
 Plugin 'scrooloose/nerdtree'      " file browser
 Plugin 'airblade/vim-gitgutter'   " git gutter
-Plugin 'Raimondi/delimitMate'     " auto insert closing delimiters
 Plugin 'vim-scripts/netrw.vim'    " edit files on remote machines
-Plugin 'bitc/vim-bad-whitespace'  " kill bad whitespace
 Plugin 'godlygeek/tabular'        " align on character
 Plugin 'bling/vim-airline'        " pretty status bars
-Plugin 'ngmy/vim-rubocop'         " ruby linter
 Plugin 'kshenoy/vim-signature'    " visual marks in gutter
-Plugin 'mbbill/undotree'          " visualization of branched undo
-Plugin 'edkolev/tmuxline.vim'     " tmux statusline
-Plugin 'derekwyatt/vim-scala'     " scala highlighting for vim
+Plugin 'mbbill/undotree'          " visualization of branched'
+Plugin 'edkolev/tmuxline.vim'     " tmux statusline'
+
+if !exists('minimal')
+  Plugin 'vim-ruby/vim-ruby'
+  Plugin 'kchmck/vim-coffee-script'
+  Plugin 'pbrisbin/vim-mkdir'
+  Plugin 'scrooloose/syntastic'
+  Plugin 'slim-template/vim-slim'   " syntax highlighting'
+  Plugin 'thoughtbot/vim-rspec'
+  Plugin 'tpope/vim-bundler'
+  Plugin 'tpope/vim-rails'
+  Plugin 'tpope/vim-rake'
+  Plugin 'tpope/vim-endwise'        " add 'end' after 'def', et'
+  Plugin 'Raimondi/delimitMate'     " auto insert closing delim'
+  Plugin 'bitc/vim-bad-whitespace'  " kill bad whitespace'
+  Plugin 'ngmy/vim-rubocop'         " ruby linter'
+  Plugin 'derekwyatt/vim-scala'     " scala highlighting
+endif
 
 " Themes
 " Plugin 'tomasr/molokai'

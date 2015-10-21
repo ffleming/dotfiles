@@ -17,11 +17,7 @@ alias load-lffs-images="rsync -r ffleming@www01.lffs.prod:/home/travel/apps/Fare
 # ALIASES: GENERIC SHORTCUTS
 #------------------------------------------------------------------------------
 alias rgrep='grep -r'
-if [ -f "$HOME/.vimrc.fast" ]; then
-  alias vvim="\vim -u $HOME/.vimrc.fast"
-else
-  alias vvim="\vim -u NONE"
-fi
+alias vvim='\vim --cmd "let minimal=1"'
 
 #------------------------------------------------------------------------------
 # ALIASES: FILE MANAGEMENT
