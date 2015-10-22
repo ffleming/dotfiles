@@ -42,6 +42,7 @@ if !exists('minimal')
   Plugin 'bitc/vim-bad-whitespace'  " kill bad whitespace'
   Plugin 'ngmy/vim-rubocop'         " ruby linter'
   Plugin 'derekwyatt/vim-scala'     " scala highlighting
+  Plugin 'rust-lang/rust.vim'       " rust highlighting
 endif
 
 " Themes
