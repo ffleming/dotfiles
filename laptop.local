@@ -35,6 +35,11 @@ homebrew=(
   mongodb                   # database
   nvm                       # It's RVM, but for node
   brew-cask                 # brew-ish manager for .app applications
+  scala                     # scala is cool
+  sbt                       # building scala is cool
+  rust                      # rust is also cool
+  qemu                      # for my rust project
+  gpg                       # verify keys when we can
 )
 
 for package in ${homebrew[*]}; do
