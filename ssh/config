@@ -6,3 +6,7 @@ Host sdf
   HostName meta.sdf.org
   Port 22
   User fsf
+Host ma
+  HostName ma.sdf.org
+  Port 22
+  User fsf
