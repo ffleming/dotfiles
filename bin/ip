@@ -1,0 +1,19 @@
+if [[ " ${@} " =~ "-h" ]]; then
+  echo "$0 <interface1> <interface2> ..."
+  echo "\t-h --help\t This help"
+  exit
+fi
+echo "Internal IPs:"
+interfaces=$@
+if [ $# -eq 0 ]; then
+  interfaces=(en0)
+fi
+for iface in ${interfaces[*]}; do
+  internal=$(ipconfig getifaddr "$iface")
+  if [ "$internal" == "" ]; then
+    internal="<NONE>"
+  fi
+  echo "\t$iface\t$internal"
+done
+external=$(dig +short myip.opendns.com @resolver1.opendns.com)
+echo "External IP: $external"
