@@ -8,8 +8,15 @@ interfaces=$@
 if [ $# -eq 0 ]; then
   interfaces=(en0)
 fi
+
+uname=$(uname)
 for iface in ${interfaces[*]}; do
-  internal=$(ipconfig getifaddr "$iface")
+  if [ "$uname" == "Darwin" ]; then
+    internal=$(ipconfig getifaddr "$iface")
+  else
+    internal=$(ifconfig "$iface" | egrep -o 'inet (\d+\.?){4}' | cut -c 6-)
+  fi
+
   if [ "$internal" == "" ]; then
     internal="<NONE>"
   fi
