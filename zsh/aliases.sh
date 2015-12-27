@@ -7,6 +7,7 @@ alias apis="ssh apis"
 alias sdf="ssh sdf"
 alias ma="ssh ma"
 alias deploy='ssh ffleming@deploy01.tools.ops'
+alias vmrun='/Applications/VMware\ Fusion.app/Contents/Library/vmrun'
 
 #------------------------------------------------------------------------------
 # ALIASES: WORK
