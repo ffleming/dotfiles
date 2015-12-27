@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+cmd=""
+vm=""
+usage() {
+  echo "$0 <command> <vm_path>"
+  echo "command and vm_path will be passed to vmrun"
+  echo "Use the command 'list-all' to list available .vmx files"
+}
+if [ "$1" == "" ]; then
+  usage
+  exit
+elif [ "$1" == "list-all" ]; then
+  find ~/Documents/Virtual\ Machines.localized -iregex '.*\.vmx$'
+  exit
+else
+  /Applications/VMware\ Fusion.app/Contents/Library/vmrun -T fusion "$@" nogui
+  exit
+fi
+exit
