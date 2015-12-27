@@ -4,11 +4,12 @@
 #------------------------------------------------------------------------------
 PATH="$HOME/.bin:/usr/local/bin:/usr/local/sbin:"
 PATH+="/opt/X11/bin:/usr/texbin:"
+PATH+="/usr/bin:/bin:/usr/sbin:/sbin:"
 PATH+="/usr/local/texlive/2013/bin/x86_64-darwin:"
 PATH+="/usr/local/lib/node_modules" #/usr/local/lib/node:/usr/local/share/npm/bin
 PATH+="/usr/local/heroku/bin:"
 PATH+="/usr/local/opt/coreutils/libexec/gnubin:"
-PATH+="/usr/bin:/bin:/usr/sbin:/sbin:"
+PATH+="/Applications/VMware\ Fusion.app/Contents/Library"
 export PATH
 [[ -d "/usr/pkg/bin" ]] && export PATH="$PATH:/usr/pkg/bin"
 
