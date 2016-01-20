@@ -10,7 +10,7 @@ Host ma
   HostName ma.sdf.org
   Port 22
   User fsf
-Host home
+Host arm
   HostName fsf.ath.cx
   Port 22
   User fsf
