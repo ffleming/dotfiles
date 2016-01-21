@@ -14,7 +14,7 @@ done
 homebrew=(
   colordiff                 # colorized diff
   fontconfig                # customized font access
-  gawk gcc                  # updated cli utilities
+  gawk gcc                  # updated CLI utilities
   gnu-indent gnu-sed        #     |
   tree wget                 #    \|/
   watch xtail rename        #     '
@@ -34,13 +34,14 @@ homebrew=(
   gifsicle                  # For making animated gifs
   mongodb                   # database
   nvm                       # It's RVM, but for node
-  brew-cask                 # brew-ish manager for .app applications
   scala                     # scala is cool
   sbt                       # building scala is cool
   rust                      # rust is also cool
   qemu                      # for my rust project
   gpg                       # verify keys when we can
   aalib                     # emergency aafire for programming during the holidays
+  calc                      # CLI calculator
+  p7zip                     # 7zip CLI
 )
 
 for package in ${homebrew[*]}; do
