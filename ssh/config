@@ -14,3 +14,13 @@ Host arm
   HostName fsf.ath.cx
   Port 22
   User fsf
+Host gh-ffleming
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/gh-ffleming
+    IdentitiesOnly yes
+Host github.com
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/gh-oversee
+    IdentitiesOnly yes
