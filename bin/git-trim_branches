@@ -1,3 +1,20 @@
 #!/bin/zsh
 
-git branch | egrep -v '\*|release|master|develop' | xargs -n1 git branch -D
+PROGRAM=$(basename "$0")
+if [ $# -lt 1 ]; then
+  git branch | egrep -v '\*|release|master' | xargs -n1 git branch -D
+else
+  if [[ "$*" == *--help* ]] || [[ "$*" == *-h* ]]; then
+    echo "$PROGRAM [-h] [PREFIX_1] [PREFIX_2] [...]"
+    echo "\t-h | --help\t\tThis help"
+    echo ""
+    echo "\tDeletes git branches in current repository starting with each specified PREFIX"
+    echo "\tIf no prefixes are given, deletes all branches that contain neither 'release' nor 'master'"
+    echo "\tNever deletes the current branch"
+    echo ""
+    exit 0
+  fi
+  for delete_prefix in "$@"; do
+    git branch | egrep -e "^\s+$delete_prefix.*$" | egrep -v '\*' | xargs -n1 git branch -D
+  done
+fi
