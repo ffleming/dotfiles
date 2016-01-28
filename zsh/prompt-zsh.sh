@@ -22,6 +22,11 @@ fi
 
 source $SHELL_CONFIG/git-flow-completion.zsh
 
+# AWS Completion
+if [ -f "/usr/local/share/zsh/site-functions/_aws" ]; then
+  source "/usr/local/share/zsh/site-functions/_aws"
+fi
+
 #------------------------------------------------------------------------------
 # COLORS
 #------------------------------------------------------------------------------
