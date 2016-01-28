@@ -42,6 +42,7 @@ homebrew=(
   aalib                     # emergency aafire for programming during the holidays
   calc                      # CLI calculator
   p7zip                     # 7zip CLI
+  awscli                    # Amazon Web Services CLI
 )
 
 for package in ${homebrew[*]}; do

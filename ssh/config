@@ -15,12 +15,17 @@ Host arm
   Port 22
   User fsf
 Host gh-ffleming
-    HostName github.com
-    User git
-    IdentityFile ~/.ssh/gh-ffleming
-    IdentitiesOnly yes
-Host github.com
-    HostName github.com
-    User git
-    IdentityFile ~/.ssh/gh-oversee
-    IdentitiesOnly yes
+  HostName github.com
+  User git
+  IdentityFile ~/.ssh/gh-ffleming
+  IdentitiesOnly yes
+Host gh-oversee
+  HostName github.com
+  User git
+  IdentityFile ~/.ssh/gh-oversee
+  IdentitiesOnly yes
+Host fsf.aws
+  HostName ec2-52-11-184-167.us-west-2.compute.amazonaws.com
+  User ec2-user
+  IdentityFile ~/.ssh/amazon-fsf.pem
+  IdentitiesOnly yes
