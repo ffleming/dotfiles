@@ -43,6 +43,7 @@ homebrew=(
   calc                      # CLI calculator
   p7zip                     # 7zip CLI
   awscli                    # Amazon Web Services CLI
+  keybase                   # Keybase CLI
 )
 
 for package in ${homebrew[*]}; do
