@@ -44,6 +44,7 @@ homebrew=(
   p7zip                     # 7zip CLI
   awscli                    # Amazon Web Services CLI
   keybase                   # Keybase CLI
+  'lastpass-cli --with-pinentry --with-doc'    # LastPass CLI
 )
 
 for package in ${homebrew[*]}; do
