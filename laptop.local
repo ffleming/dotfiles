@@ -32,9 +32,15 @@ homebrew=(
   sbt cabal-install                         # Build tools & package managers
   qemu                                      # Processor emulator
   gpg                                       # GNU privacy guard
-  mongodb                                   # Mongo nsoql
+  mongodb                                   # Mongo nosql
   tmate                                     # Easy pair programming
   nvm                                       # Node version manager
+                                            # Pentesting/infosec tools
+  aircrack-ng                               #   Wifi sniffing/cracking/injection suite
+  reaver                                    #   Wifi WSP PIN cracking suite
+  iperf3                                    #   Network performance
+  john                                      #   John the Ripper brute force cracker
+  hydra                                     #   Hydra network password brute force cracker
   zsh-completions                           # Shell niceties
   zsh-history-substring-search              #
   zsh-syntax-highlighting                   #
@@ -58,6 +64,7 @@ cask=(
   vlc                   # video file player
   steam                 # for games
   dropbox               # file sync
+  hashcat               # Brute force password cracker
 )
 
 for app in ${cask[*]}; do
@@ -120,12 +127,18 @@ node_modules=(
   psi
   bench-rest
   forever
+  gulp
 )
 
 for module in ${node_modules[*]}; do
   fancy_echo "Installing $module ..."
   npm install $module -g
 done
+
+fancy_echo "Linking airport sniffer binary to /usr/local/sbin/airport"
+  if [ ! -h "/usr/local/sbin/airport" ] ; then
+    ln -s /System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport /usr/local/sbin/airport
+  fi
 
 # Allow selection of text within Quicklook
 defaults write com.apple.finder QLEnableTextSelection -bool true
@@ -134,6 +147,3 @@ defaults write com.apple.finder QLEnableTextSelection -bool true
 defaults write com.apple.screencapture type png
 killall SystemUIServer
 
-if [[ -f ~/.laptop.pentest ]]; then
-  source ~/.laptop.pentest
-fi
