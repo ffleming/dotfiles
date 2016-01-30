@@ -45,6 +45,8 @@ homebrew=(
   awscli                    # Amazon Web Services CLI
   keybase                   # Keybase CLI
   'lastpass-cli --with-pinentry --with-doc'    # LastPass CLI
+  ghc                       # Haskell compiler
+  cabal-install             # Haskell packaging
 )
 
 for package in ${homebrew[*]}; do
