@@ -1,18 +1,17 @@
+Host desktop
+  Hostname 192.168.1.2
+  User Forrest
+Host arm
+  HostName fsf.ath.cx
+  User fsf
 Host apis
   HostName forrestfleming.com
-  Port 22
   User ffleming@forrestfleming.com
 Host sdf
   HostName meta.sdf.org
-  Port 22
   User fsf
 Host ma
   HostName ma.sdf.org
-  Port 22
-  User fsf
-Host arm
-  HostName fsf.ath.cx
-  Port 22
   User fsf
 Host gh-ffleming
   HostName github.com
