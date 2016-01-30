@@ -12,41 +12,32 @@ for tap in ${taps[*]}; do
 done
 
 homebrew=(
-  colordiff                 # colorized diff
-  fontconfig                # customized font access
-  gawk gcc                  # updated CLI utilities
-  gnu-indent gnu-sed        #     |
-  tree wget                 #    \|/
-  watch xtail rename        #     '
-  gnu-tar gnu-which         #
-  git git-flow              # git & gitflow
-  zsh-completions                  #   |
-  zsh-history-substring-search     #   v
-  zsh-syntax-highlighting          # zsh customizations
-  tmate                     # for pair programming
-  dos2unix                  # because OSX Excel still outputs awful windows-formatted .csv files
-  mutt-sidebar              # CLI email
-  nethack-nao               # The best game
-  contacts                  # For OSX contacts
-  links                     # CLI web browser
-  w3m                       # CLI web browser (better for scripts)
-  'ffmpeg --with-faac --with-ffplay'      # Video encoding
-  gifsicle                  # For making animated gifs
-  mongodb                   # database
-  nvm                       # It's RVM, but for node
-  scala                     # scala is cool
-  sbt                       # building scala is cool
-  rust                      # rust is also cool
-  qemu                      # for my rust project
-  gpg                       # verify keys when we can
-  aalib                     # emergency aafire for programming during the holidays
-  calc                      # CLI calculator
-  p7zip                     # 7zip CLI
-  awscli                    # Amazon Web Services CLI
-  keybase                   # Keybase CLI
-  'lastpass-cli --with-pinentry --with-doc'    # LastPass CLI
-  ghc                       # Haskell compiler
-  cabal-install             # Haskell packaging
+  colordiff tree wget watch rename dos2unix # Various CLI tools
+  git                                       #   SCM
+  mutt-sidebar                              #   Email
+  contacts                                  #   Email contacts
+  nethack-nao                               #   The best game
+  links                                     #   Web browser
+  w3m                                       #   Web browser (better for scripts)
+  'ffmpeg --with-faac --with-ffplay'        #   Video encoding
+  aalib                                     #   It's impossible to work during the holidays without aafire
+  calc                                      #   Calculator
+  p7zip                                     #   7zip
+  awscli                                    #   Amazon Web Services
+  keybase                                   #   Keybase
+  'lastpass-cli --with-pinentry --with-doc' #   LastPass
+  gifsicle                                  #   For making animated gifs
+  fontconfig                                # Customized font access
+  gawk gcc scala rust ghc                   # Compilers and related
+  sbt cabal-install                         # Build tools & package managers
+  qemu                                      # Processor emulator
+  gpg                                       # GNU privacy guard
+  mongodb                                   # Mongo nsoql
+  tmate                                     # Easy pair programming
+  nvm                                       # Node version manager
+  zsh-completions                           # Shell niceties
+  zsh-history-substring-search              #
+  zsh-syntax-highlighting                   #
 )
 
 for package in ${homebrew[*]}; do
@@ -55,19 +46,18 @@ for package in ${homebrew[*]}; do
 done
 
 cask=(
-  google-chrome firefox   # browsers
-  sequel-pro              # MySQL frontend
-  sublime-text3            # code editor
-  iterm2                  # terminal emulator
-  name-mangler  # batch file renamer
-  appcleaner    # removes apps and related files
-  hipchat       # private corporate chat
-  virtualbox    # virtualization
-  keka          # un/archiver (importantly, 7zip)
-  qlmarkdown    # parse markdown in quicklook
-  vlc           # video file player
-  steam         # for games
-  dropbox       # file sync
+  google-chrome firefox # browsers
+  sequel-pro            # MySQL frontend
+  sublime-text3         # code editor
+  iterm2                # terminal emulator
+  name-mangler          # batch file renamer
+  appcleaner            # removes apps and related files
+  hipchat               # private corporate chat
+  keka                  # un/archiver (importantly, 7zip)
+  qlmarkdown            # parse markdown in quicklook
+  vlc                   # video file player
+  steam                 # for games
+  dropbox               # file sync
 )
 
 for app in ${cask[*]}; do
