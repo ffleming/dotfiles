@@ -12,21 +12,18 @@
   conflictstyle = diff3
   prompt        = false
 
-[mergetool "sublimerge"]
-cmd = subl -n --wait \"$REMOTE\" \"$BASE\" \"$LOCAL\" \"$MERGED\" --command \"sublimerge_diff_views\"
-trustExitCode = false
-
 [color]
   ui      = true
+  diff    = true
 
 [pretty]
-  colorgraph = "%Cred%h%Creset %C(bold blue)%aN%Creset %Cgreen%cr%Creset - %s %C(yellow)%d%Creset"
+  colorgraph = "%C(bold red)%h%Creset %C(blue)%aN%Creset %C(yellow)%cr%Creset - %s %C(yellow)%d%Creset"
 
 [alias]
   type    = cat-file -t
   dump    = cat-file -p
   logdiff = log --format=colorgraph --graph -U1 --word-diff --color-words
-  hist    = log --format=colorgraph --graph --abbrev-commit
+  l       = log --format=colorgraph --graph --abbrev-commit
   stat    = log --format=colorgraph --graph --abbrev-commit --stat
   today   = log --since=midnight --author=\"$(git config user.name)\" --oneline
   release = !sh -c 'git fetch origin && git checkout -b release/$(date +%Y.%m.%d.%H%m)'
@@ -38,9 +35,6 @@ trustExitCode = false
 [diff]
   tool    = opendiff
   renames = true
-
-  [difftool "sublimerge"]
-  cmd = subl -n --wait \"$REMOTE\" \"$LOCAL\" --command \"sublimerge_diff_views {\\\"left_read_only\\\": true, \\\"right_read_only\\\": true}\"
 
 [interactive]
   singlekey = true
@@ -54,5 +48,6 @@ trustExitCode = false
 
 [include]
   path = ~/.gitconfig.work
+
 [credential]
 	helper = osxkeychain
