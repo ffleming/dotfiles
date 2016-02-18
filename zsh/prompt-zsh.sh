@@ -39,6 +39,12 @@ function color {
   elif [[ $1 == 'violet' ]]; then echo -n %{$fg_no_bold[magenta]%}
   elif [[ $1 == 'blue'   ]]; then echo -n %{$fg_no_bold[blue]%}
   elif [[ $1 == 'white'  ]]; then echo -n %{$fg_no_bold[white]%}
+  elif [[ $1 == 'bold-red'    ]]; then echo -n %{$fg_bold[red]%}
+  elif [[ $1 == 'bold-yellow' ]]; then echo -n %{$fg_bold[yellow]%}
+  elif [[ $1 == 'bold-green'  ]]; then echo -n %{$fg_bold[green]%}
+  elif [[ $1 == 'bold-violet' ]]; then echo -n %{$fg_bold[magenta]%}
+  elif [[ $1 == 'bold-blue'   ]]; then echo -n %{$fg_bold[blue]%}
+  elif [[ $1 == 'bold-white'  ]]; then echo -n %{$fg_bold[white]%}
   elif [[ $1 == 'reset'  ]]; then echo -n %{$reset_color%}
   fi
 }

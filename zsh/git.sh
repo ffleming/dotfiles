@@ -71,14 +71,14 @@ function git_restore_from {
 function git_color {
   if [[ $git_status =~ "working directory clean" ]]; then
     if [[ $git_status =~ "Your branch is ahead of" ]]; then
-      echo -ne $(color yellow)
+      echo -ne $(color bold-green)
     else
       echo -ne $(color green)
     fi
   elif [[ $git_status =~ "Unmerged" ]]; then
-    echo -ne $(color violet)
+    echo -ne $(color bold-violet)
   else
-    echo -ne $(color red)
+    echo -ne $(color bold-red)
   fi
 }
 
