@@ -1,0 +1,17 @@
+#!/usr/bin/env sh
+
+PROGRAM=$(basename "$0")
+
+if [[ "$*" == *--help* ]] || [[ "$*" == *-h* ]]; then
+  echo "$PROGRAM [-h] <FILES>"
+  echo "\t-h | --help\t\tThis help"
+  echo ""
+  echo "\t Displays author contributions according to line count"
+  echo ""
+  exit 0
+fi
+
+git ls-files -z "$@" | \
+  xargs -0 -n1 git blame --line-porcelain HEAD 2>&1 | \
+  perl -ne 'print if /(?<=^author ).+/' | \
+  sort | uniq -c | sort -rn
