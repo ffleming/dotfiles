@@ -26,8 +26,6 @@ Plugin 'bling/vim-airline'        " pretty status bars
 Plugin 'kshenoy/vim-signature'    " visual marks in gutter
 Plugin 'mbbill/undotree'          " visualization of branched'
 Plugin 'edkolev/tmuxline.vim'     " tmux statusline'
-Plugin 'Shougo/unite.vim'         " dependency for vinarise
-Plugin 'Shougo/vinarise.vim'      " hex editor
 
 if !exists('minimal')
   Plugin 'vim-ruby/vim-ruby'
