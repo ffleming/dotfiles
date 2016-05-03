@@ -1,7 +1,6 @@
 taps=(
   ffleming/formulae  # My formulae - dependency for nethack-nao and mutt
   neovim/neovim      # Neovim
-  nviennot/tmate     # Pair programming
   caskroom/cask      # Dependency for brew cask
   caskroom/versions  # Dependency for sublime 3
 )
