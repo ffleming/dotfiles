@@ -12,7 +12,7 @@ set hlsearch
 set autoindent
 set laststatus=2  " Always display the status line
 set autowrite     " Automatically :write before running commands
-set foldmethod=syntax " Syntax method of code folding
+set foldmethod=indent " Indent method of code folding (syntax is slooow)
 set diffopt+=vertical " Always use vertical diffs
 set ignorecase smartcase     " Intelligently case sensitive search (e.g. ag)
 
