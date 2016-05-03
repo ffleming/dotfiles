@@ -47,7 +47,7 @@
   email = ffleming@gmail.com
 
 [include]
-  path = ~/.gitconfig.work
+  path = .gitconfig.work
 
 [credential]
 	helper = osxkeychain
