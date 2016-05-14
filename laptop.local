@@ -1,5 +1,6 @@
 taps=(
   ffleming/formulae  # My formulae - dependency for nethack-nao and mutt
+  thoughtbot/formulae  # My formulae - dependency for nethack-nao and mutt
   neovim/neovim      # Neovim
   caskroom/cask      # Dependency for brew cask
   caskroom/versions  # Dependency for sublime 3
@@ -26,6 +27,8 @@ homebrew=(
   keybase                                   #   Keybase
   'lastpass-cli --with-pinentry --with-doc' #   LastPass
   gifsicle                                  #   For making animated gifs
+  'neovim --with-release --HEAD'            #   Optimized neovim
+  rcm                                       #   Dotfile manager
   fontconfig                                # Customized font access
   gawk gcc scala rust ghc                   # Compilers and related
   sbt cabal-install                         # Build tools & package managers
