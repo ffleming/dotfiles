@@ -85,4 +85,4 @@ bind editor <Tab> complete-query
 bind editor ^T    complete
 
 # Load theme
-source "~/.mutt/mutt-colors-solarized"
+source "~/.dotfiles/mutt/poodle"
