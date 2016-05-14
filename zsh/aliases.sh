@@ -12,9 +12,7 @@ alias vmrun='/Applications/VMware\ Fusion.app/Contents/Library/vmrun'
 #------------------------------------------------------------------------------
 # ALIASES: WORK
 #------------------------------------------------------------------------------
-alias lffs="cd $HOME/Oversee/Farespotter"
-alias th="cd $HOME/Oversee/travelhound"
-alias load-lffs-images="rsync -r ffleming@www01.lffs.prod:/home/travel/apps/FarespotterNet/shared/images/ $LFFS/public/images/r/"
+alias pc="cd ~/Procore/procore"
 
 #------------------------------------------------------------------------------
 # ALIASES: GENERIC SHORTCUTS
