@@ -6,8 +6,8 @@
 alias apis="ssh apis"
 alias sdf="ssh sdf"
 alias ma="ssh ma"
-alias deploy='ssh ffleming@deploy01.tools.ops'
 alias vmrun='/Applications/VMware\ Fusion.app/Contents/Library/vmrun'
+alias vim='nvim'
 
 #------------------------------------------------------------------------------
 # ALIASES: WORK
@@ -18,7 +18,7 @@ alias pc="cd ~/Procore/procore"
 # ALIASES: GENERIC SHORTCUTS
 #------------------------------------------------------------------------------
 alias rgrep='grep -r'
-alias vvim='\vim --cmd "let minimal=1"'
+alias vvim='vim --cmd "let minimal=1"'
 
 #------------------------------------------------------------------------------
 # ALIASES: FILE MANAGEMENT
