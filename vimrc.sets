@@ -15,6 +15,7 @@ set autowrite     " Automatically :write before running commands
 set foldmethod=indent " Indent method of code folding (syntax is slooow)
 set diffopt+=vertical " Always use vertical diffs
 set ignorecase smartcase     " Intelligently case sensitive search (e.g. ag)
+set mouse=  " Disable mouse
 
 " Softtabs, 2 spaces
 set tabstop=2
