@@ -15,7 +15,7 @@ Plugin 'croaky/vim-colors-github'
 Plugin 'kien/ctrlp.vim'
 Plugin 'tpope/vim-fugitive'       " git for vim (mostly good for statusline)
 Plugin 'tpope/vim-repeat'         " . to repeat non-native commands
-" Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-surround'
 Plugin 'vim-scripts/ctags.vim'    " ctags
 Plugin 'vim-scripts/tComment'     " ctrl-/ for commenting blocks
 Plugin 'scrooloose/nerdtree'      " file browser
@@ -37,8 +37,8 @@ if !exists('minimal')
   Plugin 'tpope/vim-bundler'
   Plugin 'tpope/vim-rails'
   Plugin 'tpope/vim-rake'
-  Plugin 'tpope/vim-endwise'        " add 'end' after 'def', et'
-  Plugin 'Raimondi/delimitMate'     " auto insert closing delim'
+  " Plugin 'tpope/vim-endwise'        " add 'end' after 'def', et'
+  " Plugin 'Raimondi/delimitMate'     " auto insert closing delim'
   Plugin 'bitc/vim-bad-whitespace'  " kill bad whitespace'
   Plugin 'ngmy/vim-rubocop'         " ruby linter'
   Plugin 'derekwyatt/vim-scala'     " scala highlighting

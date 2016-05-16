@@ -52,7 +52,7 @@ function color {
 #------------------------------------------------------------------------------
 # PROMPT WITH SHORT PWD, COLORIZED GIT INFO
 #------------------------------------------------------------------------------
-PS1=$'$(color bold-yellow)%n@%m$(color reset) $(color blue)%1~ ' # basename of pwd after a newline
+PS1=$'$(color white)%n@%M$(color reset) $(color blue)%1~ ' # basename of pwd after a newline
 PS1+='$(git_branch)'      # current branch or commit name, with color
 PS1+='$(color reset)%# '  # reset color, add %
 export PS1
@@ -75,9 +75,3 @@ bindkey "\eOB" history-search-forward
 #------------------------------------------------------------------------------
 bindkey "^[[3"   prefix-2     # backwards
 bindkey "^[[3~"  delete-char  # forwards
-
-#------------------------------------------------------------------------------
-# UNDO (DISABLE ZSH AND THOUGHTBOT SETTINGS)
-#------------------------------------------------------------------------------
-disable r       # disable zsh's r
-unalias mcd g 2>/dev/null

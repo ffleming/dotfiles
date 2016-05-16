@@ -1,7 +1,7 @@
 # shell/aliases.sh
 # NB: Disable alias by running with backslash, e.g.: \grep
 #------------------------------------------------------------------------------
-# ALIASES: HOME & FUN (and shell variables, too)
+# ALIASES: HOME & FUN
 #------------------------------------------------------------------------------
 alias apis="ssh apis"
 alias sdf="ssh sdf"
@@ -12,7 +12,7 @@ alias vim='nvim'
 #------------------------------------------------------------------------------
 # ALIASES: WORK
 #------------------------------------------------------------------------------
-alias pc="cd ~/Procore/procore"
+alias pc="cd $HOME/Procore/procore"
 
 #------------------------------------------------------------------------------
 # ALIASES: GENERIC SHORTCUTS
