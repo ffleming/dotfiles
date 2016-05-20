@@ -37,7 +37,7 @@ if !exists('minimal')
   Plugin 'tpope/vim-bundler'
   Plugin 'tpope/vim-rails'
   Plugin 'tpope/vim-rake'
-  " Plugin 'tpope/vim-endwise'        " add 'end' after 'def', et'
+  Plugin 'tpope/vim-endwise'        " add 'end' after 'def', et'
   " Plugin 'Raimondi/delimitMate'     " auto insert closing delim'
   Plugin 'bitc/vim-bad-whitespace'  " kill bad whitespace'
   Plugin 'ngmy/vim-rubocop'         " ruby linter'
