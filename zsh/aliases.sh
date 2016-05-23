@@ -8,6 +8,7 @@ alias sdf="ssh sdf"
 alias ma="ssh ma"
 alias vmrun='/Applications/VMware\ Fusion.app/Contents/Library/vmrun'
 alias vim='nvim'
+alias sl='ls'  # turn off the steam locomotive on typo
 
 #------------------------------------------------------------------------------
 # ALIASES: WORK
