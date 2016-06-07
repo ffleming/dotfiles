@@ -45,9 +45,6 @@ bindkey "^P" history-search-backward
 bindkey "^Y" accept-and-hold
 bindkey "^N" insert-last-word
 
-# Local config (set by rcup's hostname detection)
-[[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
-
 SHELL_CONFIG="$HOME/.zsh"
 
 [[ -f $SHELL_CONFIG/env.sh ]]        && source $SHELL_CONFIG/env.sh
