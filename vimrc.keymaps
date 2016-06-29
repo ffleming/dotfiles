@@ -45,3 +45,8 @@ inoremap <S-Tab> <c-n>
 
 " Call nerdtree with ctrl-n
 noremap <C-n> :NERDTreeToggle<CR>
+
+" Use ESC to exit terminal mode
+if has('nvim')
+  :tnoremap <Esc> <C-\><C-n>
+endif
