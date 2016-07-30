@@ -25,7 +25,7 @@ Plugin 'godlygeek/tabular'        " align on character
 Plugin 'bling/vim-airline'        " pretty status bars
 Plugin 'kshenoy/vim-signature'    " visual marks in gutter
 Plugin 'mbbill/undotree'          " visualization of branched'
-Plugin 'edkolev/tmuxline.vim'     " tmux statusline'
+" Plugin 'edkolev/tmuxline.vim'     " tmux statusline'
 
 if !exists('minimal')
   Plugin 'vim-ruby/vim-ruby'
