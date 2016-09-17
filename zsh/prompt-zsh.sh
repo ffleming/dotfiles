@@ -57,7 +57,7 @@ if [[ "$USER" == 'root' ]]; then
 else
   namecolor='bold-yellow'
 fi
-PS1=$'$(color "$namecolor")%n$(color bold-yellow)@%m$(color reset) $(color blue)%1~ ' # basename of pwd after a newline
+PS1=$'$(color "$namecolor")%n@%m$(color reset) $(color blue)%1~ ' # basename of pwd after a newline
 PS1+='$(git_branch)'      # current branch or commit name, with color
 PS1+='$(color reset)%# '  # reset color, add %
 export PS1
