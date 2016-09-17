@@ -5,7 +5,7 @@ fpath=(~/.zsh/completion $fpath)
 
 # completion
 autoload -U compinit
-compinit
+compinit -u
 
 # makes color constants available
 autoload -U colors
