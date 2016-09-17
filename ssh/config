@@ -40,4 +40,4 @@ Host fsf.aws
 Host github.com-procore_ui
   Hostname github.com
 Host github.com-wrench
-    Hostname github.com
+  Hostname github.com
