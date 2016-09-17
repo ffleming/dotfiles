@@ -16,42 +16,15 @@ alias sl='ls'  # turn off the steam locomotive on typo
 alias pc="cd $HOME/Procore/procore"
 
 #------------------------------------------------------------------------------
-# ALIASES: GENERIC SHORTCUTS
+# ALIASES: GENERAL
 #------------------------------------------------------------------------------
 alias rgrep='grep -r'
 alias vvim='vim --cmd "let minimal=1"'
 
-#------------------------------------------------------------------------------
-# ALIASES: FILE MANAGEMENT
-#------------------------------------------------------------------------------
-alias ..="\cd ..;ls"          # go to parent dir and list contents
-alias ...="\cd ../..;ls"      # go to grandparent dir and list contents
-alias _="\cd -;ls"            # go to previous wd and list contents
-alias mkdir='mkdir -p'        # create subdirectories as necessary
-alias desk="\cd ~/Desktop"    # go to desktop
-alias h="history"             # show history
-
-#------------------------------------------------------------------------------
-# ALIASES: SAFEGUARDS
-#------------------------------------------------------------------------------
-alias rm='rm -i'              # confirm deletion
+# alias rm='rm -i'              # confirm deletion
 alias mv='mv -i'              # confirm move if overwriing existing file
 alias cp='cp -i'              # confirm copy if overwriting existing file
 alias ln='ln -iv'             # display error if link exists; link verbosely
-
-function delete {
-  echo "rm -rf $@"
-  echo -n "rm: Permanently delete the selected files/directories? "
-  echo -n "This cannot be undone. "
-  read dir
-
-  if [[ $dir =~ ^[yY](es)?$ ]]; then
-    echo "Deleting: $@"
-    rm -rf "$@"
-  else
-    echo "Canceling with no changes made."
-  fi
-}
 
 #------------------------------------------------------------------------------
 # ALIASES: MAC STUFF, MISC
