@@ -14,13 +14,13 @@ Installation
     % git clone --recursive git@github.com:ffleming/dotfiles.git ~/.dotfiles
     ```
 00. Install rcm: 
-```
-brew tap thoughtbot/formulae && brew install rcm
-```
+    ```
+    brew tap thoughtbot/formulae && brew install rcm
+    ```
 00. Link dotfiles:
-```
-% env RCRC=$HOME/.dotfiles/rcrc rcup
-```
+    ```
+    % env RCRC=$HOME/.dotfiles/rcrc rcup
+    ```
 00. Run thoughtbot's [laptop script](http://github.com/thoughtbot/laptop):
 
 Features
