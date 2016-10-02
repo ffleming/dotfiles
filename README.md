@@ -22,9 +22,7 @@ brew tap thoughtbot/formulae && brew install rcm
 % env RCRC=$HOME/.dotfiles/rcrc rcup
 ```
 00. Run thoughtbot's [laptop script](http://github.com/thoughtbot/laptop):
-```
-$ bash <(curl -s https://raw.githubusercontent.com/thoughtbot/laptop/rvm/mac) 2>&1 | tee ~/laptop.log
-```
+
 Features
 -------- 
 
