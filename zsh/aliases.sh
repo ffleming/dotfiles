@@ -54,17 +54,10 @@ function hidden_files {
 # bundler
 alias brake='bundle exec rake'
 alias be='bundle exec'
-alias br='bundle exec rails'
-alias brails='br'
+alias brails='bundle exec rails'
 alias spec='CODECLIMATE_REPO_TOKEN=$(cat .code_climate.secret 2>/dev/null) bundle exec rspec'
 
 function brspec {
   CODECLIMATE_REPO_TOKEN=$(cat .code_climate.secret 2> /dev/null) bundle exec rspec
 }
 
-# rails
-alias rs='bundle exec rails server'
-alias rc='bundle exec rails console'
-alias reset='bundle exec rake db:reset'
-alias populate='bundle exec rake db:populate'
-alias rss='bundle exec rake db:reset db:seed && rails server'
