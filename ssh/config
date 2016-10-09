@@ -22,16 +22,6 @@ Host sdf
 Host ma
   HostName ma.sdf.org
   User fsf
-Host gh-ffleming
-  HostName github.com
-  User git
-  IdentityFile ~/.ssh/gh-ffleming
-  IdentitiesOnly yes
-Host gh-oversee
-  HostName github.com
-  User git
-  IdentityFile ~/.ssh/gh-oversee
-  IdentitiesOnly yes
 Host fsf.aws
   HostName ec2-52-88-165-239.us-west-2.compute.amazonaws.com
   User ec2-user
