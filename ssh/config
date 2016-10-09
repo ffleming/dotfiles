@@ -22,11 +22,6 @@ Host sdf
 Host ma
   HostName ma.sdf.org
   User fsf
-Host fsf.aws
-  HostName ec2-52-88-165-239.us-west-2.compute.amazonaws.com
-  User ec2-user
-  IdentityFile ~/.ssh/amazon-fsf.pem
-  IdentitiesOnly yes
 Host github.com-procore_ui
   Hostname github.com
 Host github.com-wrench
