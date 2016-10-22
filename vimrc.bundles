@@ -39,6 +39,11 @@ if !exists('minimal')
   Plugin 'bitc/vim-bad-whitespace'  " kill bad whitespace'
   Plugin 'ngmy/vim-rubocop'         " ruby linter'
   Plugin 'rust-lang/rust.vim'       " rust highlighting
+
+  " Make some nice color schemes available
+  Plugin 'altercation/vim-colors-solarized'
+  Plugin 'tomasr/molokai'
+  Plugin 'vim-scripts/twilight256.vim'
 endif
 
 " Themes
