@@ -25,14 +25,11 @@ Plugin 'godlygeek/tabular'        " align on character
 Plugin 'bling/vim-airline'        " pretty status bars
 Plugin 'kshenoy/vim-signature'    " visual marks in gutter
 Plugin 'mbbill/undotree'          " visualization of branched'
-" Plugin 'edkolev/tmuxline.vim'     " tmux statusline'
 
 if !exists('minimal')
   Plugin 'vim-ruby/vim-ruby'
-  Plugin 'kchmck/vim-coffee-script'
   Plugin 'pbrisbin/vim-mkdir'
   Plugin 'scrooloose/syntastic'
-  Plugin 'slim-template/vim-slim'   " syntax highlighting'
   Plugin 'thoughtbot/vim-rspec'
   Plugin 'tpope/vim-bundler'
   Plugin 'tpope/vim-rails'
@@ -41,7 +38,6 @@ if !exists('minimal')
   Plugin 'Raimondi/delimitMate'     " auto insert closing delim'
   Plugin 'bitc/vim-bad-whitespace'  " kill bad whitespace'
   Plugin 'ngmy/vim-rubocop'         " ruby linter'
-  Plugin 'derekwyatt/vim-scala'     " scala highlighting
   Plugin 'rust-lang/rust.vim'       " rust highlighting
 endif
 
