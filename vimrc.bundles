@@ -41,9 +41,10 @@ if !exists('minimal')
   Plugin 'rust-lang/rust.vim'       " rust highlighting
 
   " Make some nice color schemes available
-  Plugin 'altercation/vim-colors-solarized'
-  Plugin 'tomasr/molokai'
   Plugin 'vim-scripts/twilight256.vim'
+  Plugin 'iCyMind/NeoSolarized'
+  Plugin 'tomasr/molokai'
+  Plugin 'morhetz/gruvbox'
 endif
 
 " Themes
