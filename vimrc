@@ -13,4 +13,3 @@ for file in map(SourceFiles(), '"~/.vimrc." . (v:val)')
     echoerr(string(file) . ' not readable but present in SourceFiles()')
   endif
 endfor
-:let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
