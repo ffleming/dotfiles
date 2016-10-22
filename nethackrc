@@ -27,14 +27,14 @@ OPTIONS=autopickup,pickup_types:?!/$="
 ## http://nethackwiki.com/wiki/Autopickup_exceptions
 # Uses globbing, unless you set OPTIONS=apexception_regex
 ## Always pick these:
-AUTOPICKUP_EXCEPTION="<*magic lamp*"
-AUTOPICKUP_EXCEPTION="<*wand of wishing*"
-AUTOPICKUP_EXCEPTION="<*wand of death*"
-AUTOPICKUP_EXCEPTION="<*wand of polymorph*"
+AUTOPICKUP_EXCEPTION="<.*magic lamp.*"
+AUTOPICKUP_EXCEPTION="<.*wand of wishing.*"
+AUTOPICKUP_EXCEPTION="<.*wand of death.*"
+AUTOPICKUP_EXCEPTION="<.*wand of polymorph.*"
 ## Don't pick these:
-AUTOPICKUP_EXCEPTION=">*worthless piece of*"
-AUTOPICKUP_EXCEPTION=">*loadstone*"
-AUTOPICKUP_EXCEPTION=">*flint stone*"
+AUTOPICKUP_EXCEPTION=">.*worthless piece of.*"
+AUTOPICKUP_EXCEPTION=">.*loadstone.*"
+AUTOPICKUP_EXCEPTION=">.*flint stone.*"
 
 ## The following are options not in vanilla NetHack:
 #
@@ -44,12 +44,11 @@ OPTIONS=use_darkgray
 ## Try to hilight stairs under items with red background.
 ## Try to hilight piles of objects with blue background.
 ## Might not work on all terminals.
-OPTIONS=hilite_hidden_stairs
-OPTIONS=hilite_obj_piles
+OPTIONS=hilite_pile
 #
 ## In dumplog, display the number of each type of monster created,
 ## rather than just the number killed
-OPTIONS=showborn
+# OPTIONS=showborn
 #
 ## Disable the generic item use menu (select an item to use directly
 ## from inventory)
@@ -59,31 +58,31 @@ OPTIONS=showborn
 ## Useful for blind players.
 #OPTIONS=msg_wall_hits
 
-OPTIONS=menu_glyphs
+# OPTIONS=menu_glyphs
 #
 ## Name and rank background correspond to statuscolor HP colors.
-OPTIONS=hitpointbar
+# OPTIONS=hitpointbar
 #
 ## Colored status lines. See http://bilious.alt.org/?142
-OPTIONS=statuscolors
+# OPTIONS=statuscolors
 ## HP
-STATUSCOLOR=hp%100=green,hp%66=yellow,hp%50=orange
-STATUSCOLOR=hp%33=red&bold,hp%15:red&inverse,hp%0:red&inverse&blink
+# STATUSCOLOR=hp%100=green,hp%66=yellow,hp%50=orange
+# STATUSCOLOR=hp%33=red&bold,hp%15:red&inverse,hp%0:red&inverse&blink
 ## Pw
 #STATUSCOLOR=pw%100=green,pw%66=yellow,pw%50:orange,pw%33=red&bold
 ## HP & Pw also support exact numbers, for example:
 #STATUSCOLOR=hp.1:red&inverse,hp<8:red,hp>50:grey
 ## Carry
-STATUSCOLOR=burdened:yellow,stressed:orange,strained:red&bold
-STATUSCOLOR=overtaxed:red&inverse,overloaded:red&inverse&blink
+# STATUSCOLOR=burdened:yellow,stressed:orange,strained:red&bold
+# STATUSCOLOR=overtaxed:red&inverse,overloaded:red&inverse&blink
 ## Hunger
-STATUSCOLOR=satiated:yellow,hungry:orange,weak:red&bold
-STATUSCOLOR=fainting:red&inverse,fainted:red&inverse&blink
+# STATUSCOLOR=satiated:yellow,hungry:orange,weak:red&bold
+# STATUSCOLOR=fainting:red&inverse,fainted:red&inverse&blink
 ## Mental
-STATUSCOLOR=hallu:yellow,conf:orange,stun:red&bold
+# STATUSCOLOR=hallu:yellow,conf:orange,stun:red&bold
 ## Health
 
-STATUSCOLOR=ill:red&inverse,foodpois:red&inverse,slime:red&inverse
+# STATUSCOLOR=ill:red&inverse,foodpois:red&inverse,slime:red&inverse
 #
 #
 ## Colored menus. Regular expressions allowed.
