@@ -47,7 +47,7 @@ SHELL_CONFIG="$HOME/.zsh"
 [[ -f $SHELL_CONFIG/aliases.sh ]]    && source $SHELL_CONFIG/aliases.sh
 [[ -f $SHELL_CONFIG/functions.sh ]]  && source $SHELL_CONFIG/functions.sh
 [[ -f $SHELL_CONFIG/git.sh ]]        && source $SHELL_CONFIG/git.sh
-[[ -f $SHELL_CONFIG/prompt-zsh.sh ]] && source $SHELL_CONFIG/prompt-zsh.sh
+[[ -f $SHELL_CONFIG/prompt.sh ]] && source $SHELL_CONFIG/prompt.sh
 [[ -f $HOME/.zshrc.local ]]          && source $HOME/.zshrc.local
 
 export PATH="$PATH:$HOME/.bin"

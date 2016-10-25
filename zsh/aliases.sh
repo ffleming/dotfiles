@@ -11,6 +11,16 @@ alias vmrun='/Applications/VMware\ Fusion.app/Contents/Library/vmrun'
 alias sl='ls'  # turn off the steam locomotive on typo
 
 #------------------------------------------------------------------------------
+# ALIASES: GIT
+#------------------------------------------------------------------------------
+
+alias gb='git branch'
+alias gh='git hist'
+alias ghf='git hist --format=medium --stat'
+alias gco='git checkout'
+alias gpo="git push origin"
+
+#------------------------------------------------------------------------------
 # ALIASES: WORK
 #------------------------------------------------------------------------------
 alias pc="cd $HOME/Procore/procore"
