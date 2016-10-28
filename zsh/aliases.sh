@@ -18,7 +18,7 @@ alias gb='git branch'
 alias gh='git hist'
 alias ghf='git hist --format=medium --stat'
 alias gco='git checkout'
-alias gpo="git push origin"
+alias gpo="git push origin HEAD"
 
 #------------------------------------------------------------------------------
 # ALIASES: WORK
