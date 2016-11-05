@@ -88,14 +88,19 @@ function color {
 #------------------------------------------------------------------------------
 # PROMPT WITH SHORT PWD, COLORIZED GIT INFO
 #------------------------------------------------------------------------------
-if [[ "$USER" == 'root' ]]; then
-  namecolor='bold-red'
+if [ "$(type -w color)" == "color: function" ]; then
+  if [[ "$USER" == 'root' ]]; then
+    namecolor='bold-red'
+  else
+    namecolor='bold-yellow'
+  fi
+  PS1=$'$(color "$namecolor")%n@%m$(color reset) $(color blue)%1~ ' # basename of pwd after a newline
+  PS1+='$(git_branch)'      # current branch or commit name, with color
+  PS1+='$(color reset)%# '  # reset color, add %
 else
-  namecolor='bold-yellow'
+  PS1=$'%n@%m %1~ $(git symbolic-ref HEAD 2>/dev/null | cut -d'/' -f 3) %# ' # basename of pwd after a newline
 fi
-PS1=$'$(color "$namecolor")%n@%m$(color reset) $(color blue)%1~ ' # basename of pwd after a newline
-PS1+='$(git_branch)'      # current branch or commit name, with color
-PS1+='$(color reset)%# '  # reset color, add %
+
 export PS1
 
 #------------------------------------------------------------------------------
