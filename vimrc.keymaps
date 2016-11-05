@@ -36,7 +36,7 @@ nnoremap Y y$
 noremap <S-Down> ddp
 noremap <silent> <S-Up> :exe("normal! " . MoveLineUpCmd())<CR>
 
-" ctrl-a to turn off search highlight
+"space to turn off search highlight
 nnoremap <silent> <Space> :nohlsearch<CR>
 
 "<Tab> for completion unless at beginning of line
@@ -45,8 +45,3 @@ inoremap <S-Tab> <c-n>
 
 " Call nerdtree with ctrl-n
 noremap <C-n> :NERDTreeToggle<CR>
-
-" Use ESC to exit terminal mode
-if has('nvim')
-  :tnoremap <Esc> <C-\><C-n>
-endif
