@@ -107,17 +107,3 @@ export PS1
 # DIRECTORY STACK  (see http://j.mp/1lOiWio)
 #------------------------------------------------------------------------------
 DIRSTACKSIZE=5
-
-#------------------------------------------------------------------------------
-# SMART HISTORY NAVIGATION
-#------------------------------------------------------------------------------
-bindkey "\e[A" history-search-backward
-bindkey "\e[B" history-search-forward
-bindkey "\eOA" history-search-backward
-bindkey "\eOB" history-search-forward
-
-#------------------------------------------------------------------------------
-# ENSURE DELETE KEY DELETES
-#------------------------------------------------------------------------------
-bindkey "^[[3"   prefix-2     # backwards
-bindkey "^[[3~"  delete-char  # forwards
