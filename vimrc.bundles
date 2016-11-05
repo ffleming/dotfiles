@@ -11,7 +11,6 @@ Plugin 'gmarik/Vundle.vim'
 
 " Define bundles via Github repos
 Plugin 'christoomey/vim-run-interactive'
-Plugin 'croaky/vim-colors-github'
 Plugin 'tpope/vim-fugitive'       " git for vim (mostly good for statusline)
 Plugin 'tpope/vim-repeat'         " . to repeat non-native commands
 Plugin 'tpope/vim-surround'
@@ -23,7 +22,6 @@ Plugin 'vim-scripts/netrw.vim'    " edit files on remote machines
 Plugin 'godlygeek/tabular'        " align on character
 Plugin 'bling/vim-airline'        " pretty status bars
 Plugin 'kshenoy/vim-signature'    " visual marks in gutter
-Plugin 'mbbill/undotree'          " visualization of branched'
 Plugin 'junegunn/fzf'             " fuzzy find
 
 if executable('rg')
