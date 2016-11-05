@@ -17,7 +17,7 @@ function! OnLastLine()
   return(line('.') == line('$'))
 endfunction
 
-function! CtrlPIgnoreDirectories()
+function! IgnoreDirectories()
   return ['Library', 'Applications', 'Dropbox', 'bundle\.js', 'Music', 'Movies']
 endfunction
 
