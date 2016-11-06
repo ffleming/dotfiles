@@ -10,7 +10,6 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 " Define bundles via Github repos
-Plugin 'christoomey/vim-run-interactive'
 Plugin 'tpope/vim-fugitive'       " git for vim (mostly good for statusline)
 Plugin 'tpope/vim-repeat'         " . to repeat non-native commands
 Plugin 'tpope/vim-surround'
