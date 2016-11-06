@@ -12,7 +12,7 @@ Plugin 'gmarik/Vundle.vim'
 " Define bundles via Github repos
 Plugin 'tpope/vim-fugitive'       " git for vim (mostly good for statusline)
 Plugin 'tpope/vim-repeat'         " . to repeat non-native commands
-Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-surround'       " more actions based around enclosing delimiters
 Plugin 'vim-scripts/ctags.vim'    " ctags
 Plugin 'vim-scripts/tComment'     " ctrl-/ for commenting blocks
 Plugin 'scrooloose/nerdtree'      " file browser
@@ -20,8 +20,14 @@ Plugin 'airblade/vim-gitgutter'   " git gutter
 Plugin 'vim-scripts/netrw.vim'    " edit files on remote machines
 Plugin 'godlygeek/tabular'        " align on character
 Plugin 'bling/vim-airline'        " pretty status bars
-Plugin 'kshenoy/vim-signature'    " visual marks in gutter
+Plugin 'kshenoy/vim-signature'    " display marks in gutter
+Plugin 'pbrisbin/vim-mkdir'       " make directories when editing a file
 Plugin 'junegunn/fzf'             " fuzzy find
+
+Plugin 'vim-scripts/twilight256.vim' " color schemes
+Plugin 'iCyMind/NeoSolarized'
+Plugin 'tomasr/molokai'
+Plugin 'morhetz/gruvbox'
 
 if executable('rg')
   Plugin 'jremmen/vim-ripgrep'    " ripgrep via :Rg
@@ -29,7 +35,6 @@ endif
 
 if !exists('minimal')
   Plugin 'vim-ruby/vim-ruby'
-  Plugin 'pbrisbin/vim-mkdir'
   Plugin 'scrooloose/syntastic'
   Plugin 'thoughtbot/vim-rspec'
   Plugin 'tpope/vim-bundler'
@@ -40,12 +45,6 @@ if !exists('minimal')
   Plugin 'bitc/vim-bad-whitespace'  " kill bad whitespace'
   Plugin 'ngmy/vim-rubocop'         " ruby linter'
   Plugin 'rust-lang/rust.vim'       " rust highlighting
-
-  " Make some nice color schemes available
-  Plugin 'vim-scripts/twilight256.vim'
-  Plugin 'iCyMind/NeoSolarized'
-  Plugin 'tomasr/molokai'
-  Plugin 'morhetz/gruvbox'
 endif
 
 call vundle#end()
