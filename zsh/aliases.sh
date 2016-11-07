@@ -9,6 +9,7 @@ alias ma="ssh ma"
 alias vmrun='/Applications/VMware\ Fusion.app/Contents/Library/vmrun'
 command -v nvim >/dev/null 2>&1 && alias vim='nvim' # use nvim where available
 alias sl='ls'  # turn off the steam locomotive on typo
+alias ag='ag --path-to-agignore ~/.agignore'
 
 #------------------------------------------------------------------------------
 # ALIASES: GIT
