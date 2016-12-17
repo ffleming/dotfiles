@@ -1,7 +1,7 @@
 Host *
+  IdentityFile ~/.ssh/id_ed25519
   CanonicalizeHostname always
   Ciphers aes256-gcm@openssh.com,aes128-gcm@openssh.com,aes256-ctr,aes192-ctr,aes128-ctr
-  ForwardAgent yes
   Protocol 2
   ServerAliveInterval 240
 Host desktop
@@ -26,3 +26,6 @@ Host github.com-procore_ui
   Hostname github.com
 Host github.com-wrench
   Hostname github.com
+
+Host desktop arm x86 apis sdf ma
+  ForwardAgent yes
