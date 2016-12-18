@@ -32,7 +32,6 @@ homebrew=(
   rcm                                       #   Dotfile manager
   gawk gcc scala rust ghc elixir            # Compilers and related
   sbt cabal-install                         # Build tools & package managers
-  valgrind                                  # Detect memory leaks
   qemu                                      # Processor emulator
   gpg                                       # GNU privacy guard
   mongodb                                   # Mongo nosql
