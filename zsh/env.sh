@@ -62,6 +62,7 @@ export HISTCONTROL=ignoreboth   # Ignore spaces and duplicates
 export HISTIGNORE="??:&:pwd:ls -l:ls -la:cd \-:cd /:h::...:llall:ll.:"
 export EDITOR="vim"
 export PAGER="less"
+export LESS="-R"
 
 #------------------------------------------------------------------------------
 # EC2 CLI TOOLS
