@@ -83,6 +83,3 @@ export AWS_SECRET_ACCESS_KEY
 [[ -d "$HOME/.nvm" ]] && NVM_DIR=~/.nvm
 [[ -f "/usr/local/bin/brew" ]] && source "$(brew --prefix nvm 2> /dev/null)/nvm.sh"
 #------------------------------------------------------------------------------
-# RVM
-#------------------------------------------------------------------------------
-export PATH="$PATH:$HOME/.rvm/bin"
