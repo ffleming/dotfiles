@@ -37,7 +37,6 @@ homebrew=(
   gpg                                       # GNU privacy guard
   mongodb                                   # Mongo nosql
   tmate                                     # Easy pair programming
-  nvm                                       # Node version manager
   dhex                                      # CLI hex editor
                                             # Pentesting/infosec tools
   aircrack-ng                               #   Wifi sniffing/cracking/injection suite
