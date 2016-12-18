@@ -55,7 +55,7 @@ done
 cask=(
   google-chrome firefox # browsers
   sequel-pro            # MySQL frontend
-  sublime-text3         # code editor
+  sublime-text          # code editor
   iterm2                # terminal emulator
   name-mangler          # batch file renamer
   appcleaner            # removes apps and related files
