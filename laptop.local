@@ -34,7 +34,6 @@ homebrew=(
   sbt cabal-install                         # Build tools & package managers
   qemu                                      # Processor emulator
   gpg                                       # GNU privacy guard
-  mongodb                                   # Mongo nosql
   tmate                                     # Easy pair programming
   dhex                                      # CLI hex editor
                                             # Pentesting/infosec tools
