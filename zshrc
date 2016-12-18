@@ -50,4 +50,3 @@ SHELL_CONFIG="$HOME/.zsh"
 [[ -f $SHELL_CONFIG/prompt.sh ]] && source $SHELL_CONFIG/prompt.sh
 [[ -f $HOME/.zshrc.local ]]          && source $HOME/.zshrc.local
 
-[[ -d "/usr/local/lib/node_modules" ]] && export PATH="$PATH:/usr/local/lib/node_modules"
