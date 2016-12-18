@@ -76,26 +76,9 @@ for app in ${cask[*]}; do
   brew cask install $app
 done
 
-if [[ ! -d "$HOME/.rvm" ]]; then
-  fancy_echo "Installing RVM..."
-    eval '\curl -sSL https://get.rvm.io | bash -s stable'
-fi
-
-ruby_version="$(curl -sSL http://ruby.thoughtbot.com/latest)"
-
-fancy_echo "Setting PATH for RVM..."
-  source $(rvm $ruby_version do rvm env --path)
-
 fancy_echo "Upgrading and linking system dependencies for Ruby builds ..."
   brew_install_or_upgrade 'openssl'
-  brew unlink openssl && brew link openssl --force
   brew_install_or_upgrade 'libyaml'
-
-fancy_echo "Installing Ruby $ruby_version ..."
-  rvm install $ruby_version &> /dev/null
-
-fancy_echo "Setting $ruby_version as global default Ruby ..."
-  rvm alias create default $ruby_version &> /dev/null
 
 gems=(
   i2cssh        # CLI launcher for iterm2 to launch e.g. www0{1-3}.server.prod and then send commands to each of them
