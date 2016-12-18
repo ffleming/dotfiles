@@ -18,15 +18,8 @@ export PATH
 [[ -f "/usr/libexec/java_home" ]] && export JAVA_HOME="$(/usr/libexec/java_home -v 1.8)"
 
 #------------------------------------------------------------------------------
-# CD PATH
-#------------------------------------------------------------------------------
-# CDPATH=".:$HOME/Desktop:$HOME/Developer:$HOME"
-# export CDPATH
-
-#------------------------------------------------------------------------------
 # More PATH vars
 #------------------------------------------------------------------------------
-# MANPATH="$(manpath)"
 MANPATH="/usr/local/man:$MANPATH"
 MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 export MANPATH
@@ -48,10 +41,6 @@ alias grep='GREP_COLOR="33;40" LANG=C grep --color=auto'
 # COMPILATION FLAGS
 #------------------------------------------------------------------------------
 export ARCHFLAGS="-arch x86_64"   # for compiling gems
-# ---- For Ruby compilation with rbenv ----
-# RUBY_CONFIGURE_OPTS="--with-readline-dir=`brew --prefix readline` "
-# RUBY_CONFIGURE_OPTS+="--enable-shared"
-# export RUBY_CONFIGURE_OPTS
 export RUBY_CFLAGS="-march=native -O3"
 export CC=/usr/bin/gcc  # if can't find C compiler
 
@@ -63,13 +52,6 @@ export HISTIGNORE="??:&:pwd:ls -l:ls -la:cd \-:cd /:h::...:llall:ll.:"
 export EDITOR="vim"
 export PAGER="less"
 export LESS="-R"
-
-#------------------------------------------------------------------------------
-# EC2 CLI TOOLS
-#------------------------------------------------------------------------------
-# export EC2_HOME="/usr/local/Cellar/ec2-api-tools/1.6.13.0/libexec"
-# export JAVA_HOME="$(/usr/libexec/java_home)"
-# export EC2_URL='https://ec2.us-west-2.amazonaws.com'
 
 #------------------------------------------------------------------------------
 # API KEYS
