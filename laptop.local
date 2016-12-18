@@ -98,30 +98,6 @@ else
   fancy_echo "ssh-copy-id is already installed"
 fi
 
-fancy_echo "Configuring nvm..."
-  node_version="0.10"
-  append_to_zshrc 'export PATH="$PATH:/usr/local/lib/node_modules"'
-  append_to_zshrc 'source $(brew --prefix nvm)/nvm.sh' 1
-
-  source "$(brew --prefix nvm)/nvm.sh"
-  nvm install "$node_version"
-
-  fancy_echo "Setting $node_version as the global default nodejs..."
-  nvm alias default "$node_version"
-
-node_modules=(
-  tmi
-  psi
-  bench-rest
-  forever
-  gulp
-)
-
-for module in ${node_modules[*]}; do
-  fancy_echo "Installing $module ..."
-  npm install $module -g
-done
-
 fancy_echo "Linking airport sniffer binary to /usr/local/sbin/airport"
   if [ ! -h "/usr/local/sbin/airport" ] ; then
     ln -s /System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport /usr/local/sbin/airport
