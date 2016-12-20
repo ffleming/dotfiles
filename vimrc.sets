@@ -43,7 +43,7 @@ endif
 filetype plugin indent on
 
 if executable('rg')
-  let $FZF_DEFAULT_COMMAND = 'rg -l --color=never --files "" -L -g "!.git/*" ' . IgnoreString(IgnoreDirectories(), "-g !")
+  let $FZF_DEFAULT_COMMAND = 'rg -l --color=never --files -L -g "!.git/*" ' . IgnoreString(IgnoreDirectories(), "-g \!")
 elseif executable('ag')
   let $FZF_DEFAULT_COMMAND = 'ag -l --nocolor ' . IgnoreString(IgnoreDirectories()) . ' -g ""'
 endif
