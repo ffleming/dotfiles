@@ -94,11 +94,11 @@ if [ "$(type -w color)" == "color: function" ]; then
   else
     namecolor='bold-yellow'
   fi
-  PS1=$'$(color "$namecolor")%n@%m$(color reset) $(color blue)%1~ ' # basename of pwd after a newline
+  PS1=$'$(color "$namecolor")%n@%M$(color reset) $(color blue)%1~ ' # basename of pwd after a newline
   PS1+='$(git_branch)'      # current branch or commit name, with color
   PS1+='$(color reset)%# '  # reset color, add %
 else
-  PS1=$'%n@%m %1~ $(git symbolic-ref HEAD 2>/dev/null | cut -d'/' -f 3) %# ' # basename of pwd after a newline
+  PS1=$'%n@%M %1~ $(git symbolic-ref HEAD 2>/dev/null | cut -d'/' -f 3) %# ' # basename of pwd after a newline
 fi
 
 export PS1
