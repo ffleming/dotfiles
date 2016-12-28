@@ -3,7 +3,7 @@ Host *
   CanonicalizeHostname always
   Ciphers aes256-gcm@openssh.com,aes128-gcm@openssh.com,aes256-ctr,aes192-ctr,aes128-ctr
   Protocol 2
-  ServerAliveInterval 240
+  ServerAliveInterval 60
 Host desktop
   Hostname 192.168.1.2
   User Forrest
