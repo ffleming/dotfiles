@@ -4,17 +4,14 @@ Host *
   Ciphers aes256-gcm@openssh.com,aes128-gcm@openssh.com,aes256-ctr,aes192-ctr,aes128-ctr
   Protocol 2
   ServerAliveInterval 60
-Host desktop
+Host desktop x64
   Hostname 192.168.1.2
-  User Forrest
+  User fsf
 Host arm
   HostName fsf.ath.cx
   User fsf
 Host x86
   HostName 192.168.1.4
-  User fsf
-Host x64
-  HostName 192.168.1.16
   User fsf
 Host apis
   HostName forrestfleming.com
