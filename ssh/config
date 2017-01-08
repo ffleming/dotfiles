@@ -13,6 +13,9 @@ Host arm
 Host x86
   HostName 192.168.1.4
   User fsf
+Host x64
+  HostName 192.168.1.16
+  User fsf
 Host apis
   HostName forrestfleming.com
   User ffleming@forrestfleming.com
@@ -27,5 +30,5 @@ Host github.com-procore_ui
 Host github.com-wrench
   Hostname github.com
 
-Host desktop arm x86 apis sdf ma
+Host desktop arm x86 x64 apis sdf ma
   ForwardAgent yes
