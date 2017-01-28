@@ -64,4 +64,6 @@ export AWS_SECRET_ACCESS_KEY
 # RBENV
 #------------------------------------------------------------------------------
 
-eval "$(rbenv init -)"
+if [ "$(type -w rbenv)" == "rbenv: function" ]; then
+  eval "$(rbenv init -)"
+fi
