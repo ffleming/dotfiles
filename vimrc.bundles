@@ -46,6 +46,7 @@ if !exists('minimal')
   Plugin 'bitc/vim-bad-whitespace'  " kill bad whitespace'
   Plugin 'ngmy/vim-rubocop'         " ruby linter'
   Plugin 'rust-lang/rust.vim'       " rust highlighting
+  Plugin 'unblevable/quick-scope'   " colors for fFtT usage
 endif
 
 call vundle#end()

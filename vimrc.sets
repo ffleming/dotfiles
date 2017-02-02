@@ -65,3 +65,6 @@ let g:Tlist_Ctags_Cmd="ctags --exclude='*.js'"
 
 " omnicomplete
 set omnifunc=syntaxcomplete#Complete
+
+" Only show quickscope highlighting after a fFtT keypress
+let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
