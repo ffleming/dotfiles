@@ -49,7 +49,7 @@ elseif executable('ag')
 endif
 
 set wildmode=list:longest,list:full
-"
+
 " Allow JSX in normal JS files
 " Syntastic
 let g:syntastic_check_on_open=1
@@ -62,6 +62,6 @@ let g:syntastic_cpp_compiler_options = ' -std=c++11'
 
 " Exclude Javascript files in :Rtags via rails.vim due to warnings when parsing
 let g:Tlist_Ctags_Cmd="ctags --exclude='*.js'"
-"
+
 " omnicomplete
 set omnifunc=syntaxcomplete#Complete
