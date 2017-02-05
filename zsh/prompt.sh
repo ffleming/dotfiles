@@ -5,7 +5,7 @@
 #------------------------------------------------------------------------------
 
 function git_color {
-  if [[ $git_status =~ "working tree clean" ]]; then
+  if [[ $git_status =~ "working (tree|directory) clean" ]]; then
     if [[ $git_status =~ "Your branch is ahead of" ]]; then
       echo -ne $(color bold-green)
     else
@@ -20,7 +20,7 @@ function git_color {
 
 function git_branch {
   local git_status="$(git status 2> /dev/null)"
-  local is_on_branch='^On branch ([^[:space:]]+)'
+  local is_on_branch='^\#*\s*On branch ([^[:space:]]+)'
   local is_on_commit='HEAD detached at ([^[:space:]]+)'
   local is_rebasing="rebasing branch '([^[:space:]]+)' on '([^[:space:]]+)'"
 
