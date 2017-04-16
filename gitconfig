@@ -20,13 +20,9 @@
   colorgraph = "%C(bold red)%h%Creset %C(blue)%aN%Creset %C(yellow)%cr%Creset - %s %C(yellow)%d%Creset"
 
 [alias]
-  type    = cat-file -t
-  dump    = cat-file -p
-  logdiff = log --format=colorgraph --graph -U1 --word-diff --color-words
-  l       = log --format=colorgraph --graph --abbrev-commit
+  logdiff = log -U1 --word-diff --abbrev-commit
+  l       = log --abbrev-commit
   stat    = log --format=colorgraph --graph --abbrev-commit --stat
-  today   = log --since=midnight --author=\"$(git config user.name)\" --oneline
-  release = !sh -c 'git fetch origin && git checkout -b release/$(date +%Y.%m.%d.%H%m)'
 
 [filter "media"]
   clean   = git-media-clean %f
