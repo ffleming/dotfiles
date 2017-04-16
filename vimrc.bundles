@@ -47,6 +47,7 @@ if !exists('minimal')
   Plugin 'ngmy/vim-rubocop'         " ruby linter'
   Plugin 'rust-lang/rust.vim'       " rust highlighting
   Plugin 'unblevable/quick-scope'   " colors for fFtT usage
+  Plugin 'fatih/vim-go'             " go
 endif
 
 call vundle#end()
