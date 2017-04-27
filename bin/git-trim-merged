@@ -1,0 +1,16 @@
+#!/bin/zsh
+
+PROGRAM=$(basename "$0")
+if [ $# -lt 1 ]; then
+  git branch --merged | egrep -v '\*|master' | xargs -n1 git branch -d
+else
+  if [[ "$*" == *--help* ]] || [[ "$*" == *-h* ]]; then
+    echo "$PROGRAM [-h] [PREFIX_1] [PREFIX_2] [...]"
+    echo "\t-h | --help\t\tThis help"
+    echo ""
+    echo "\tDeletes merged git branches in current repository"
+    echo "\tNever deletes the current branch or master"
+    echo ""
+    exit 0
+  fi
+fi
