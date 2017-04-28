@@ -23,7 +23,6 @@ Plugin 'bling/vim-airline'        " pretty status bars
 Plugin 'kshenoy/vim-signature'    " display marks in gutter
 Plugin 'pbrisbin/vim-mkdir'       " make directories when editing a file
 Plugin 'junegunn/fzf'             " fuzzy find
-Plugin 'fatih/vim-go'             " vim go
 
 Plugin 'vim-scripts/twilight256.vim' " color schemes
 Plugin 'iCyMind/NeoSolarized'
