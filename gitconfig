@@ -37,6 +37,7 @@
 
 [commit]
   template = ~/.dotfiles/gitmessage
+  verbose = true
 
 [user]
   name = Forrest Fleming
