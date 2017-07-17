@@ -7,6 +7,7 @@ Host *
 Host desktop x64
   Hostname 192.168.1.2
   User fsf
+  ProxyCommand ssh -W 192.168.1.2:22 fsf@fsf.ath.cx
 Host arm
   HostName fsf.ath.cx
   User fsf
