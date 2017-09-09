@@ -68,3 +68,7 @@ set omnifunc=syntaxcomplete#Complete
 
 " Only show quickscope highlighting after a fFtT keypress
 let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
+
+" Quit after we select a file in NERDTree.  This lets us dispense with Toggle
+" and bind NERDTreeFind to C-n
+let NERDTreeQuitOnOpen=1
