@@ -1,5 +1,5 @@
-export GOPATH=/Users/ffleming/Programming/
-export GOBIN=/Users/ffleming/Programming//bin
+export GOPATH=/Users/ffleming/Code/
+export GOBIN=/Users/ffleming/Code//bin
 
 function set-tab-name() {
   echo -en "\e]1; $USER@$HOST\a"
