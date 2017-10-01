@@ -23,10 +23,6 @@ Host sdf
 Host ma
   HostName ma.sdf.org
   User fsf
-Host github.com-procore_ui
-  Hostname github.com
-Host github.com-wrench
-  Hostname github.com
 
-Host desktop arm x86 x64 apis sdf ma
+Host desktop arm x64 apis sdf ma
   ForwardAgent yes
