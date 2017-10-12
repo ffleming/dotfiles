@@ -46,17 +46,11 @@ function git_branch {
 #------------------------------------------------------------------------------
 if [ -d "/usr/local/share/zsh-completions" ]; then
   fpath=(/usr/local/share/zsh-completions $fpath)
-else
-  fpath=($HOME/.zsh/zsh-completions/src $fpath)
 fi
 
 if [ -f "/usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]; then
   source "/usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
-else
-  source "$HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 fi
-
-source $SHELL_CONFIG/git-flow-completion.zsh
 
 # AWS Completion
 if [ -f "/usr/local/share/zsh/site-functions/_aws" ]; then
