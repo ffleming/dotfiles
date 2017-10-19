@@ -1,6 +1,8 @@
 export GOPATH=/Users/ffleming/Code/
 export GOBIN=/Users/ffleming/Code//bin
 
+source $HOME/.cargo/env
+
 function set-tab-name() {
   echo -en "\e]1; $USER@$HOST\a"
 }
@@ -10,29 +12,3 @@ case $TERM in
     add-zsh-hook precmd set-tab-name
     ;;
 esac
-
-function clean-struct() {
-  if grep -Fq "# database: procore_clean" config/database.yml; then
-    echo "Stopping. Database is not procore_clean"
-  else
-    echo "Checking out master..."
-    git checkout master;
-    echo "Pulling master...";
-    git pull;
-    echo "Subfix...";
-    git submodule update --init --recursive;
-    echo "Bundling...";
-    bundle;
-    echo "Dropping DB...";
-    rake db:drop;
-    echo "Setting up DB...";
-    rake db:setup;
-    echo "Checking out branch...";
-    git checkout $1;
-    echo "Running migrations...";
-    rake db:migrate;
-    echo "One last subfix...";
-    git submodule update --init --recursive;
-  fi
-}
-source $HOME/.cargo/env
