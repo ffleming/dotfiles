@@ -39,6 +39,7 @@ set numberwidth=4
 if !exists("syntax_on")
   syntax on
 endif
+let python_highlight_all=1
 
 filetype plugin indent on
 
@@ -50,7 +51,6 @@ endif
 
 set wildmode=list:longest,list:full
 
-" Allow JSX in normal JS files
 " Syntastic
 let g:syntastic_check_on_open=1
 let g:syntastic_rust_checkers = ['rustc']

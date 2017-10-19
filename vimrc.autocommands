@@ -15,6 +15,16 @@ augroup vimrcEx
   autocmd BufRead,BufNewFile Appraisals set filetype=ruby
   autocmd BufRead,BufNewFile *.md set filetype=markdown
 
+  " Pythonic whitespace
+  autocmd BufNewFile,BufRead *.py
+    \ set tabstop=4
+    \ set softtabstop=4
+    \ set shiftwidth=4
+    \ set textwidth=79
+    \ set expandtab
+    \ set autoindent
+    \ set fileformat=unix
+
   " Enable spellchecking for Markdown
   autocmd FileType markdown setlocal spell
 
@@ -27,6 +37,4 @@ augroup vimrcEx
   " Unfold code on opening
   au BufRead * normal zR
 
-  " Coffee folding
-  autocmd BufNewFile,BufReadPost *.coffee setl foldmethod=indent
 augroup END
