@@ -1,47 +1,6 @@
 # shell/prompt-zsh.sh
 
 #------------------------------------------------------------------------------
-# PROMPT FUNCTIONS
-#------------------------------------------------------------------------------
-
-function git_color {
-  if [[ $git_status =~ "working (tree|directory) clean" ]]; then
-    if [[ $git_status =~ "Your branch is ahead of" ]]; then
-      echo -ne $(color bold-green)
-    else
-      echo -ne $(color green)
-    fi
-  elif [[ $git_status =~ "Unmerged" ]]; then
-    echo -ne $(color bold-violet)
-  else
-    echo -ne $(color bold-red)
-  fi
-}
-
-function git_branch {
-  local git_status="$(git status 2> /dev/null)"
-  local is_on_branch='^\#*\s*On branch ([^[:space:]]+)'
-  local is_on_commit='HEAD detached at ([^[:space:]]+)'
-  local is_rebasing="rebasing branch '([^[:space:]]+)' on '([^[:space:]]+)'"
-
-  if [[ $git_status =~ $is_on_branch ]]; then
-    local branch=${BASH_REMATCH[1]:-$match[1]} # bash/zsh portable
-    if [[ $git_status =~ "Unmerged paths" ]]; then
-      git_color && echo -n "merging into $branch "
-    else
-      git_color && echo -n "$branch "
-    fi
-  elif [[ $git_status =~ $is_on_commit ]]; then
-    local commit=${BASH_REMATCH[1]:-$match[1]}
-    git_color && echo -n "$commit "
-  elif [[ $git_status =~ $is_rebasing ]]; then
-    local branch=${BASH_REMATCH[1]:-$match[1]}
-    local commit=${BASH_REMATCH[2]:-$match[2]}
-    git_color && echo -n "rebasing $branch on $commit "
-  fi
-}
-
-#------------------------------------------------------------------------------
 # COMMAND COMPLETION
 #------------------------------------------------------------------------------
 if [ -d "/usr/local/share/zsh-completions" ]; then
@@ -82,6 +41,11 @@ function color {
 #------------------------------------------------------------------------------
 # PROMPT WITH SHORT PWD, COLORIZED GIT INFO
 #------------------------------------------------------------------------------
+
+function git_current_branch {
+  git symbolic-ref HEAD 2>/dev/null | sed "s/refs\/heads\///g"
+}
+
 if [ "$(type -w color)" == "color: function" ]; then
   if [[ "$USER" == 'root' ]]; then
     namecolor='bold-red'
@@ -89,10 +53,9 @@ if [ "$(type -w color)" == "color: function" ]; then
     namecolor='bold-yellow'
   fi
   PS1=$'$(color "$namecolor")%n@%M$(color reset) $(color blue)%1~ ' # basename of pwd after a newline
-  PS1+='$(git_branch)'      # current branch or commit name, with color
-  PS1+='$(color reset)%# '  # reset color, add %
+  PS1+='$(color yellow)$(git_current_branch)$(color reset) %# '  # reset color, add %
 else
-  PS1=$'%n@%M %1~ $(git symbolic-ref HEAD 2>/dev/null | cut -d'/' -f 3) %# ' # basename of pwd after a newline
+  PS1=$'%n@%M %1~ $(git_current_branch) %# ' # basename of pwd after a newline
 fi
 
 export PS1
