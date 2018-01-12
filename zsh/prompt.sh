@@ -43,7 +43,7 @@ function color {
 #------------------------------------------------------------------------------
 
 function git_current_branch {
-  git symbolic-ref HEAD 2>/dev/null | sed "s/refs\/heads\///g"
+  git symbolic-ref HEAD 2>/dev/null | sed "s/refs\/heads\///"
 }
 
 if [ "$(type -w color)" == "color: function" ]; then
