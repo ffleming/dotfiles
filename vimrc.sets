@@ -56,6 +56,7 @@ let g:syntastic_check_on_open=1
 let g:syntastic_rust_checkers = ['rustc']
 let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-"]
 let g:syntastic_ruby_checkers = ['mri']
+let g:syntastic_python_checkers = ['flake8']
 
 " C++11 for syntastic
 let g:syntastic_cpp_compiler_options = ' -std=c++11'
