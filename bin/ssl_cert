@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+site=""
+
+while getopts ":h" opt; do
+  case ${opt} in
+    h )
+      echo "Usage:"
+      echo "    $0 -h             Display this help message."
+      echo "    $0 <domain>       Install <package>."
+      exit 0
+      ;;
+   \? )
+     echo "Invalid Option: -$OPTARG" 1>&2
+     exit 1
+     ;;
+  esac
+done
+
+site=$1
+echo | \
+    openssl s_client -servername "$site" -connect "$site":443 2>/dev/null | \
+    openssl x509 -text -noout
