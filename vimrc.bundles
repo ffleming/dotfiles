@@ -48,6 +48,7 @@ if !exists('minimal')
   Plugin 'rust-lang/rust.vim'       " rust highlighting
   Plugin 'unblevable/quick-scope'   " colors for fFtT usage
   Plugin 'fatih/vim-go'             " go
+  Plugin 'elixir-editors/vim-elixir' " elixir
 endif
 
 call vundle#end()
