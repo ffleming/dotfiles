@@ -67,3 +67,9 @@ export AWS_SECRET_ACCESS_KEY
 if [ "$(type -w rbenv)" =~ "rbenv: (function|command)" ]; then
   eval "$(rbenv init -)"
 fi
+
+#------------------------------------------------------------------------------
+# ERLANG
+#------------------------------------------------------------------------------
+
+export ERL_AFLAGS="-kernel shell_history enabled"
