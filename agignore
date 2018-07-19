@@ -10,3 +10,6 @@ bundle.js
 vendor/
 lib/assets/procore_ui
 /public/clients
+/app/assets/javascripts/external
+/hydra_clients
+assets/*
