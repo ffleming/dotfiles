@@ -3,9 +3,6 @@ export GOBIN=/Users/ffleming/Code//bin
 
 source $HOME/.cargo/env
 
-export PYTHON=python3
-export PYTHONPATH=/usr/local/lib/python3.6/site-packages
-
 function set-tab-name() {
   echo -en "\e]1; $USER@$HOST\a"
 }

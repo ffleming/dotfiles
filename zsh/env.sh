@@ -25,7 +25,6 @@ MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 export MANPATH
 
 export INFOPATH="/usr/local/texlive/2013/texmf-dist/doc/info"
-export PYTHONPATH="/usr/local/lib/python2.7/site-packages:/usr/local/lib/python"
 export NODE_PATH="/usr/local/lib/node_modules"
 
 #------------------------------------------------------------------------------
