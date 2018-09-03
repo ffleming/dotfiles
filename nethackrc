@@ -6,6 +6,9 @@
 
 # Here are some examples of reasonable defaults:
 
+OPTIONS=role:samurai
+OPTIONS=gender:male
+
 OPTIONS=showexp,showscore,time,color
 OPTIONS=autodig,fruit:slime mold,boulder:0
 
@@ -100,7 +103,7 @@ MENUCOLOR=" cursed .* (being worn)"=orange&underline
 OPTIONS=sortloot:full
 #
 ## Always show BUC status?
-#OPTIONS=showbuc
+# OPTIONS=showbuc
 #
 ## Always show windows starting from left edge of screen?
 #OPTIONS=win_edge
