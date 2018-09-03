@@ -51,13 +51,7 @@ export HISTIGNORE="??:&:pwd:ls -l:ls -la:cd \-:cd /:h::...:llall:ll.:"
 export EDITOR="vim"
 export PAGER="less"
 export LESS="-R"
-
-#------------------------------------------------------------------------------
-# API KEYS
-#------------------------------------------------------------------------------
-export HOMEBREW_GITHUB_API_TOKEN
-export AWS_ACCESS_KEY_ID
-export AWS_SECRET_ACCESS_KEY
+export QUOTING_STYLE=literal
 
 #------------------------------------------------------------------------------
 # RBENV
