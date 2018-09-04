@@ -1,0 +1,63 @@
+! ----- URxvt fonts -----------------------------------
+URxvt.font:            xft:Bitstream Vera Sans Mono:pixelsize=14
+URxvt.italicFont:      xft:Bitstream Vera Sans Mono:italic:autohint=true:pixelsize=12
+URxvt.bolfFont:        xft:Bitstream Vera Sans Mono:pixelsize=14:style=bold
+
+! scrollbar
+URxvt.scrollBar:       true
+URxvt.scrollBar_right: true
+URxvt.thickness:       5
+URxvt.scrollColor:     #AAAAAA
+URxvt.scrollstyle:     plain
+
+URxvt.shading:         10
+! URxvt.termname:      rxvt-unicode-256color
+!# termname :          name must exist in the termcap database
+! urxv.borderLess:     true
+URxvt.savelines:       1000000
+URxvt.borderColor:     #444444
+URxvt.underlineColor:  yellow
+!#URxvt.cursorColor:   green      handled by solarized
+URxvt.pointerColor:    red
+URxvt.transparent:     true
+
+URxvt.perl-ext:        default,matcher
+URxvt.perl-ext-common: URxvt-colours
+URxvt.perl-lib:        /usr/local/bin/
+URxvt.keysyms.C-Tab:   perl:URxvt-colours
+URxvt.url-launcher:    /usr/bin/xdg-open
+URxvt.underlineURLs:   true
+URxvt.matcher.button:  1
+URxvt.matcher.rend.0:  Uline Bold fg5
+
+! changes the prompt colour
+URxvt.intensityStyles: true
+
+! Disable ctrl+shift for iso14755 mode
+URxvt.iso14755:        false
+URxvt.iso14755_52:     false
+
+! theme
+URxvt.colorULMode:     on
+URxvt.colorRV:         #ff0000
+URxvt.background:      #000000
+URxvt.foreground:      #d0d0d0
+URxvt.color0:          #4e4e4e
+URxvt.color1:          #d68787
+URxvt.color2:          #5f865f
+URxvt.color3:          #d8af5f
+URxvt.color4:          #85add4
+URxvt.color5:          #d7afaf
+URxvt.color6:          #87afaf
+URxvt.color7:          #d0d0d0
+URxvt.color8:          #626262
+URxvt.color9:          #d75f87
+URxvt.color10:         #87af87
+URxvt.color11:         #ffd787
+URxvt.color12:         #add4fb
+URxvt.color13:         #ffafaf
+URxvt.color14:         #87d7d7
+URxvt.color15:         #e4e4e4
+URxvt.cursorColor:     #d0d0d0
+URxvt.cursorColor2:    #3a3a3a
+URxvt.colorBD:         #e4e4e4
