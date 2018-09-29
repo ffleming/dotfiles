@@ -11,11 +11,6 @@ if [ -f "/usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]
   source "/usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
 fi
 
-# AWS Completion
-if [ -f "/usr/local/share/zsh/site-functions/_aws" ]; then
-  source "/usr/local/share/zsh/site-functions/_aws"
-fi
-
 #------------------------------------------------------------------------------
 # COLORS
 #------------------------------------------------------------------------------
