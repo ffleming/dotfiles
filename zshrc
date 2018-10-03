@@ -1,4 +1,5 @@
 setopt prompt_subst
+setopt interactivecomments
 
 # load custom completion functions
 fpath=(~/.zsh/completion $fpath)
