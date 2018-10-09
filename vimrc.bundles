@@ -49,6 +49,9 @@ if !exists('minimal')
   Plugin 'unblevable/quick-scope'   " colors for fFtT usage
   Plugin 'fatih/vim-go'             " go
   Plugin 'elixir-editors/vim-elixir' " elixir
+  Plugin 'hashivim/vim-terraform'   " terraform
+  Plugin 'pearofducks/ansible-vim'  " ansible
+
 endif
 
 call vundle#end()
