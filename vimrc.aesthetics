@@ -23,5 +23,3 @@ endif
 
 " matchit -- for matching block delimiters
 runtime macros/matchit.vim
-
-let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
