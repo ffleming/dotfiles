@@ -1,9 +1,5 @@
-Host *
-  IdentityFile ~/.ssh/id_ed25519
-  CanonicalizeHostname always
-  Ciphers aes256-gcm@openssh.com,aes128-gcm@openssh.com,aes256-ctr,aes192-ctr,aes128-ctr
-  Protocol 2
-  ServerAliveInterval 60
+Include ~/.ssh/config.local
+
 Host x64
   Hostname 192.168.1.2
   User fsf
@@ -26,3 +22,10 @@ Host ma
 
 Host desktop arm x64 apis sdf ma
   ForwardAgent yes
+
+Host *
+  IdentityFile ~/.ssh/id_ed25519
+  CanonicalizeHostname always
+  Ciphers aes256-gcm@openssh.com,aes128-gcm@openssh.com,aes256-ctr,aes192-ctr,aes128-ctr
+  Protocol 2
+  ServerAliveInterval 60
