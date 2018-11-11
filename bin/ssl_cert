@@ -1,10 +1,14 @@
 #!/usr/bin/env bash
+set -euo pipefail
+
 site=""
+port="443"
+connection_string=""
 
 usage () {
   echo "Usage:"
-  echo "    $(basename "$0") -h             Display this help message."
-  echo "    $(basename "$0") <domain>       Get TLS cert from <domain>"
+  echo "    $(basename "$0") -h                      Display this help message."
+  echo "    $(basename "$0") [-p <port>] <domain>     Get TLS cert from <domain>"
 }
 
 if [ $# -lt 1 ]; then
@@ -12,12 +16,17 @@ if [ $# -lt 1 ]; then
   exit 1
 fi
 
-while getopts ":h" opt; do
+while getopts "hp:" opt; do
   case ${opt} in
     h )
       usage
       exit 0
       ;;
+   p )
+     port=$OPTARG
+     shift
+     shift
+     ;;
    \? )
      echo "Invalid Option: -$OPTARG" 1>&2
      usage
@@ -27,6 +36,13 @@ while getopts ":h" opt; do
 done
 
 site=$1
+if [[ "$site" =~ ":" ]] ; then
+  port="$(echo "$site" | cut -d':' -f2)"
+  site="$(echo "$site" | cut -d':' -f1)"
+fi
+
+connection_string="$site:$port"
+
 echo | \
-    openssl s_client -servername "$site" -connect "$site":443 2>/dev/null | \
+    openssl s_client -servername "$site" -connect "$connection_string" 2>/dev/null | \
     openssl x509 -text -noout
