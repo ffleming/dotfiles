@@ -34,13 +34,17 @@ unsetopt nomatch
 # Case-insensitive tab completion
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 
+# vim mode
+bindkey -v
+
 # handy keybindings
 bindkey "^A" beginning-of-line
 bindkey "^E" end-of-line
 bindkey "^R" history-incremental-search-backward
-bindkey "^P" history-search-backward
 bindkey "^Y" accept-and-hold
-bindkey "^N" insert-last-word
+bindkey '^P' up-history
+bindkey '^N' down-history
+bindkey '^w' backward-kill-word
 
 SHELL_CONFIG="$HOME/.zsh"
 
