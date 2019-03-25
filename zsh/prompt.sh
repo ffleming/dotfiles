@@ -47,7 +47,7 @@ if [ "$(type -w color)" == "color: function" ]; then
   else
     namecolor='bold-yellow'
   fi
-  PS1=$'$(color "$namecolor")%n@%M$(color reset) $(color blue)%1~ ' # basename of pwd after a newline
+  PS1=$'$(color "$namecolor")%n@%m$(color reset) $(color blue)%1~ ' # basename of pwd after a newline
   PS1+='$(color yellow)$(git_current_branch)$(color reset) %# '  # reset color, add %
 else
   PS1=$'%n@%M %1~ $(git_current_branch) %# ' # basename of pwd after a newline
