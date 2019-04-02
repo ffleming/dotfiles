@@ -55,20 +55,6 @@ fi
 
 export PS1
 
-function zle-line-init zle-keymap-select {
-  VIM_NORMAL_PROMPT="$(color yellow)n$(color reset)"
-  VIM_INSERT_PROMPT="$(color yellow)i$(color reset)"
-  RPS1="${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/}$(git_current_branch) $EPS1"
-  RPS1="${${KEYMAP/vicmd/$VIM_NORMAL_PROMPT}/(main|viins)/$VIM_INSERT_PROMPT}"
-  zle reset-prompt
-}
-
-export KEYTIMEOUT=1
-export RPS1
-
-zle -N zle-line-init
-zle -N zle-keymap-select
-
 #------------------------------------------------------------------------------
 # DIRECTORY STACK  (see http://j.mp/1lOiWio)
 #------------------------------------------------------------------------------
