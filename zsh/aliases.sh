@@ -35,32 +35,10 @@ alias pc="cd ~/procore/"
 alias rgrep='grep -r'
 alias vvim='vim --cmd "let minimal=1"'
 
-# alias rm='rm -i'              # confirm deletion
-alias mv='mv -i'              # confirm move if overwriing existing file
-alias cp='cp -i'              # confirm copy if overwriting existing file
-alias ln='ln -iv'             # display error if link exists; link verbosely
-
-#------------------------------------------------------------------------------
-# ALIASES: MAC STUFF, MISC
-#------------------------------------------------------------------------------
-alias eject_cd="drutil eject" # eject cd
-alias hide="setfile -a V"     # hide a file
-alias unhide="setfile -a v"   # unhide a file
+alias mv='mv -i'
+alias cp='cp -i'
+alias ln='ln -iv'
 alias cdiff="colordiff -yw --suppress-common-lines"
-                              # colorize, side-by-side, ignore whitespace, etc
-
-function hidden_files {
-  if [[ $1 != "hide" && $1 != "show" ]]; then
-    echo "Usage: hidden_files [show|hide]"; return 1;
-  fi
-  if [[ $1 == "hide" ]]; then
-    local view=false;
-  elif [[ $1 == "show" ]]; then
-    local view=true;
-  fi
-  defaults write com.apple.finder AppleShowAllFiles $view;
-  killall Finder;
-}
 
 #------------------------------------------------------------------------------
 # ALIASES: RUBY, RAILS
