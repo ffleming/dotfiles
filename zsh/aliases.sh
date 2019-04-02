@@ -6,9 +6,13 @@
 alias apis="ssh apis"
 alias sdf="ssh sdf"
 alias ma="ssh ma"
-alias vmrun='/Applications/VMware\ Fusion.app/Contents/Library/vmrun'
-command -v nvim >/dev/null 2>&1 && alias vim='nvim' # use nvim where available
-alias sl='ls'  # turn off the steam locomotive on typo
+command -v /Applications/VMware\ Fusion.app/Contents/Library/vmrun 2>&1 && \
+  alias vmrun='/Applications/VMware\ Fusion.app/Contents/Library/vmrun'
+
+command -v nvim >/dev/null 2>&1 && \
+  alias vim='nvim'
+alias ls='ls --color=auto'
+alias sl='ls'
 
 #------------------------------------------------------------------------------
 # ALIASES: GIT
