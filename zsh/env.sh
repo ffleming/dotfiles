@@ -48,7 +48,11 @@ export CC=/usr/bin/gcc  # if can't find C compiler
 #------------------------------------------------------------------------------
 export HISTCONTROL=ignoreboth   # Ignore spaces and duplicates
 export HISTIGNORE="??:&:pwd:ls -l:ls -la:cd \-:cd /:h::...:llall:ll.:"
+
+# Use vim, override with neovim if present
 export EDITOR="vim"
+command -v nvim >/dev/null 2>&1 && export EDITOR="nvim"
+
 export PAGER="less"
 export LESS="-R"
 export QUOTING_STYLE=literal
