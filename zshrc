@@ -54,3 +54,6 @@ SHELL_CONFIG="$HOME/.zsh"
 [[ -f $HOME/.zshrc.local ]]          && source $HOME/.zshrc.local
 [[ -f ~/.fzf.zsh ]]                  && source ~/.fzf.zsh
 
+[[ -f $SHELL_CONFIG/osx.sh ]] && \
+  uname -a | grep -iq 'darwin' && \
+  source $SHELL_CONFIG/osx.sh
