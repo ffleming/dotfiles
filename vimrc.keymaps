@@ -48,3 +48,9 @@ noremap <C-n> :NERDTreeFind<CR>
 
 " use fzf as a ctrl-p replacement
 nnoremap <silent> <expr> <C-p> (expand('%') =~ 'NERD_tree' ? "\<c-w>\<c-w>" : '').":FZF\<cr>"
+
+" fzf keybindindings
+let g:fzf_action = {
+  \ 't': 'tab split',
+  \ '-': 'split',
+  \ '\\': 'vsplit' }
