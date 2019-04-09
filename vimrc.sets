@@ -23,8 +23,8 @@ set shiftwidth=2
 set shiftround
 set expandtab
 
-"Wrap at 110 and show the ruler
-set textwidth=110
+"Wrap at 80 and show the ruler
+set textwidth=80
 set colorcolumn=+0
 
 " Open new split panes to right and bottom
