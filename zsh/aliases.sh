@@ -6,8 +6,6 @@
 alias apis="ssh apis"
 alias sdf="ssh sdf"
 alias ma="ssh ma"
-command -v /Applications/VMware\ Fusion.app/Contents/Library/vmrun 2>&1 && \
-  alias vmrun='/Applications/VMware\ Fusion.app/Contents/Library/vmrun'
 
 alias ls='ls --color=auto'
 alias sl='ls'
@@ -21,11 +19,6 @@ alias gh='git hist'
 alias ghf='git hist --format=medium --stat'
 alias gco='git checkout'
 alias gpo="git push origin HEAD"
-
-#------------------------------------------------------------------------------
-# ALIASES: WORK
-#------------------------------------------------------------------------------
-alias pc="cd ~/procore/"
 
 #------------------------------------------------------------------------------
 # ALIASES: GENERAL
