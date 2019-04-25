@@ -39,10 +39,6 @@ noremap <silent> <S-Up> :exe("normal! " . MoveLineUpCmd())<CR>
 "space to turn off search highlight
 nnoremap <silent> <Space> :nohlsearch<CR>
 
-"<Tab> for completion unless at beginning of line
-inoremap <Tab> <c-r>=InsertTabWrapper()<CR>
-inoremap <S-Tab> <c-n>
-
 " Call nerdtree with ctrl-n
 noremap <C-n> :NERDTreeFind<CR>
 
@@ -51,6 +47,6 @@ nnoremap <silent> <expr> <C-p> (expand('%') =~ 'NERD_tree' ? "\<c-w>\<c-w>" : ''
 
 " fzf keybindindings
 let g:fzf_action = {
-  \ 't': 'tab split',
+  \ 'ctrl-t': 'tab split',
   \ '-': 'split',
-  \ '\\': 'vsplit' }
+  \ '=': 'vsplit' }
