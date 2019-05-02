@@ -17,7 +17,7 @@ export CLICOLOR=1
 
 # history settings
 setopt hist_ignore_all_dups inc_append_history
-HISTFILE=~/.zhistory
+HISTFILE=~/.history
 HISTSIZE=16384
 SAVEHIST=16384
 
@@ -34,9 +34,6 @@ unsetopt nomatch
 # Case-insensitive tab completion
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 
-# vim mode
-bindkey -v
-
 # handy keybindings
 bindkey "^A" beginning-of-line
 bindkey "^E" end-of-line
@@ -45,6 +42,7 @@ bindkey "^Y" accept-and-hold
 bindkey '^P' up-history
 bindkey '^N' down-history
 bindkey '^w' backward-kill-word
+bindkey -e
 
 SHELL_CONFIG="$HOME/.zsh"
 
@@ -56,3 +54,10 @@ SHELL_CONFIG="$HOME/.zsh"
 [[ -f $HOME/.zshrc.local ]]          && source $HOME/.zshrc.local
 [[ -f ~/.fzf.zsh ]]                  && source ~/.fzf.zsh
 
+[[ -f $SHELL_CONFIG/osx.sh ]] && \
+  uname -a | grep -iq 'darwin' && \
+  source $SHELL_CONFIG/osx.sh
+
+[[ -f $SHELL_CONFIG/linux.sh ]] && \
+  uname -a | grep -iq 'linux' && \
+  source $SHELL_CONFIG/linux.sh

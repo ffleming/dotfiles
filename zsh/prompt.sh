@@ -47,27 +47,13 @@ if [ "$(type -w color)" == "color: function" ]; then
   else
     namecolor='bold-yellow'
   fi
-  PS1=$'$(color "$namecolor")%n@%M$(color reset) $(color blue)%1~ ' # basename of pwd after a newline
+  PS1=$'$(color "$namecolor")%n@%m$(color reset) $(color blue)%1~ ' # basename of pwd after a newline
   PS1+='$(color yellow)$(git_current_branch)$(color reset) %# '  # reset color, add %
 else
   PS1=$'%n@%M %1~ $(git_current_branch) %# ' # basename of pwd after a newline
 fi
 
 export PS1
-
-function zle-line-init zle-keymap-select {
-  VIM_NORMAL_PROMPT="$(color yellow)n$(color reset)"
-  VIM_INSERT_PROMPT="$(color yellow)i$(color reset)"
-  RPS1="${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/}$(git_current_branch) $EPS1"
-  RPS1="${${KEYMAP/vicmd/$VIM_NORMAL_PROMPT}/(main|viins)/$VIM_INSERT_PROMPT}"
-  zle reset-prompt
-}
-
-export KEYTIMEOUT=1
-export RPS1
-
-zle -N zle-line-init
-zle -N zle-keymap-select
 
 #------------------------------------------------------------------------------
 # DIRECTORY STACK  (see http://j.mp/1lOiWio)

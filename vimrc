@@ -13,3 +13,7 @@ for file in map(SourceFiles(), '"~/.vimrc." . (v:val)')
     echoerr(string(file) . ' not readable but present in SourceFiles()')
   endif
 endfor
+
+if filereadable(expand("~/.vimrc.local"))
+  exec('source ~/.vimrc.local')
+endif

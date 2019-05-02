@@ -25,6 +25,7 @@ Plugin 'pbrisbin/vim-mkdir'       " make directories when editing a file
 Plugin 'junegunn/fzf'             " fuzzy find
 
 Plugin 'vim-scripts/twilight256.vim' " color schemes
+Plugin 'jnurmine/Zenburn'
 Plugin 'iCyMind/NeoSolarized'
 Plugin 'tomasr/molokai'
 Plugin 'morhetz/gruvbox'
