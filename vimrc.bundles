@@ -52,6 +52,7 @@ if !exists('minimal')
   Plugin 'elixir-editors/vim-elixir' " elixir
   Plugin 'hashivim/vim-terraform'   " terraform
   Plugin 'pearofducks/ansible-vim'  " ansible
+  Plugin 'Valloric/YouCompleteMe'
 
 endif
 
