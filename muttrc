@@ -30,6 +30,7 @@ set imap_keepalive = 900
 auto_view text/html
 
 # Gmail-style keyboard shortcuts
+bind index g noop
 macro index ga "<change-folder>=[Gmail]/All Mail<enter>" "Go to all mail"
 macro index gd "<change-folder>=[Gmail]/Drafts<enter>" "Go to drafts"
 macro index gi "<change-folder>=INBOX<enter>" "Go to inbox"
@@ -87,6 +88,11 @@ bind editor ^T    complete
 source "~/.dotfiles/mutt/poodle"
 
 # Kernel stuff
-set envelope_from=yes
-set use_from=yes
+set editor = `echo \$EDITOR`
+set charset = UTF-8
 set edit_headers=yes
+set envelope_from=yes
+set send_charset="us-ascii:utf-8"
+set sendmail="/usr/bin/esmtp"
+set use_from=yes
+unset use_domain
