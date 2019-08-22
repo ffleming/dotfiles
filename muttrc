@@ -1,5 +1,5 @@
-set from = "ffleming@gmail.com"
-set realname = "Forrest Fleming"
+set from = "Forrest S Fleming <ffleming@gmail.com>"
+set realname = "Forrest S Fleming"
 
 set imap_user = "ffleming@gmail.com"
 source '~/.mutt/mutt.secret'
@@ -70,7 +70,6 @@ set sort_re                                # thread based on regex
 set reply_regexp = "^(([Rr][Ee]?(\[[0-9]+\])?: *)?(\[[^]]+\] *)?)*"
 
 # Sidebar Patch --------------------------------------
-set sidebar_delim   = '  │'
 set sidebar_visible = yes
 set sidebar_width   = 24
 color sidebar_new color221 color233
@@ -86,3 +85,8 @@ bind editor ^T    complete
 
 # Load theme
 source "~/.dotfiles/mutt/poodle"
+
+# Kernel stuff
+set envelope_from=yes
+set use_from=yes
+set edit_headers=yes
