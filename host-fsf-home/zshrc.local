@@ -1,6 +1,8 @@
-export GOPATH=/Users/ffleming/Code/
-export GOBIN=/Users/ffleming/Code//bin
+export GOPATH=/Users/ffleming/Code/go
+export GOBIN=/Users/ffleming/Code/go/bin
 
+alias vim=nvim
+export EDITOR=nvim
 source $HOME/.cargo/env
 
 function set-tab-name() {
