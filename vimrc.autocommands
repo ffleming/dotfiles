@@ -15,15 +15,6 @@ augroup vimrcEx
   autocmd BufRead,BufNewFile Appraisals set filetype=ruby
   autocmd BufRead,BufNewFile *.md set filetype=markdown
 
-  " Pythonic whitespace
-  autocmd BufNewFile,BufRead *.py
-    \ set softtabstop=2 |
-    \ set shiftwidth=2 |
-    \ set textwidth=79 |
-    \ set expandtab |
-    \ set autoindent |
-    \ set fileformat=unix
-
   " Enable spellchecking for Markdown
   autocmd FileType markdown setlocal spell
 

@@ -23,7 +23,6 @@ Plugin 'bling/vim-airline'        " pretty status bars
 Plugin 'kshenoy/vim-signature'    " display marks in gutter
 Plugin 'pbrisbin/vim-mkdir'       " make directories when editing a file
 Plugin 'junegunn/fzf'             " fuzzy find
-
 Plugin 'vim-scripts/twilight256.vim' " color schemes
 Plugin 'jnurmine/Zenburn'
 Plugin 'iCyMind/NeoSolarized'
@@ -38,8 +37,6 @@ if !exists('minimal')
   Plugin 'vim-ruby/vim-ruby'
   Plugin 'scrooloose/syntastic'
   Plugin 'tpope/vim-bundler'
-  Plugin 'tpope/vim-rails'
-  Plugin 'tpope/vim-rake'
   Plugin 'tpope/vim-endwise'        " add 'end' after 'def', et'
   Plugin 'rodjek/vim-puppet'        " puppet linting
   Plugin 'puppetlabs/puppet-syntax-vim' " puppet syntax
@@ -48,12 +45,10 @@ if !exists('minimal')
   Plugin 'ngmy/vim-rubocop'         " ruby linter'
   Plugin 'rust-lang/rust.vim'       " rust highlighting
   Plugin 'unblevable/quick-scope'   " colors for fFtT usage
-  Plugin 'fatih/vim-go'             " go
+  " Plugin 'fatih/vim-go'             " go
   Plugin 'elixir-editors/vim-elixir' " elixir
   Plugin 'hashivim/vim-terraform'   " terraform
   Plugin 'pearofducks/ansible-vim'  " ansible
-  Plugin 'Valloric/YouCompleteMe'
-
 endif
 
 call vundle#end()

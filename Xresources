@@ -1,7 +1,7 @@
 ! ----- URxvt fonts -----------------------------------
-URxvt.font:            xft:Bitstream Vera Sans Mono:pixelsize=14
-URxvt.italicFont:      xft:Bitstream Vera Sans Mono:italic:autohint=true:pixelsize=12
-URxvt.bolfFont:        xft:Bitstream Vera Sans Mono:pixelsize=14:style=bold
+URxvt.font:            xft:Bitstream Vera Sans Mono:pixelsize=16
+URxvt.italicFont:      xft:Bitstream Vera Sans Mono:italic:autohint=true:pixelsize=16
+URxvt.boldFont:        xft:Bitstream Vera Sans Mono:pixelsize=16:style=bold
 
 ! scrollbar
 URxvt.scrollBar:       true
@@ -9,6 +9,14 @@ URxvt.scrollBar_right: true
 URxvt.thickness:       5
 URxvt.scrollColor:     #AAAAAA
 URxvt.scrollstyle:     plain
+
+URxvt.letterSpace: 0
+
+! size
+URxvt.geometry:        195x55
+
+URxvt.keysym.Shift-Control-V: eval:paste_clipboard
+URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
 
 URxvt.shading:         10
 ! URxvt.termname:      rxvt-unicode-256color
@@ -22,9 +30,9 @@ URxvt.pointerColor:    red
 URxvt.transparent:     true
 
 URxvt.perl-ext:        default,matcher
-URxvt.perl-ext-common: URxvt-colours
+! URxvt.perl-ext-common: URxvt-colours
 URxvt.perl-lib:        /usr/local/bin/
-URxvt.keysyms.C-Tab:   perl:URxvt-colours
+! URxvt.keysyms.C-Tab:   perl:URxvt-colours
 URxvt.url-launcher:    /usr/bin/xdg-open
 URxvt.underlineURLs:   true
 URxvt.matcher.button:  1
