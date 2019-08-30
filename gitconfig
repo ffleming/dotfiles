@@ -1,16 +1,11 @@
 [core]
-  editor       = nvim
+  editor       = vim
   autocrlf     = false
   safecrlf     = true
   excludesfile = ~/.gitignore.local
 
 [push]
   default = simple
-
-[merge]
-  tool          = opendiff
-  conflictstyle = diff3
-  prompt        = false
 
 [color]
   ui      = true
@@ -28,10 +23,6 @@
   clean   = git-media-clean %f
   smudge  = git-media-smudge %f
 
-[diff]
-  tool    = opendiff
-  renames = true
-
 [interactive]
   singlekey = true
 
@@ -44,9 +35,7 @@
   email = ffleming@gmail.com
 
 [include]
-  path = .gitconfig.work
+  path = .gitconfig.local
 
-[credential]
-	helper = osxkeychain
 [pager]
 	branch = false

@@ -1,0 +1,18 @@
+[core]
+  editor       = nvim
+
+[diff]
+  tool    = opendiff
+  renames = true
+
+[merge]
+  tool          = opendiff
+  conflictstyle = diff3
+  prompt        = false
+
+[user]
+  name = Forrest Fleming
+  email = ffleming@gmail.com
+
+[credential]
+	helper = osxkeychain
