@@ -3,6 +3,7 @@ export GOBIN=/Users/ffleming/Code/go/bin
 
 alias vim=nvim
 export EDITOR=nvim
+export PATH="/usr/local/CrossPack-AVR/bin:$PATH"
 source $HOME/.cargo/env
 
 function set-tab-name() {

@@ -1,5 +1,8 @@
 Include ~/.ssh/config.local
 
+Host vm
+  Hostname 192.168.206.151
+  User fsf
 Host x64
   Hostname 192.168.1.2
   User fsf
@@ -20,7 +23,7 @@ Host ma
   HostName ma.sdf.org
   User fsf
 
-Host desktop arm x64 apis sdf ma
+Host desktop arm x64 apis sdf ma vm
   ForwardAgent yes
 
 Host *
