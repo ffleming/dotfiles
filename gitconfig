@@ -33,6 +33,7 @@
 [user]
   name = Forrest Fleming
   email = ffleming@gmail.com
+	signingkey = E307DE3F4A707D159A602C713D97B822CEC39439
 
 [include]
   path = .gitconfig.local
