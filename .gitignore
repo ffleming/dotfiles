@@ -5,3 +5,4 @@
 /pry/themes/*
 /vim/swap/*
 !/vim/swap/.keep
+.DS_Store

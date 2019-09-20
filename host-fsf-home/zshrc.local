@@ -1,10 +1,9 @@
-export GOPATH=/Users/ffleming/Code/go
-export GOBIN=/Users/ffleming/Code/go/bin
+export GOPATH="/Users/fsf/Code/go"
+export GOBIN="/Users/fsf/Code/go/bin"
 
 alias vim=nvim
 export EDITOR=nvim
 export PATH="/usr/local/CrossPack-AVR/bin:$PATH"
-source $HOME/.cargo/env
 
 function set-tab-name() {
   echo -en "\e]1; $USER@$HOST\a"

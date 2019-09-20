@@ -51,6 +51,7 @@ SHELL_CONFIG="$HOME/.zsh"
 [[ -f $SHELL_CONFIG/git.sh ]]        && source $SHELL_CONFIG/git.sh
 [[ -f $SHELL_CONFIG/prompt.sh ]]     && source $SHELL_CONFIG/prompt.sh
 [[ -f $HOME/.zshrc.local ]]          && source $HOME/.zshrc.local
+[[ -f $HOME/.cargo.env ]]          && source $HOME/.zshrc.local
 [[ -f ~/.fzf.zsh ]]                  && source ~/.fzf.zsh
 
 [[ -f $SHELL_CONFIG/osx.sh ]] && \

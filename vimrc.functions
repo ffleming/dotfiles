@@ -1,12 +1,12 @@
 function! IgnoreString(arr, ...)
-  let a:flagString = '--ignore='
+  let flagString = '--ignore='
   if a:0 == 1
-    let a:flagString = a:1
+    let flagString = a:1
   elseif a:0 >= 2
     echoerr("IgnoreString() takes at most two arguments, got " . string(a:0 + 1))
     return
   endif
-  return join(map(a:arr, "'" . a:flagString . "' . (v:val)"), ' ')
+  return join(map(a:arr, "'" . flagString . "' . (v:val)"), ' ')
 endfunction
 
 function! OnFirstLine()

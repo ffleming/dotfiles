@@ -6,13 +6,14 @@ Host vm
 Host x64
   Hostname 192.168.1.2
   User fsf
-  ProxyJump arm
-Host arm
+  ProxyJump jmp
+Host jmp
   HostName fsf.ath.cx
   User fsf
-Host x86
-  HostName 192.168.1.4
+Host arm
+  Hostname 192.168.1.4
   User fsf
+  ProxyJump jmp
 Host apis
   HostName forrestfleming.com
   User ffleming@forrestfleming.com
@@ -23,7 +24,7 @@ Host ma
   HostName ma.sdf.org
   User fsf
 
-Host desktop arm x64 apis sdf ma vm
+Host desktop arm x64 apis sdf ma vm jmp
   ForwardAgent yes
 
 Host *

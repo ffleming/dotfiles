@@ -25,4 +25,4 @@ if defined?(PryByebug)
   # Pry.commands.alias_command 'n', 'next'
   # Pry.commands.alias_command 'f', 'finish'
 end
-%w(base64 uri json csv cgi).each {|dep| require dep }
+%w(httparty base64 uri json csv cgi).each {|dep| require dep }

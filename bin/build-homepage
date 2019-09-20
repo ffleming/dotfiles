@@ -1,0 +1,16 @@
+#!/bin/bash
+set -euo pipefail
+
+HOMEPAGE_DIR=~/Code/fsf.io
+
+pushd "$HOMEPAGE_DIR"
+bundle exec jekyll build
+cp CNAME _site/
+touch _site/.nojekyll
+pushd _site
+git add .
+git commit -m "automated build"
+git push origin
+popd
+popd
+echo done
