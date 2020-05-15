@@ -1,0 +1,44 @@
+#!/usr/bin/env ruby
+require 'rss'
+require 'net/http'
+require 'open-uri'
+require 'pry-byebug'
+
+FEED='https://github.com/signalapp/Signal-Desktop/releases.atom'
+PREFIX='https://github.com/signalapp/Signal-Desktop/releases/tag/'
+VERSION_REGEX=%r{https://github.com/signalapp/Signal-Desktop/releases/tag/v(?<version>[a-z0-9.\-]+)}
+SIGNAL_DOMAIN = 'updates.signal.org'
+
+def latest_signal_version(beta_requested = false)
+  return @latest_signal_version if defined?(@latest_signal_version)
+  open(FEED) do |rss|
+    @latest_signal_version = RSS::Parser.
+      parse(rss).
+      entries.
+      map(&:link).
+      map(&:href).
+      select do |link|
+        if beta_requested
+          true
+        else
+          link !~ /beta/
+        end
+      end.
+      first.
+      match(VERSION_REGEX)[:version]
+  end
+end
+
+def retrieve_file(url)
+  puts "retrieving #{url}"
+  `wget #{url}`
+end
+
+def deb_url
+  "https://#{SIGNAL_DOMAIN}/desktop/apt/pool/main/s/signal-desktop" +
+    "/signal-desktop_" +
+    latest_signal_version +
+    "_amd64.deb"
+end
+
+retrieve_file(deb_url)

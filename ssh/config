@@ -8,7 +8,7 @@ Host x64
   User fsf
   ProxyJump jmp
 Host jmp
-  HostName fsf.ath.cx
+  HostName 98.207.137.10
   User fsf
 Host arm
   Hostname 192.168.1.4

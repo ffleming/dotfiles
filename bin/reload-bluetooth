@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# see https://github.com/EHfive/pulseaudio-modules-bt
+pulseaudio -k
+pulseaudio --start
+
+pactl unload-module module-bluetooth-discover
+pactl load-module module-bluetooth-discover
+
+pulseaudio -k
+pulseaudio --start
