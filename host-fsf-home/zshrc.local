@@ -3,7 +3,7 @@ export GOBIN="/Users/fsf/Code/go/bin"
 
 alias vim=nvim
 export EDITOR=nvim
-export PATH="/usr/local/CrossPack-AVR/bin:$PATH"
+# export PATH="/usr/local/CrossPack-AVR/bin:$PATH"
 
 function set-tab-name() {
   echo -en "\e]1; $USER@$HOST\a"
