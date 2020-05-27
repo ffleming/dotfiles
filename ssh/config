@@ -4,7 +4,7 @@ Host vm
   Hostname 192.168.206.151
   User fsf
 Host x64
-  Hostname 192.168.1.2
+  Hostname 192.168.1.3
   User fsf
   ProxyJump jmp
 Host jmp
