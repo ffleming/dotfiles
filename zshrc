@@ -17,6 +17,7 @@ export CLICOLOR=1
 
 # history settings
 setopt hist_ignore_all_dups inc_append_history
+setopt extended_history hist_ignore_space
 HISTFILE=~/.history
 HISTSIZE=16384
 SAVEHIST=16384
