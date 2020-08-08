@@ -2,13 +2,13 @@
 
 set -euo pipefail
 
-function help () {
+function help {
   echo "$(basename $0) <directory>"
   echo "recursively chmod +x folders in directory, -x on files"
   exit 1
 }
 
-if [ $# -le 1 ]; then
+if [ $# -lt 1 ]; then
   help
 fi
 
