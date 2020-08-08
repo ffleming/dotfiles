@@ -1,0 +1,18 @@
+#!/bin/bash
+
+set -euo pipefail
+
+function help () {
+  echo "$(basename $0) <directory>"
+  echo "recursively chmod +x folders in directory, -x on files"
+  exit 1
+}
+
+if [ $# -le 1 ]; then
+  help
+fi
+
+DIR=${1:-""}
+
+find "$DIR" -type d -exec chmod +x {} +
+find "$DIR" -type f -exec chmod -x {} +
