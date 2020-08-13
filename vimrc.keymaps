@@ -1,3 +1,6 @@
+" set leader
+let mapleader=","
+
 " Index ctags from any project
 map <Leader>ct :!ctags -R .<CR>
 
@@ -15,11 +18,16 @@ nnoremap <Leader>r :RunInInteractiveShell<space>
 " Treat <li> and <p> tags like the block tags they are
 let g:html_indent_tags = 'li\|p'
 
-" Quicker window movement
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-h> <C-w>h
-nnoremap <C-l> <C-w>l
+" use ctrl-e for pane navigation
+nnoremap <C-e> <C-w>
+
+" leader combinations for navigating splits
+map <Leader>\ <C-w>v
+map <Leader>- <C-w>s
+map <Leader>j <C-w>j
+map <Leader>k <C-w>k
+map <Leader>h <C-w>h
+map <Leader>l <C-w>l
 
 " shift-h / shift-l to switch tabs
 nnoremap <S-h> gT
