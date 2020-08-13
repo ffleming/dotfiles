@@ -26,8 +26,6 @@ alias gpo="git push origin HEAD"
 alias rgrep='grep -r'
 alias vvim='vim --cmd "let minimal=1"'
 
-alias mv='mv -i'
-alias cp='cp -i'
 alias ln='ln -iv'
 alias cdiff="colordiff -yw --suppress-common-lines -W170"
 
