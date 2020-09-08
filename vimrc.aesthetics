@@ -33,3 +33,10 @@ endif
 
 " matchit -- for matching block delimiters
 runtime macros/matchit.vim
+
+if !has('nvim')
+    set cursorline
+    set cursorlineopt=number
+    highlight clear CursorLineNR
+    highlight CursorLineNR cterm=bold ctermfg=Yellow ctermbg=none
+endif
