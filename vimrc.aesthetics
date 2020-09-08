@@ -40,3 +40,5 @@ if !has('nvim')
     highlight clear CursorLineNR
     highlight CursorLineNR cterm=bold ctermfg=Yellow ctermbg=none
 endif
+
+highlight SignatureMarkText ctermfg=white
