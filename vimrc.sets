@@ -11,7 +11,6 @@ set autoindent
 set laststatus=2  " Always display the status line
 set autowrite     " Automatically :write before running commands
 set foldmethod=syntax
-set diffopt+=vertical " Always use vertical diffs
 set ignorecase smartcase     " Intelligently case sensitive search (e.g. ag)
 set mouse=  " Disable mouse
 
@@ -45,6 +44,11 @@ if executable('rg')
   let $FZF_DEFAULT_COMMAND = 'rg -l --color=never --files -L -g "!.git/*" ' . IgnoreString(IgnoreDirectories(), "-g \!")
 elseif executable('ag')
   let $FZF_DEFAULT_COMMAND = 'ag -l --nocolor ' . IgnoreString(IgnoreDirectories()) . ' -g ""'
+endif
+
+" Use vertical diffs if available
+if &diff
+  set diffopt+=vertical
 endif
 
 set wildmode=list:longest,list:full
