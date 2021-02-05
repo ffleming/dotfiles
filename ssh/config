@@ -20,6 +20,9 @@ Host apis
 Host sdf
   HostName meta.sdf.org
   User fsf
+Host tty.sdf.org
+  User fsf
+  StrictHostKeyChecking no
 Host ma
   HostName ma.sdf.org
   User fsf
