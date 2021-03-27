@@ -2,6 +2,7 @@ export GOPATH="/Users/fsf/Code/go"
 export GOBIN="/Users/fsf/Code/go/bin"
 
 # export PATH="/usr/local/CrossPack-AVR/bin:$PATH"
+export PATH="$PATH:/Users/fsf/Code/go/bin"
 
 function set-tab-name() {
   echo -en "\e]1; $USER@$HOST\a"
@@ -12,3 +13,5 @@ case $TERM in
     add-zsh-hook precmd set-tab-name
     ;;
 esac
+
+alias vim='vim --cmd "let home=1"'
