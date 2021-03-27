@@ -1,17 +1,13 @@
 Include ~/.ssh/config.local
 
-Host vm
-  Hostname 192.168.206.151
+Host jmp
+  Hostname poodleparade.duckdns.org
   User fsf
-Host x64
+Host media
   Hostname 192.168.1.3
   User fsf
-  # ProxyJump jmp
-Host jmp
-  # HostName poodleparade.duckdns.org
-  HostName 192.168.1.2
-  User fsf
-Host arm
+  ProxyJump jmp
+Host x64
   Hostname 192.168.1.4
   User fsf
   ProxyJump jmp
@@ -28,7 +24,7 @@ Host ma
   HostName ma.sdf.org
   User fsf
 
-Host desktop arm x64 apis sdf ma vm jmp
+Host jmp media x64 apis sdf ma
   ForwardAgent yes
 
 Host *
