@@ -1,1 +1,3 @@
 export PATH=$HOME/.programs/bin:$PATH
+alias ls="gls --color=auto"
+source /usr/pkg/share/fzf/shell/key-bindings.zsh
