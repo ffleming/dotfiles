@@ -27,7 +27,6 @@ Host jmp media x64 apis sdf ma
   ForwardAgent yes
 
 Host *
-  IdentityFile ~/.ssh/id_ed25519
   CanonicalizeHostname always
   Ciphers aes256-gcm@openssh.com,aes128-gcm@openssh.com,aes256-ctr,aes192-ctr,aes128-ctr
   Protocol 2
