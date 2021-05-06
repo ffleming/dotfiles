@@ -3,9 +3,8 @@ Include ~/.ssh/config.local
 Host jmp
   Hostname poodleparade.duckdns.org
   User fsf
-Host media
+Host media unraid
   Hostname 192.168.1.3
-  User fsf
   ProxyJump jmp
 Host x64
   Hostname 192.168.1.4
@@ -15,7 +14,7 @@ Host apis
   HostName forrestfleming.com
   User ffleming@forrestfleming.com
 Host sdf
-  HostName meta.sdf.org
+  HostName sverige.sdf.org
   User fsf
 Host tty.sdf.org
   User fsf

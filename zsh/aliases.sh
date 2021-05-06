@@ -5,7 +5,6 @@
 #------------------------------------------------------------------------------
 alias apis="ssh apis"
 alias sdf="ssh sdf"
-alias ma="ssh ma"
 
 alias ls='ls --color=auto'
 alias sl='ls'
