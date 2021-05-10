@@ -22,8 +22,11 @@ Host tty.sdf.org
 Host ma
   HostName ma.sdf.org
   User fsf
+Host grex
+  HostName grex.org
+  User fsf
 
-Host jmp media x64 apis sdf ma
+Host jmp media x64 apis sdf ma grex
   ForwardAgent yes
 
 Host *
