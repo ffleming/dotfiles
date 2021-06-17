@@ -5,6 +5,7 @@
 #------------------------------------------------------------------------------
 alias apis="ssh apis"
 alias sdf="ssh sdf"
+alias twenex="ssh twenex@sdf.org"
 
 alias ls='ls --color=auto'
 alias sl='ls'
