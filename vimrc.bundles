@@ -42,9 +42,11 @@ if !exists('minimal')
   Plugin 'bitc/vim-bad-whitespace'  " kill bad whitespace'
   Plugin 'rust-lang/rust.vim'       " rust highlighting
   Plugin 'unblevable/quick-scope'   " colors for fFtT usage
+  Plugin 'ycm-core/YouCompleteMe'   " code completion
+  Plugin 'fatih/vim-go'
   " Plugin 'ngmy/vim-rubocop'         " ruby linter'
   " Plugin 'rodjek/vim-puppet'        " puppet linting
-  " Plugin 'fatih/vim-go'             " go
+  " Plugin 'govim/govim'
   " Plugin 'elixir-editors/vim-elixir' " elixir
   " Plugin 'hashivim/vim-terraform'   " terraform
 endif
