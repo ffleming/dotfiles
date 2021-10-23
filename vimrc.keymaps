@@ -18,9 +18,6 @@ nnoremap <Leader>r :RunInInteractiveShell<space>
 " Treat <li> and <p> tags like the block tags they are
 let g:html_indent_tags = 'li\|p'
 
-" use ctrl-e for pane navigation
-nnoremap <C-e> <C-w>
-
 " leader combinations for navigating splits
 map <Leader>\ <C-w>v
 map <Leader>- <C-w>s

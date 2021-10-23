@@ -30,7 +30,7 @@ Host telehack
   Port 6668
   User fsf
 
-Host jmp media x64 apis sdf ma grex telehack
+Host jmp media x64 apis sdf ma grex telehack tx
   ForwardAgent yes
 
 Host *
