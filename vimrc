@@ -3,14 +3,16 @@ set encoding=utf-8
 set nocompatible
 
 function! SourceFiles()
-  return ['bundles', 'functions', 'commands', 'sets', 'aesthetics', 'keymaps', 'autocommands']
+  return ['bundles', 'functions', 'commands', 'sets', 'aesthetics', 'keymaps', 'autocommands', 'local']
 endfunction
 
 for file in map(SourceFiles(), '"~/.vimrc." . (v:val)')
   if filereadable(expand(file))
     exec('source ' . file)
   else
-    echoerr(string(file) . ' not readable but present in SourceFiles()')
+    if file != "~/.vimrc.local"
+      echoerr(string(file) . ' not readable but present in SourceFiles()')
+    endif
   endif
 endfor
 

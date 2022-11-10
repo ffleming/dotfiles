@@ -44,6 +44,9 @@ config/secrets.yml
 .env
 *.secret
 
+# Ignore local files
+*.local
+
 # npm
 node_modules
 
