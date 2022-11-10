@@ -27,23 +27,23 @@ Plugin 'jnurmine/Zenburn'
 Plugin 'iCyMind/NeoSolarized'
 Plugin 'tomasr/molokai'
 Plugin 'morhetz/gruvbox'
+Plugin 'unblevable/quick-scope'   " colors for fFtT usage
+Plugin 'tpope/vim-endwise'        " add 'end' after 'def', et'
+Plugin 'Raimondi/delimitMate'     " auto insert closing delim'
+Plugin 'bitc/vim-bad-whitespace'  " kill bad whitespace'
 
 if executable('rg')
   Plugin 'jremmen/vim-ripgrep'    " ripgrep via :Rg
 endif
 
 if !exists('minimal')
-  Plugin 'vim-ruby/vim-ruby'
   Plugin 'scrooloose/syntastic'
-  Plugin 'tpope/vim-bundler'
-  Plugin 'tpope/vim-endwise'        " add 'end' after 'def', et'
-  Plugin 'puppetlabs/puppet-syntax-vim' " puppet syntax
-  Plugin 'Raimondi/delimitMate'     " auto insert closing delim'
-  Plugin 'bitc/vim-bad-whitespace'  " kill bad whitespace'
-  Plugin 'rust-lang/rust.vim'       " rust highlighting
-  Plugin 'unblevable/quick-scope'   " colors for fFtT usage
-  Plugin 'ycm-core/YouCompleteMe'   " code completion
-  Plugin 'fatih/vim-go'
+  " Plugin 'vim-ruby/vim-ruby'
+  " Plugin 'tpope/vim-bundler'
+  " Plugin 'puppetlabs/puppet-syntax-vim' " puppet syntax
+  " Plugin 'rust-lang/rust.vim'       " rust highlighting
+  " Plugin 'ycm-core/YouCompleteMe'   " code completion
+  " Plugin 'fatih/vim-go'
   " Plugin 'ngmy/vim-rubocop'         " ruby linter'
   " Plugin 'rodjek/vim-puppet'        " puppet linting
   " Plugin 'govim/govim'
