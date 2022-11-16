@@ -10,6 +10,10 @@ Host x64
   Hostname 192.168.1.4
   User fsf
   ProxyJump jmp
+Host mac
+  Hostname 192.168.1.6
+  User fsf
+  ProxyJump jmp
 Host apis
   HostName forrestfleming.com
   User ffleming@forrestfleming.com
