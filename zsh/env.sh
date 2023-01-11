@@ -22,10 +22,3 @@ export PAGER="less"
 export LESS="-R"
 export QUOTING_STYLE=literal
 
-#------------------------------------------------------------------------------
-# RBENV
-#------------------------------------------------------------------------------
-
-if [ "$(type -w rbenv)" =~ "rbenv: (function|command)" ]; then
-  eval "$(rbenv init -)"
-fi

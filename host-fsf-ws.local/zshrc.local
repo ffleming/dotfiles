@@ -16,3 +16,11 @@ function set-tab-name() {
 }
 
 alias vim='vim --cmd "let home=1"'
+
+#------------------------------------------------------------------------------
+# RBENV
+#------------------------------------------------------------------------------
+
+if [ "$(type -w rbenv)" =~ "rbenv: (function|command)" ]; then
+  eval "$(rbenv init -)"
+fi
