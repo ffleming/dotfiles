@@ -43,3 +43,5 @@
 [pull]
 	rebase = true
 	ff = only
+[merge]
+	tool = opendiff
