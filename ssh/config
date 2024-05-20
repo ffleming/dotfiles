@@ -16,7 +16,7 @@ Host mac
   ProxyJump jmp
 Host apis
   HostName forrestfleming.com
-  User ffleming@forrestfleming.com
+  User fsf@forrestfleming.com
 Host sdf
   HostName sverige.sdf.org
   User fsf
